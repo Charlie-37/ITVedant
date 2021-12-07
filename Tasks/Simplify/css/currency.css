@@ -1,0 +1,403 @@
+body{
+    background-color: rgb(238, 204, 255);
+}
+
+/*--------nav************----------**/
+@font-face {
+    font-family: court;
+    src: url(../font/courgette/Courgette-Regular.ttf);
+}
+@font-face {
+    font-family: comfort;
+    src: url(../font/Comforter/Comforter/Comforter-Regular.ttf);
+}
+@font-face {
+    font-family: poppinsbold;
+    src: url(../font/poppins/Poppins-Light.ttf);
+}
+.navbar-brand{
+    font-size: 26px;
+    border: none;
+}
+.fas{
+    margin-right: 10px;
+    margin-left: 30px;
+}
+#find{
+    font-family: court;
+}
+#it{
+    font-family: comfort;
+    font-weight: bold;
+}
+.dropdown-menu{
+    border: none;
+}
+.menuOne{
+    margin-left: 14px;
+}
+#navbarSupportedContent{
+    color: voilet;
+}
+
+
+.dropdown-menu li a{
+   color: purple;
+  
+}
+.dropdown-menu li a:hover{
+   background-color: rgba(241, 169, 241, 0.699) !important;
+}
+.navbar-nav{
+   font-family:poppinsbold ;
+   font-size: 18px;
+}
+
+
+
+
+
+
+/*--------nav************----------**/
+#bannerCurrency{
+    /* border: 2px solid black; */
+    height: 75vh;
+    width: 92vw;
+    margin: auto;
+    margin-top: 80px;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px 2px  rgba(212, 96, 223, 0.493);
+}
+/*----------------- content */
+.row{
+    margin: auto;
+    width: 78vw;
+    height: 64vh;
+    padding: 2px;
+    /* border: 2px solid black; */
+}
+.card{
+    border: 2px solid black;
+    height: 61vh;
+      padding:0;
+      border: none;
+      
+}
+#Banner1{
+    padding: 10px;
+    /* border: 2px solid black; */
+    
+}
+#currIm{
+    /* border: 2px solid black; */
+    margin-top: 20px;
+    height: 320px;
+    width: 550px;
+    transition: 0.5s;
+    float: right;
+}
+
+#Banner2{
+    /* border: 2px solid Black; */
+    height: 62vh;
+    margin: 0;
+}
+#Banner2 h1{
+    letter-spacing: .7px;
+    text-align: center;
+    font-size: 26px;
+    font-family: poppinsbold;
+    font-weight: bold;
+    color: rgb(122, 31, 122);
+    
+}
+#currencyContainer{
+    padding: 20px;
+    background: rgb(238, 204, 255);
+    float: right;
+}
+label{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-family: poppinsbold;
+    font-weight:700;
+    letter-spacing: .5px;
+}
+input{
+    border: 2px solid rgba(161, 160, 160, 0.534);
+    border-radius: 5px;
+
+}
+#CurrTab{
+    /* border: 2px solid black; */
+    padding: 5px;
+    height: 70px;
+}
+
+#CurrTab img{
+    height: 20px;
+}
+#CurrTab tr td{
+    font-family: poppinsbold;
+    font-weight: 500;
+}
+.flagSel{
+    border: 1px solid rgba(128, 128, 128, 0.658);
+    padding: 0 0 1px 6px;
+    background:#fff;
+}
+#CurrTab tr td .fa-exchange-alt{
+    font-size: 22px;
+    color:purple;
+    cursor: pointer;
+    
+}
+.flagSel select::-webkit-scrollbar{
+    width: 8px;
+}
+.flagSel select::-webkit-scrollbar-track{
+    background: white;
+}
+.flagSel select::-webkit-scrollbar-thumb{
+    background: rgb(210, 157, 236);
+    border-radius: 8px;
+    border-radius: 2px solid white;
+}
+#CurrTab tr td select{
+    margin-left: 5px;
+    width: 60px;
+    height: 20px;
+    border: rgba(128, 128, 128, 0.589);
+    font-family: poppinsbold;
+    font-weight: 500;
+    outline: none;
+
+}
+#CurrTab tr td select option{
+    font-family: poppinsbold;
+    font-weight: 500;
+
+}
+#exchange-rate{
+    margin: 10px 0;
+    /* border: 2px solid black; */
+    width: 100%;
+    font-size: 20px;
+    padding: 5px;
+    height: 40px;
+    text-align: center;
+    font-family: poppinsbold;
+    font-weight: 500;
+}
+#getRate{
+    width: 290px;
+    justify-self: center;
+    letter-spacing: .5px;
+    color: white;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-family: poppinsbold;
+    font-weight: 700;
+    background: linear-gradient( 230deg, rgb(246, 78, 252), violet);
+}
+
+
+
+
+.card-body{
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+/* -----media query-------- */
+@media only screen and (max-width: 1180px) {
+    #bannerHome{
+        /* border: 2px solid black; */
+        height: 80vh;
+        width: 92vw;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .card{
+        height: 60vh; 
+    }
+    #Banner1{
+        width: 100%;
+    }
+    #Banner2{
+        margin-top: -100px;
+        width: 100%;
+    }
+    #imgB{
+        height: 300px;
+        width: 400px;
+        float: right;
+    }
+    #Banner1 p{
+        width: 270px;
+       
+    }
+  }
+
+  @media only screen and (max-width: 810px) {
+    #bannerHome{
+        height: 80vh;
+        width: 92vw;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .card{
+        height: 60vh; 
+    }
+    #Banner1{
+        width: 100%;
+    }
+    #Banner2{
+        height: 30vh;
+        margin-top: 0px;
+        width: 100%;
+    }
+    #imgB{
+        height: 200px;
+        width: 300px;
+        float: right;
+    }
+    #Banner1 p{
+        width: 270px;
+       
+    }
+  }
+  @media only screen and (max-width: 580px) {
+   
+    #Banner1{
+        width: 100%;
+        height: 30vh;
+        padding-left: 20px;
+    }
+    #Banner2{
+        height: 20vh;
+        margin-top: 00px;
+        width: 100%;
+        padding-right: 30px;
+        
+    }
+    #imgB{
+        height: 150px;
+        width: 200px;
+        float: right;
+    }
+    #Banner1 h1{
+       margin-top: -20px;
+       
+    }
+    #Banner1 p{
+        margin-top: -5px;
+        width: 170px;
+        font-size: 12px;
+       
+    }
+  }
+  @media only screen and (max-width: 385px) {
+    #bannerHome{
+        margin-top: 30px;
+        height: 88vh; 
+    }
+    .row{
+        height: 73vh;
+    }
+    .card{
+        height: 70vh;
+    }
+   
+    #Banner1{
+        width: 100%;
+        height: 34vh;
+        padding-left: 20px;
+    }
+    #Banner2{
+        height: 28vh;
+        
+        width: 100%;
+        padding-right: 30px;
+        
+    }
+    #imgB{
+        padding-left: 20px;
+        height: 150px;
+        width: 150px;
+        float: right;
+        
+    }
+    #Banner1 h1{
+        margin-top: 2px;
+    }
+    #Banner1 p{
+        width: 170px;
+       
+    }
+    .LearnMore{
+        margin-top: 0px;
+        padding-left: 2px;
+        font-size: 6px;
+        width: 45px;
+        height: 20px;
+        
+    }
+  }
+        
+  @media only screen and (max-width: 330px) {
+    #bannerHome{
+        margin-top: 30px;
+        height: 88vh; 
+    }
+    .row{
+        height: 73vh;
+    }
+    .card{
+        height: 70vh;
+    }
+   
+    #Banner1{
+        width: 100%;
+        height: 38vh;
+        padding-left: 20px;
+    }
+    #Banner2{
+        height: 20vh;
+        margin-top: 0px;
+        width: 100%;
+        padding-right: 30px;
+        
+    }
+    #imgB{
+        padding-left: 20px;
+        height: 100px;
+        width: 100px;
+        float: right;
+        
+    }
+    #Banner1 h1{
+        margin-top: 2px;
+        font-size: 20px;
+       
+    }
+    #Banner1 p{
+        margin-top: 10px;
+        width: 100px;
+        font-size: 10px;
+       
+    }
+    .LearnMore{
+        margin-top: 0px;
+        padding-left: 2px;
+        font-size: 6px;
+        width: 45px;
+        height: 20px;
+        
+    }
+  }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Given Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Preschool Package Registration Form</h1>
+        <hr> <br>
+        <form action="#" method="GET" id="formex">
+        <table border="0px">
+            <tr>
+                <td> <label for="fpname">Parent's Name &nbsp <span class="impt"></span></label></td>
+                <td> <input type="text" name="fpname" id="fpname" cols="30"></td>
+            </tr>
+
+            <tr>
+                <td> <label for="femail">Email Address &nbsp <span class="impt"></span></label></td>
+                <td> <input type="email" name="femail" id="femail"></td>
+            </tr>
+
+            <tr>
+                <td> <label for="fsname">Student's Name &nbsp <span class="impt"></span></label></td>
+                <td> <input type="text" name="fsname" id="fsname"></td>
+            </tr>
+
+            <tr>
+                <td> <label for="fgender">Student's Gender &nbsp <span class="impt"></span></label></td>
+                <td> <input type="radio" name="fgender" id="fgender" value="male">&nbsp Male <br>
+                     <input type="radio" name="fgender" id="fgender" value="female">&nbsp Female
+                </td>
+            </tr>
+
+            <tr>
+                <td> <label for="fbdate">Student's Birthday &nbsp <span class="impt"></span></label></td>
+                <td> <input type="date" name="fbdate" id="fbdate"></td>
+            </tr>
+
+           <tr>
+               <td> <label for="fphone">Contact Number &nbsp <span class="impt"></span></label></td>
+               <td> <input type="number" name="fphone" id="fphone"></td>
+           </tr>
+
+             <tr>
+                 <td> <label for="ftext">Do you receive text <br> &nbsp at this number &nbsp <span class="impt"></span></label></td>
+                 <td> <input type="radio" name="ftext" id="ftext" value="yes">&nbsp Yes <br>
+                     <input type="radio" name="ftext" id="ftext" value="no">&nbsp No
+                 </td>
+             </tr>
+
+             <tr>
+                 <td> <label for="faddr">Address &nbsp <span class="impt"></span></label></td>
+                 <td> <textarea name="faddr" id="faddr" cols="30" rows="5"></textarea></td>
+             </tr>
+
+             <tr>
+                 <td> <label for="fcity">City &nbsp <span class="impt"></span></label></td>
+                 <td> <input type="text" name="fcity" id="fcity"></td>
+             </tr>
+
+             <tr>
+                 <td> <label for="fzip">Zip Code &nbsp <span class="impt"></span></label></td>
+                 <td> <input type="number" name="fzip" id="fzip"></td>
+             </tr>
+             <tr>
+                 <td colspan="2">
+                     <input type="submit" value="Submit" id="submit">
+                     <input type="reset" value="Reset" id="reset">
+                 </td>
+             </tr>
+
+        </table>
+        </form>
+    </div>
+</body>
+</html>

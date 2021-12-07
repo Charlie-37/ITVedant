@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
+    <title>Jquery</title>
+
+   
+
+    <style>
+        h1{
+            text-align: center;
+            color: blue;
+        }
+        p{
+            width: 400px;
+            margin: 10px;
+            margin-top: 30px;
+        }
+        .paraCss{
+            font-size: 22px;
+            font-family: sans-serif;
+        }
+        .animatediv{
+            margin: 20px 20px;
+            height: 100px;
+            width: 100px;
+            background-color: lime;
+        }
+        button{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS in Jquery</h1>
+
+    <p id="para1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Iusto, dolor ducimus! In, quasi? Error dolorum omnis nulla 
+        dolor ipsam nesciunt, qui repudiandae modi iure est perferendis 
+        architecto voluptatem? Sint quas unde atque expedita ipsa deserunt 
+        modi error!</p> <br>
+
+    <button id="addCss"> ADD CSS</button>
+    <button id="removeCss"> Remove CSS</button> <br> <br>
+
+    <button id="slideparaUp">Slide Up</button>
+    <button id="slideparaDown">Slide Down</button>
+    <button id="fadeparaOut">Fade Out</button> 
+    <button id="fadeparaIn">Fade In</button>
+    
+     <br>
+
+<h1> CSS Animate</h1> <br>
+    <div class="animatediv"></div>
+    <button id="animateIn">Animate In</button>
+    <button id="animateOut">Animate Out</button>
+
+    <script>
+    // for CSS 
+        $(document).ready(function(){
+            $("#addCss").click(function(){
+                console.log("sucess")
+                $("p").addClass("paraCss")
+            })
+
+            $("#removeCss").click(function(){
+                console.log("sucess")
+                $("p").removeClass("paraCss")
+            })
+
+            $("#slideparaUp").click(function(){
+                $("#para1").slideUp()
+            })
+
+            $("#slideparaDown").click(function(){
+                $("#para1").slideDown()
+            })
+
+            $("#fadeparaIn").click(function(){
+                $("#para1").fadeIn(1000)
+            })
+
+            $("#fadeparaOut").click(function(){
+                $("#para1").fadeOut(1000)
+            })
+        })
+
+        // for animate
+        $(document).ready(function(){
+            $("#animateIn").click(function(){
+                $(".animatediv").animate({
+                    width : "200px",
+                    height : "200px",
+                },1500)
+            })
+
+            $("#animateOut").click(function(){
+                $(".animatediv").animate({
+                    width : "100px",
+                    height : "100px",
+                },1500)
+            })
+
+            
+
+        })
+
+    </script>
+    
+</body>
+</html>

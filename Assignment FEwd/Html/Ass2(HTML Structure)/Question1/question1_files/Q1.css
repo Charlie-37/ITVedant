@@ -1,0 +1,224 @@
+/*{
+    overflow-x: hidden;
+    width: 100%;
+    margin-left: 2px;
+} */
+
+.heading {
+    text-align: center;
+    color: black;
+    font-size: 40px;
+    font-family: sans-serif;
+
+
+}
+
+.heading::after {
+    content: '';
+    height: 3px;
+    width: 320px;
+    background: #0080ff;
+    display: block;
+    margin: 10px auto 5px;
+}
+
+.quest {
+    font-size: 20px;
+    font-family: sans-serif;
+    font-style: italic;
+}
+
+.ans {
+    font-size: 20px;
+}
+
+/*--------------------- Answer 1 ---------------- */
+.ans1 {
+    font-size: 20px;
+}
+
+/*--------------------- Answer 2 ---------------- */
+.ans2 {
+
+    width: 600px;
+    transform: translate(90px, -30px);
+    font-size: 18px;
+}
+
+/*--------------------- Answer 3---------------- */
+.book {
+    border: 2px solid black;
+    width: 700px;
+    margin: 10px 10px 10px 30px;
+}
+
+.book ol {
+    font-weight: bolder;
+}
+
+.book ol li ul {
+    font-weight: lighter;
+    list-style-type: disc;
+
+}
+
+.page {
+    float: right;
+    margin-right: 20px;
+}
+
+
+/*--------------------- Answer 4---------------- */
+.ans4 {
+    width: 200px;
+}
+
+dl dt {
+    font-weight: bolder;
+}
+
+/*--------------------- Answer 5---------------- */
+.ans5 ol {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.ans5 ol a:hover {
+    color: red;
+}
+
+/*--------------------- Answer 6 ---------------- */
+.ans6 ol {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.ans6 a:visited {
+    color: cyan;
+
+}
+
+.ans6 ol a:hover {
+    color: red;
+}
+
+/*--------------------- Answer -7--------------- */
+
+.ans7 a {
+    transition: 6s;
+}
+
+.ans7 a .top {
+    outline: none;
+    border: none;
+    height: 35px;
+    width: 150px;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    background: linear-gradient(red, orange);
+    transform: translate(400px, 10px);
+    cursor: pointer;
+
+}
+
+.ans7,
+.ans8 {
+    height: 80px;
+}
+
+/*--------------------- Answer 8---------------- */
+.ans8 a {
+    transition: 6s;
+}
+
+.ans8 a .bottom {
+    outline: none;
+    border: none;
+    height: 35px;
+    width: 150px;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    background: linear-gradient(red, orange);
+    transform: translate(400px, 10px);
+    cursor: pointer;
+
+}
+
+/*--------------------- Answer 8---------------- */
+figcaption {
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+/*--------------------- Answer 12---------------- */
+.ans12 {
+    width: 600px;
+    align-items: center;
+
+}
+
+.ans12 .train {
+    width: 700px;
+    height: 300px;
+    border: 2px solid black;
+    align-items: center;
+    text-align: center;
+}
+
+/*--------------------- Answer 13---------------- */
+.formdef {
+    font-size: 18px;
+    font-family: sans-serif;
+    margin: 0px 20px 20px 20px;
+}
+
+/*--------------------- Answer 14---------------- */
+.optform {
+    height: 50px;
+    width: 500px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 20px;
+}
+
+.optform label {
+    font-size: 18px;
+    margin: 0 10px 20px 30px;
+    font-family: sans-serif;
+}
+
+/*--------------------- Answer 14---------------- */
+.checkedval p {
+    font-size: 18px;
+}
+
+/*--------------------- Answer 15---------------- */
+.regform {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 5% 10%;
+    width: 400px;
+}
+
+
+.regform h1 {
+    margin: 5% 22%;
+}
+
+.subres {
+    align-items: center;
+    text-align: center;
+}
+
+.regform input[type="submit"],
+.regform input[type="reset"] {
+    text-align: center;
+    margin: 15px 0px;
+    padding: 5px;
+    font-family: sans-serif;
+}
+

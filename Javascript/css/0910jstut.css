@@ -1,0 +1,13 @@
+*{
+    margin-left: 10px;
+}
+.calculator {
+    border: 2px solid black;
+    padding: 5px 0 20px 0;
+    
+}
+.evenodd{
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px 0 0 10px;
+}

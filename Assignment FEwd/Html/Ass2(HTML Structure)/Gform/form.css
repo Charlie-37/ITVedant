@@ -1,0 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.container{
+    width: 700px;
+    height: 800px;
+    /* border: 2px solid black; */
+    transform: translate(50px, 10px);
+}
+.container h1{
+    margin-left: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+.container table{
+    position: absolute;
+    width: 70%;
+    height: 650px;
+    padding: 1px;
+    font-size: 16px;
+    font-weight: bold;
+     /* border: 2px solid black;  */
+    
+}
+.impt{
+    height: 5px;
+    width: 5px;
+    position: absolute ;
+    background:red;
+    border-radius: 50%;
+    transform: translateY(6px);
+    
+    
+}
+
+.container form label{ 
+ margin-left: 10px;
+ font-family: 'Poppins', sans-serif;
+}
+
+.container form input{
+    margin-left: 0px;
+    border: 1px solid grey;
+    height: 20px;
+}
+.container form textarea{
+    border: 1px solid grey; 
+}
+.container form input[type="submit"],
+.container form input[type="reset"]{
+    height: 30px;
+    width: 100px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+
+}
+.container form input[type="submit"]{
+     margin-left: 100px;
+     margin-top: 10px;
+     margin-right: 5px;
+}
+.container form input[type="text"],
+.container form input[type="email"],
+.container form input[type="number"],
+.container form input[type="date"]{
+    width: 230px;
+    height: 25px;
+}

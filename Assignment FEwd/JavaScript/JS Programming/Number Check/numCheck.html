@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integer Check</title>
+    <style>
+        h1, h3{
+            text-align: center;
+        }
+        .container{
+            margin: auto;
+            width: 500px;
+            height: 100px;
+            border: 2px solid black;
+            padding: 20px 10px 10px 20px;
+        }
+        input, button[type= "reset"]{
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Integer Check</h1>
+    <div class="container">
+        <label for="checkInt">Enter The Number : </label>
+        <input type="number" name="intcheck" id="checkInt"> 
+        <button onclick="getInt()">Check</button> 
+        <button onclick="resetInt()" type="reset">Reset</button> <br>
+        <h3 id="resultInt"></h3>
+    </div>
+
+    <script>
+        function getInt(){
+            let x = document.getElementById('checkInt').value;
+            x = parseInt(x);
+
+            if(x >= 1){
+                document.getElementById('resultInt').innerHTML = "Number is Positive"
+            }
+            else if( x< 0){
+                 document.getElementById('resultInt').innerHTML = "Number is Negative"
+            }
+            else if( x === 0){ document.getElementById('resultInt').innerHTML="Number is Zero" }
+        }
+        function resetInt(){
+            location.reload();
+        }
+    </script>
+    
+</body>
+</html>

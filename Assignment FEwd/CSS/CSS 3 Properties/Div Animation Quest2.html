@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Question</title>
+    <style>
+        h2{
+            font-family: sans-serif;
+            font-weight: 200;
+        }
+        
+        p{
+            font-family: sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+        }
+        .sample1{
+            height: 200px;
+            width: 200px;
+            background-color: rgb(0, 183, 255);
+            transition: 2s ease;
+            margin-left: 5%;
+        }
+        .sample1:hover{
+            width: 400px;
+        }
+
+        /*------ styling for question 2 -----*/
+        .quest2{
+            margin: 50px 0;
+            
+        }
+        .boxanimation{
+        margin: auto;
+        /* border: 2px solid black; */
+        width: 200px;
+        padding: 20px;
+        }
+        #container{
+        height: 200px;
+        width: 200px;
+        background-color: violet;
+        margin: 10px 00px;
+        /* animation:animate 5s ease infinite; */
+        }
+        .buttn{
+        height: 30px;
+        width: 80px;
+        color: white;
+        outline: none;
+        border: transparent;
+        border-radius: 10px;
+        background-color: rgb(0, 174, 255);
+        margin: 20px 8px 0 10px;
+        font-size: 16px;
+
+        }
+
+        @keyframes animate {
+
+        0%{
+        border-radius: 0%;
+        background-color: violet;
+        }
+        /* 25%{
+        border-radius: 25%;
+        background-color: lime;
+        } */
+        50%{
+        border-radius: 50%;
+        background-color: lime;
+        }
+        /* 75%{
+        border-radius: 25%;
+        background-color: yellow;
+        } */
+        100%{
+        border-radius: 0%;
+        background-color: violet;
+        }
+        }
+        
+    </style>
+</head>
+
+<body>
+     <!----------------- Question 2 ---------------->
+    <div class="quest1">
+         <h2>Q1. Create a div with specific width and height and apply a CSS transition to the width of the
+             when the mouse cursor hovers over the rectangle.</h2>
+
+         <p> => * Hover on Box For Transition. *</p> <br>
+         <div class="sample1"></div>
+    </div>
+
+        <!----------------- Question 2 ---------------->
+     <div class="quest2">
+         <h2 class="head2">Q2. create a animation which change shape of div from square to circle in 5s,and also change background color.
+         </h2>
+         <p> => * Start & Stop to Play Animation. *</p> <br>
+
+         <div class="boxanimation">
+             <div id="container"></div>
+             <button type="button" onclick="startAnimate()" class=" buttn start">Start</button>
+             <button type="button" onclick="PauseAnimate()" class=" buttn stop">Stop</button>
+         </div>
+
+         <script>
+             //console.log(startAnimete);
+             function startAnimate() {
+                 let startAnimation = document.getElementById('container').style.animation = "animate 5s ease infinite";
+                 //console.log("clicked")    
+             }
+
+             function PauseAnimate() {
+                 let startAnimation = document.getElementById('container').style.animation = "none";
+             }
+         </script>
+     </div>
+   
+
+</body>
+
+</html>

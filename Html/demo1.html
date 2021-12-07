@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        h1::after{
+            content: '';
+            background: rgb(47, 173, 231);
+            display: block;
+            height: 3px;
+            width: 170px;
+            margin: 20px auto 5px;
+            
+        }
+        .tabledemo{
+            border: 1px solid black;
+            padding: 5px 5px;
+            width: 60%;
+            justify-content: center;
+            text-align: center;
+            font-size: 20px;
+            
+        }
+
+        .tabledemo td, th{
+            border: 1px solid;
+            
+        }
+
+        .table1{
+            border: 2px solid rgb(20, 19, 19);
+            padding: 5px 5px;
+            width: 60%;
+            justify-content: center;
+            text-align: center;
+            font-size: 20px;
+            height: 600px;
+
+        }
+        .table1 td, th{
+           border: 2px solid;  
+        }
+    </style>
+</head>
+<body>
+    <a href="*" target="_blank"><img src="image/thumb-1920-1004716.png" width="600px" height="400px" alt="gone"></a><br><br>
+
+    
+        <h1>Ordered List</h1>
+
+        
+
+        <ol>
+            <li>PYTHON</li>
+            <li>CSS</li>
+            <li>JAVA</li>
+            <li>.NET</li>
+            <li>PHP</li>
+        </ol>
+        <hr><br>
+
+        <ol type="A">
+            <li>PYTHON</li>
+            <li>CSS</li>
+            <li>JAVA</li>
+            <li>.NET</li>
+            <li>PHP</li>
+        </ol>
+        <hr><br>
+
+        <ol type="1">
+            <li>PYTHON</li>
+            <li>CSS</li>
+            <li>JAVA</li>
+            <li>.NET</li>
+            <li>PHP</li>
+        </ol>
+        <hr><br>
+
+        <ol type="I">
+            <li>PYTHON</li>
+            <li>CSS</li>
+            <li>JAVA</li>
+            <li>.NET</li>
+            <li>PHP</li>
+        </ol>
+        <hr><br> 
+        
+        <h1>UnOrdered List</h1>
+
+        <ul>
+            <li>PYTHON</li>
+            <li>CSS</li>
+            <li>JAVA</li>
+            <li>.NET</li>
+            <li>PHP</li>
+        </ul>
+        <hr><br> 
+
+        <ul type="Circle">
+            <li>PYTHON</li>
+            <li>CSS</li>
+            <li>JAVA</li>
+            <li>.NET</li>
+            <li>PHP</li>
+        </ul>
+        <hr><br> 
+
+        <ul type="square">
+            <li>PYTHON</li>
+            <li>CSS</li>
+            <li>JAVA</li>
+            <li>.NET</li>
+            <li>PHP</li>
+        </ul>
+        <hr><br> 
+
+        <h1>Descriptive List</h1>
+
+        <dl>
+            <dt>HTML</dt>
+            <dd>Used for Client side scripting</dd>
+
+            <dt>CSS</dt>
+            <dd>For Stling Purpose</dd>
+
+            <dt><h2>JavaScript</h2></dt>
+        <dd><h3>For Giving dynamic Behavior to th Web Page</h3></dd>
+        </dl>
+        <hr>
+
+        <h1>Creating Table</h1>
+
+        <table class="tabledemo" align="center" cellspacing="5px">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Salary</th>
+                <th>Gender</th>
+                <th>Age</th>
+            </tr> 
+            
+             <tr>
+                <td>Sunil</td>
+                <td>Sunil36@</td>
+                <td>Badlapur</td>
+                <td>15000</td>
+                <td>Male</td>
+                <td>22</td>
+            </tr> 
+
+            <tr>
+                <td>Sunil</td>
+                <td>Sunil36@</td>
+                <td>Badlapur</td>
+                <td>15000</td>
+                <td>Male</td>
+                <td>22</td>
+            </tr> 
+
+            <tr>
+                <td>Sunil</td>
+                <td>Sunil36@</td>
+                <td>Badlapur</td>
+                <td>15000</td>
+                <td>Male</td>
+                <td>22</td>
+            </tr> 
+
+            <tr>
+                <td>Sunil</td>
+                <td>Sunil36@</td>
+                <td>Badlapur</td>
+                <td>15000</td>
+                <td>Male</td>
+                <td>22</td>
+            </tr> 
+
+            <tr>
+                <td>Sunil</td>
+                <td>Sunil36@</td>
+                <td>Badlapur</td>
+                <td>15000</td>
+                <td>Male</td>
+                <td>22</td>
+            </tr> 
+            
+            
+
+
+         </table><br><hr><br>
+
+         <table class="table1"  align="center" cellspacing="0">
+             <tr>
+                 <td colspan="2">3</td>
+                 <td>4</td>
+                 <td>5</td>
+             </tr>
+
+             <tr>
+                 <td>6</td>
+                 <td rowspan="2">7</td>
+                 <td colspan="2">19</td>   
+             </tr>
+
+             <tr>
+                 
+                 <td rowspan="2">50</td>
+                 <td colspan="2" rowspan="2">20</td> 
+                 
+             </tr>
+
+             <tr>
+                 <td>40</td>
+                 
+            </tr>
+
+             <tr>
+                 <td colspan="2">100</td>
+                 <td>1</td>
+                 <td>2</td>
+             </tr>
+
+
+         </table>
+
+        
+
+        
+        
+    </div>
+</body>
+</html>

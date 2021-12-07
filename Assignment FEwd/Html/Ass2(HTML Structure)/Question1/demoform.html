@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+    }
+    .bg-image{
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        filter: blur(2px);
+        border: none;
+        outline: none;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        
+    }
+    
+    /* h1::after{
+        content: '';
+        background:blue;
+        width: 150px;
+        margin: 5px 5px;
+        display: block;
+        height: 3px;
+        transform: translateX(680px);
+        position: relative;
+    } */
+    .form-bg{
+        transform: translateX(580px);
+        /* border: 2px solid black; */
+        width: 350px;
+        margin-top: 40px;
+        top: 60px;
+        height: 420px;
+        background: rgba(240, 233, 233, 0.5);
+        z-index: 1S;
+        position: absolute;
+        border-radius: 15px;
+        /* padding: 10px 20px; */
+    }
+
+    .form-bg h1{
+        text-align: center;
+        top: 15px;
+        color: rgb(48, 43, 43);
+        position: relative;
+       font-family: 'Poppins', sans-serif;
+       letter-spacing: 1px;
+    }
+    .formdemo{
+        padding: 10px 10px;         
+        margin: 0px 15px;
+        /* border: 2px solid black; */
+        position: relative;
+        top: 30px;
+
+        
+    }
+    .formdemo label, input{
+        margin: 10px 10px;
+        border-radius: 6px;
+        width: 270px;
+        height: 23px;
+        font-size: 20px;
+        color: rgba(73, 71, 71, 0.993);
+        outline: none;
+        border: none;
+    }
+    .formdemo input{
+        font-size: 18px;
+        color: rgba(128, 128, 128, 0.685);
+        padding: 6px 6px;
+    }
+    .but{
+        width: 120px;
+        height: 40px;
+        transform: translateX(80px);
+        margin-top: 30px;
+        outline: none;
+        background: linear-gradient(rgb(236, 231, 231), rgb(70, 69, 69));
+        border: none;
+        color: white;
+        font-size: 20px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bolder;
+        border-radius: 9px;
+        cursor: pointer;
+        letter-spacing: 1px;
+        box-shadow: black 15px;
+
+    }
+    
+</style>
+<body>
+    <img src="image/66-666819_website-design-background-creative-background-image-for-website.jpg" class="bg-image">
+    
+    <div class="form-bg">
+        <h1>Sign In</h1>
+        <form name="myForm" class="formdemo" method="POST" action="/my.php">
+            <label>Name :</label>&nbsp;&nbsp;<input type="text" name="fname" required><br>
+           <label for=""> Email :</label>&nbsp;&nbsp;<input type="email" name="femail" required><br>
+           <label for=""> Contact :</label><input type="phone" name="fphone" required><br>
+            <button class="but" value="Submit" type="submit">Submit</button>
+        
+        </form>
+    </div>
+    
+</body>
+</html>

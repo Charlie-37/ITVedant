@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=WindSong&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+*{
+    margin: 0;
+}
+
+.banner{
+    height: 90vh;
+    width: 90%;
+    margin: 0;
+    border: 2px solid black;
+    opacity: 0.6;
+}
+.bannerc img{
+    height: 90vh;
+    width: 99%;
+    margin: 0;
+    opacity: 0.9;
+    background: #000;
+    position: absolute;
+    z-index: -1;
+
+}
+.overlay h1{
+    color: white;
+    font-size: 80px;
+    font-family: 'Oswald', sans-serif;
+    transform: translate(140px, 210px);
+    letter-spacing: 1px;
+    height: 100px;
+    width: 600px;
+   
+    padding: 5px;
+}
+.overlay{
+    height: 90vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.541);
+    z-index: 2;
+
+}
+nav{
+    z-index: 2;
+    right: 0;
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    /* transform: translateY(-90vh); */
+}
+.logo{
+    display: flex;
+    z-index: 2;
+    /* border: 2px solid black; */
+}
+.first{
+    color: white;
+    font-family: 'WindSong', cursive;
+    margin: 10px 10px 10px 10px;
+    font-size: 35px;
+
+}
+.second{
+    color: rgb(27, 233, 223);
+    font-family: 'Architects Daughter', cursive;
+    margin-left:10px;
+     font-weight: lighter;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    font-size: 20px;
+    /* margin-left: 500px; */
+    color: white;
+    margin-right: 30px;
+    margin-top: 15px;
+    font-family: 'Poppins';
+    cursor: pointer;
+    outline: none;
+}
+nav ul li{
+    display: inline;
+    margin-left: 35px;
+    position: relative;
+}
+nav ul li::after{
+    content: '';
+    background: rgb(27, 161, 223);
+    left: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 10px;
+    width: 0%;
+    transition: 0.5s;
+}
+/* .clicke{
+    border: 2px solid white;
+    border-radius: 10px;   
+} */
+nav ul li:hover:after{
+    width: 100%;
+
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+}
+/* -------------------container---------------- */
+.box{
+    margin-top: 70px;
+    height: 700px;
+    width: 100%;
+    background-color: rgba(214, 191, 210, 0.342);
+    
+}
+.box h2{
+    font-size: 33px;
+    font-family: 'Poppins';
+    transform: translate(650px, 50px);
+    width: 300px;
+}
+.csecond{
+    color: red;
+}
+
+.box table{
+    height: 60vh;
+    width: 90%;
+    margin: 20px 10px 10px 80px;
+}
+.box form{
+    /* border: 2px solid black; */
+    height: 580px;
+    position: relative;
+    margin-top: 70px;
+}
+input{
+    margin: 0 0 0 17px;
+    font-size: 18px;
+    color: black;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+input::placeholder{
+    color: black;
+}
+.submit{
+    height: 50px;
+    width: 120px;
+    font-size: 18px;
+    font-family: 'Poppins';
+    transform: translate(680px, 40px);
+    outline: none;
+    cursor: pointer;
+    background: rgba(224, 26, 165, 0.301);
+}
+
+
+/* -------------------footer---------------- */
+
+footer{
+    height: 330px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.781);
+    position: relative;
+    margin-top: 40px;
+}
+
+.bfotter{
+    height: 290px;
+    width: 95%;
+    transform: translate(30px, 20px);
+    position: relative;
+    font-family: 'Poppins';
+    padding: 10px 0 0 10px;
+    /* border: 2px solid black; */
+
+}
+.bfotter table{
+    height: 240px;
+    width: 95%;
+    position: relative;
+    margin: 0 0 0 0;
+    padding: 0;
+    /* border: 2px solid black; */
+}
+
+.bfotter table td{
+    height: 20px;
+}
+
+
+.fas{
+    font-size: 14px;
+    background: #000;
+    color: white;
+   /* transform: translate(90px, 12px); */
+    padding: 12px 12px 12px 12px;
+    border-radius: 50%;
+    margin: 15px 20px -20px 90px;
+
+}
+
+
+
+
+.aboutc{
+    height: 200px;
+    width: 500px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+
+.leftp{
+    color: white;
+    margin: -30px 10px 20px 150px;
+}
+
+.bfotter h3{
+    font-size: 25px;
+    margin: -60px 0 0 210px;
+    color: rgb(40, 122, 228);
+}
+.rightp{
+    width: 400px;
+    height: 110px;
+    padding: 10px;
+    font-size: 16px;
+     margin: 0 0 -15px 200px;
+     color: white;
+     justify-content: space-between;
+}
+
+.social{
+    margin: 10px 0px -70px 210px;
+    width: 300px;
+}
+.fab{
+    font-size: 30px;
+    margin:0 30px -10px 0;
+    color: white;
+
+}
+.bfotter h2{
+    margin: 0;
+    font-size: 16px;
+    margin: 15px 0 0 452px;
+    color: rgb(145, 139, 139);
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="form.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form </title>
+</head>
+<body>
+<h1>All Form Elements</h1>
+    <div class="ans13">
+        <form action="act.php" method="POST" name="form1" class="allform">
+            <table class="f-table" cellspacing="0px" border="0">
+                <tr class="headfoot">
+                    <td colspan="2"><span>Sign Up </span></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">First Name</label></td>
+                    <td><input type="text" required placeholder="Enter First Name" name="fname"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Last Name</label></td>
+                    <td><input type="text" placeholder="Enter Last Name" name="lname" required></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Date Of Birth</label></td>
+                    <td><input type="date" name="dob" requiredx></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Time</label></td>
+                    <td><input type="time" name="ftime" requiredx></td>
+                </tr>
+                
+
+                <tr>
+                    <td><label for="">Gender</label></td>
+                    <td><input type="radio" value="male" name="gender" checked>Male <input type="radio" value="female"
+                            name="gender">Female </td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Address</label></td>
+                    <td><textarea name="fadd" id="fass" cols="30" rows="5"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Country</label></td>
+                    <td><select name="country">
+                            <option>----</option>
+                            <option>India</option>
+                            <option>Singapur</option>
+                            <option>Bhutan</option>
+                            <option>ShriLanka</option>
+                            <option>USA</option>
+                            <option>Russia</option>
+                            <option>Israel</option>
+                            <option>Canada</option>
+                            <option>Saudi Arabia</option>
+                            <option> Africa</option>
+                        </select></td>
+                </tr>
+
+                <tr>
+                    <td><label for="" required>Email</label></td>
+                    <td><input type="email" placeholder="Enter Your Email" name="f-email"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Phone Number</label></td>
+                    <td><input type="number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Enter Your Number"
+                            name="fphone"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="" required>Password</label></td>
+                    <td><input type="password" name="f-pass"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="" required>Confirm Password</label></td>
+                    <td><input type="password" name="fc-pass"></td>
+                </tr>
+
+                 <tr>
+                     <td><label for="">Profile Picture</label></td>
+                     <td><input type="file"  name="fileimg" ></td>
+                 </tr>
+
+
+
+                <tr>
+                    <td></td>
+                    <td><input type="checkbox" name="term" required>I agree to the Terms of Use</td>
+                </tr>
+
+                <tr class="headfoot">
+                    <td colspan="2">
+                        <button value="submit" name="submit" class="sub" type="submit">Submit</button>&nbsp
+                        <button value="reset" name="reset" class="rest" type="reset">Reset</button>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+    
+</body>
+</html>

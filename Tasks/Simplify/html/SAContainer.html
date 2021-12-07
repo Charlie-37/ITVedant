@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/SArea.css">
+      <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/SArea.css">
+    <script src="https://kit.fontawesome.com/0c821f3c91.js" crossorigin="anonymous"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- jquery file for tabs -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <title>Document</title>
+    <style>
+        #AreaRectangle{
+            height: 60vh;
+            width: 70vw;
+        }
+    </style>
+
+    <script>
+    
+
+    </script>
+</head>
+<body>
+    <!--------- Area of Rectangle -->
+    <div id="AreaRectangle">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="Arearectangle" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Height (l)</label> </td>
+                    <td> <input type="number" value="0" id="Arect_height"></td>
+                    <td> <select name="" id="Arect_height_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td> <label for=""> Width (w)</label> </td>
+                    <td> <input type="number" value="0" id="Arect_width"></td>
+                    <td> <select name="" id="Arect_width_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_Arect_Result">Enter the values.</div>
+                    <div class="get_Result">
+                        <button onclick="getAreaRect()" class="result_btn" id="get_ARectangle">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="Arect_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_ARectangle">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_Arect_Result">Find the Area First.</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+    <!--------- Area of Triangle ---------->
+    <div id="AreaTriangle">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="Areatriangle" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Base (b)</label> </td>
+                    <td> <input type="number" value="0" id="Atriag_base"></td>
+                    <td> <select name="" id="Atriag_base_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td> <label for=""> Height (h)</label> </td>
+                    <td> <input type="number" value="0" id="Atriag_height"></td>
+                    <td> <select name="" id="Atriag_height_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+               
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_Atriag_Result">Enter the Values .</div>
+                    <div class="get_Result">
+                    <button onclick="getAreaTraig()" class="result_btn" id="get_ATriangle">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="Atriag_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_Atriag">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_Atriag_Result">Find the Area First .</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!--------- Area of Trapozoid ---------->
+    <div id="AreaTrapozoid">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="Areatraop" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Base 1 (b1)</label> </td>
+                    <td> <input type="number" value="0" id="Atrapo_base1"></td>
+                    <td> <select name="" id="Atrapo_base1_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td> <label for=""> Base 2 (b2)</label> </td>
+                    <td> <input type="number" value="0" id="Atrapo_base2"></td>
+                    <td> <select name="" id="Atrapo_base2_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td> <label for=""> Height (h)</label> </td>
+                    <td> <input type="number" value="0" id="Atrapo_height"></td>
+                    <td> <select name="" id="Atrapo_height_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+               
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_Atrapo_Result">Enter the Values .</div>
+                    <div class="get_Result">
+                    <button onclick="getAreaTrapozeid()" class="result_btn" id="get_ATrapezoid">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="Atrapo_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_Atrapo">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_Atrapo_Result">Find the Area First .</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!--------- Area of Circle ---------->
+    <div id="AreaCircle">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="AreaCircle" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Radius (r)</label> </td>
+                    <td> <input type="number" value="0" id="Acirc_radius"></td>
+                    <td> <select name="" id="Acirc_radius_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                
+               
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_Acirc_Result">Enter the Values .</div>
+                    <div class="get_Result">
+                    <button onclick="getAreaCircle()" class="result_btn" id="get_ACircle">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="Acircule_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_Acircule">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_Acircule_Result">Find the Area First .</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!--------- Area of Sector ---------->
+    <div id="AreaSector">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="AreaSector" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Radius (r)</label> </td>
+                    <td> <input type="number" value="0" id="Asect_radi"></td>
+                    <td> <select name="" id="Asect_radi_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td> <label for=""> Angle (A)</label> </td>
+                    <td> <input type="number" value="0" id="Asect_angle"></td>
+                    <td> <select name="" id="Atsect_angle_Sel">
+                        <option value="deg" selected>Degree&deg</option>
+                        <option value="radian">Radian</option>
+                       
+                    </select></td>
+                </tr>
+               
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_Asect_Result">Enter the Values .</div>
+                    <div class="get_Result">
+                    <button onclick="getAreaSect()" class="result_btn" id="get_ASector">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="Asect_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_Asect">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_Asect_Result">Find the Area First .</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!--------- Area of Ellipse ---------->
+    <div id="AreaEllipse">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="Areaellipse" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Semi-major Axis(a)</label> </td>
+                    <td> <input type="number" value="0" id="Aelli_smaj"></td>
+                    <td> <select name="" id="Aelli_smaj_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td> <label for=""> Semi-minor Axis(b)</label> </td>
+                    <td> <input type="number" value="0" id="Aelli_smin"></td>
+                    <td> <select name="" id="Aelle_smin_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+               
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_Aellipse_Result">Enter the Values .</div>
+                    <div class="get_Result">
+                    <button onclick="getAreaEllip()" class="result_btn" id="get_AEllip">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="Aellip_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_Aellip">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_Aellipg_Result">Find the Area First .</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+ <!--------------------- Area of Square -->
+    <div id="AreaSquare">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="Areasquare" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Sides (a)</label> </td>
+                    <td> <input type="number" value="0" id="Asqua_side"></td>
+                    <td> <select name="" id="Asqua_edge_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+               
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_Squa_Result">Enter the values.</div>
+                    <div class="get_Result">
+                        <button onclick="getAreaSqua()" class="result_btn" id="get_ASquare">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="ASqua_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_ASquare">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_Asqua_Result">Find the Area First.</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <hr>
+    <!--------- Surface Area of Circle ---------->
+    <div id="SurfaceAreaCircle">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="SurfaceAreaCircle" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Radius (r)</label> </td>
+                    <td> <input type="number" value="0" id="SAcircle_radius" value="0"></td>
+                    <td> <select name="" id="SAcirc_radius_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                
+               
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_SAcirc_Result">Enter the Values .</div>
+                    <div class="get_Result">
+                    <button onclick="getSAreaCircle()" class="result_btn" id="get_SACircle">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="SAcircule_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_SAcircule">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_SAcircule_Result">Find the Area First .</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <hr>
+        <!--------- Surface Area of Cone ---------->
+        <div id="SAreaCone">
+            <form action="" onsubmit="event.preventDefault()">
+                <table id="SAreacone" class="ShapeContainer" cellpadding="10">
+                    <tr >
+                        <td> <label for=""> Base Radius (r)</label> </td>
+                        <td> <input type="number" value="0" id="SAcone_baseradi"></td>
+                        <td> <select name="" id="SAcone_baseradi_Sel">
+                            <option value="cm" selected>Centimeters</option>
+                            <option value="m">Meter</option>
+                            <option value="inch">Inches</option>
+                            <option value="km">Kilometers</option>
+                            <option value="mm">Milimeters</option>
+                            <option value="feet">Feet</option>
+                            <option value="yard">Yards</option>
+                            <option value="mile">Miles</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td> <label for=""> Height (h)</label> </td>
+                        <td> <input type="number" value="0" id="SAcone_height"></td>
+                        <td> <select name="" id="SAcone_height_Sel">
+                            <option value="cm" selected>Centimeters</option>
+                            <option value="m">Meter</option>
+                            <option value="inch">Inches</option>
+                            <option value="km">Kilometers</option>
+                            <option value="mm">Milimeters</option>
+                            <option value="feet">Feet</option>
+                            <option value="yard">Yards</option>
+                            <option value="mile">Miles</option>
+                        </select></td>
+                    </tr>
+                   
+                    <tr> <td colspan="3">
+                        <div class="calc_Result" id="Calc_SAcone_Result">Enter the Values .</div>
+                        <div class="get_Result">
+                        <button onclick="getSAreaCone()" class="result_btn" id="get_SACone">Calculate</button>
+                        </div>
+                    </td>
+                    <tr> 
+                        <td class="Conv_result">Convert Result In :</td>
+                        <td><select name="" id="SAcone_convert">
+                            <option value="cm">Centimeters&sup2;</option>
+                            <option value="m" selected>Meter&sup2;</option>
+                            <option value="inch">Inches&sup2;</option>
+                            <option value="km">Kilometers&sup2;</option>
+                            <option value="mm">Milimeters&sup2;</option>
+                            <option value="feet">Feet&sup2;</option>
+                            <option value="yard">Yards&sup2;</option>
+                            <option value="mile">Miles&sup2;</option>
+                        </select></td>
+                        <td>
+                            <button  class="conv_btn" id="Conv_SAcone">Convert Result</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"> <div class="calc_Result" id="Conv_SAcone_Result">Find the Area First .</div></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <hr>
+         <!--------------------- Area of Square -->
+    <div id="SAreaCube">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="SAreasquare" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Sides (a)</label> </td>
+                    <td> <input type="number" value="0" id="SAsqua_side"></td>
+                    <td> <select name="" id="SAsqua_edge_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+               
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_SASqua_Result">Enter the values.</div>
+                    <div class="get_Result">
+                        <button onclick="getSAreaSqua()" class="result_btn" id="get_ASquare">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="SASqua_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_SASquare">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_SAsqua_Result">Find the Area First.</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <hr>
+     <!--------- Surface Area of Cylinder ---------->
+     <div id="SACylinder">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="SAreacylinder" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Base Radius (r)</label> </td>
+                    <td> <input type="number" value="0" id="SAcylin_baseradi"></td>
+                    <td> <select name="" id="SAcylin_baseradi_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td> <label for=""> Height (h)</label> </td>
+                    <td> <input type="number" value="0" id="SAcylin_height"></td>
+                    <td> <select name="" id="SAcylin_height_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+               
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_SAcylin_Result">Enter the Values .</div>
+                    <div class="get_Result">
+                    <button onclick="getSAreaCylinder()" class="result_btn" id="get_SACylin">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="SAcylin_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_SAcylin">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_SAcylin_Result">Find the Area First .</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <hr>
+     <!--------- SurfaceArea of Rectangle -->
+     <div id="SAreaRectangle">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="SArearectangle" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Length (l)</label> </td>
+                    <td> <input type="number" value="0" id="SArect_length"></td>
+                    <td> <select name="" id="SArect_length_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr >
+                    <td> <label for=""> Height (h)</label> </td>
+                    <td> <input type="number" value="0" id="SArect_height"></td>
+                    <td> <select name="" id="SArect_height_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td> <label for=""> Width (w)</label> </td>
+                    <td> <input type="number" value="0" id="SArect_width"></td>
+                    <td> <select name="" id="SArect_width_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_SArect_Result">Enter the values.</div>
+                    <div class="get_Result">
+                        <button onclick="getSAreaRect()" class="result_btn" id="get_SARectangle">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="SArect_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_SARectangle">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_SArect_Result">Find the Area First.</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <hr>
+        <!--------- Surface Area of Capsule ---------->
+           
+            <div id="SAreaCapsule">
+                <form action="" onsubmit="event.preventDefault()">
+                    <table id="SAreacone" class="ShapeContainer" cellpadding="10">
+                        <tr >
+                            <td> <label for=""> Base Radius (r)</label> </td>
+                            <td> <input type="number" value="0" id="SAcapsu_baseradi"></td>
+                            <td> <select name="" id="SAcapsu_baseradi_Sel">
+                                <option value="cm" selected>Centimeters</option>
+                                <option value="m">Meter</option>
+                                <option value="inch">Inches</option>
+                                <option value="km">Kilometers</option>
+                                <option value="mm">Milimeters</option>
+                                <option value="feet">Feet</option>
+                                <option value="yard">Yards</option>
+                                <option value="mile">Miles</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td> <label for=""> Height (a)</label> </td>
+                            <td> <input type="number" value="0" id="SAcapsu_height"></td>
+                            <td> <select name="" id="SAcapsu_height_Sel">
+                                <option value="cm" selected>Centimeters</option>
+                                <option value="m">Meter</option>
+                                <option value="inch">Inches</option>
+                                <option value="km">Kilometers</option>
+                                <option value="mm">Milimeters</option>
+                                <option value="feet">Feet</option>
+                                <option value="yard">Yards</option>
+                                <option value="mile">Miles</option>
+                            </select></td>
+                        </tr>
+                       
+                        <tr> <td colspan="3">
+                            <div class="calc_Result" id="Calc_SAcapsu_Result">Enter the Values .</div>
+                            <div class="get_Result">
+                            <button onclick="getSAreaCapsule()" class="result_btn" id="get_SACapsu">Calculate</button>
+                            </div>
+                        </td>
+                        <tr> 
+                            <td class="Conv_result">Convert Result In :</td>
+                            <td><select name=""  id="SAcapsu_convert">
+                                <option value="cm">Centimeters&sup2;</option>
+                                <option value="m" selected>Meter&sup2;</option>
+                                <option value="inch">Inches&sup2;</option>
+                                <option value="km">Kilometers&sup2;</option>
+                                <option value="mm">Milimeters&sup2;</option>
+                                <option value="feet">Feet&sup2;</option>
+                                <option value="yard">Yards&sup2;</option>
+                                <option value="mile">Miles&sup2;</option>
+                            </select></td>
+                            <td>
+                                <button  class="conv_btn" id="Conv_SAcapsu">Convert Result</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"> <div class="calc_Result" id="Conv_SAcapsu_Result">Find the Area First .</div></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <hr>
+
+              <!--------- Surface Area of Conical Frustum ---------->
+           
+              <div id="SAreaConicFrus">
+                <form action="" onsubmit="event.preventDefault()">
+                    <table id="SAreaconfrus" class="ShapeContainer" cellpadding="10">
+                        <tr >
+                            <td> <label for=""> Base Radius (R)</label> </td>
+                            <td> <input type="number"  value="0"id="SAconfrus_baseradi"></td>
+                            <td> <select name="" id="SAcapsu_baseradi_Sel">
+                                <option value="cm" selected>Centimeters</option>
+                                <option value="m">Meter</option>
+                                <option value="inch">Inches</option>
+                                <option value="km">Kilometers</option>
+                                <option value="mm">Milimeters</option>
+                                <option value="feet">Feet</option>
+                                <option value="yard">Yards</option>
+                                <option value="mile">Miles</option>
+                            </select></td>
+                        </tr>
+                        <tr >
+                            <td> <label for=""> Bottom Radius (r)</label> </td>
+                            <td> <input type="number" value="0" id="SAconfrus_bottradi"></td>
+                            <td> <select name="" id="SAconfrus_bottradi_Sel">
+                                <option value="cm" selected>Centimeters</option>
+                                <option value="m">Meter</option>
+                                <option value="inch">Inches</option>
+                                <option value="km">Kilometers</option>
+                                <option value="mm">Milimeters</option>
+                                <option value="feet">Feet</option>
+                                <option value="yard">Yards</option>
+                                <option value="mile">Miles</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td> <label for=""> Height (h)</label> </td>
+                            <td> <input type="number" value="0" id="SAconfrus_height"></td>
+                            <td> <select name="" id="SAconfrus_height_Sel">
+                                <option value="cm" selected>Centimeters</option>
+                                <option value="m">Meter</option>
+                                <option value="inch">Inches</option>
+                                <option value="km">Kilometers</option>
+                                <option value="mm">Milimeters</option>
+                                <option value="feet">Feet</option>
+                                <option value="yard">Yards</option>
+                                <option value="mile">Miles</option>
+                            </select></td>
+                        </tr>
+                       
+                        <tr> <td colspan="3">
+                            <div class="calc_Result" id="Calc_SAconfrus_Result">Enter the Values .</div>
+                            <div class="get_Result">
+                            <button onclick="getSAreaConicFrustum()" class="result_btn" id="get_SAConFrus">Calculate</button>
+                            </div>
+                        </td>
+                        <tr> 
+                            <td class="Conv_result">Convert Result In :</td>
+                            <td><select name="" id="SAconfrus_convert">
+                                <option value="cm">Centimeters&sup2;</option>
+                                <option value="m" selected>Meter&sup2;</option>
+                                <option value="inch">Inches&sup2;</option>
+                                <option value="km">Kilometers&sup2;</option>
+                                <option value="mm">Milimeters&sup2;</option>
+                                <option value="feet">Feet&sup2;</option>
+                                <option value="yard">Yards&sup2;</option>
+                                <option value="mile">Miles&sup2;</option>
+                            </select></td>
+                            <td>
+                                <button  class="conv_btn" id="Conv_SAconfrus">Convert Result</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"> <div class="calc_Result" id="Conv_SAconfrus_Result">Find the Area First .</div></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <hr>
+            <!--------- Surface Area of Ellipsoid ---------->
+    <div id="SAreaEllipse">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="SAreaellipse" class="ShapeContainer" cellpadding="10">
+                <tr >
+                    <td> <label for=""> Axis 1 (a)</label> </td>
+                    <td> <input type="number" value="0" id="SAelli_a1"></td>
+                    <td> <select name="" id="SAelli_a1_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr >
+                    <td> <label for=""> Axis 2 (b)</label> </td>
+                    <td> <input type="number" value="0" id="SAelli_a2"></td>
+                    <td> <select name="" id="SAelli_a2_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td> <label for=""> Axis 3 (c)</label> </td>
+                    <td> <input type="number" value="0" id="SAelli_a3"></td>
+                    <td> <select name="" id="SAelle_a3_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+               
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_SAellipse_Result">Enter the Values .</div>
+                    <div class="get_Result">
+                    <button onclick="getSAreaEllip()" class="result_btn" id="get_SAEllip">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="SAellip_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_SAellip">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_SAellipg_Result">Find the Area First .</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+ <hr>
+     <!--------- SurfaceArea of Square Pyramid -->
+     <div id="SAreaSqPyramid">
+        <form action="" onsubmit="event.preventDefault()">
+            <table id="SAsqpyram" class="ShapeContainer" cellpadding="10">
+                
+                <tr >
+                    <td> <label for=""> Height (h)</label> </td>
+                    <td> <input type="number" id="SAsqpy_height" value="0"></td>
+                    <td> <select name="" id="SAsqpy_height_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td> <label for=""> Base Edge (a)</label> </td>
+                    <td> <input type="number" value="0" id="SAsqpy_edge"></td>
+                    <td> <select name="" id="SAsqpy_edge_Sel">
+                        <option value="cm" selected>Centimeters</option>
+                        <option value="m">Meter</option>
+                        <option value="inch">Inches</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="yard">Yards</option>
+                        <option value="mile">Miles</option>
+                    </select></td>
+                </tr>
+                <tr> <td colspan="3">
+                    <div class="calc_Result" id="Calc_SAsqpy_Result">Enter the values.</div>
+                    <div class="get_Result">
+                        <button onclick="getSASqpyramid()" class="result_btn" id="get_SARectangle">Calculate</button>
+                    </div>
+                </td>
+                <tr> 
+                    <td class="Conv_result">Convert Result In :</td>
+                    <td><select name="" id="SAsqpy_convert">
+                        <option value="cm">Centimeters&sup2;</option>
+                        <option value="m" selected>Meter&sup2;</option>
+                        <option value="inch">Inches&sup2;</option>
+                        <option value="km">Kilometers&sup2;</option>
+                        <option value="mm">Milimeters&sup2;</option>
+                        <option value="feet">Feet&sup2;</option>
+                        <option value="yard">Yards&sup2;</option>
+                        <option value="mile">Miles&sup2;</option>
+                    </select></td>
+                    <td>
+                        <button  class="conv_btn" id="Conv_SAsqpyramid">Convert Result</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <div class="calc_Result" id="Conv_SAsqpy_Result">Find the Area First.</div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script src="../js/SArea.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../jqueryfile.js"></script>
+    <title>Fade In Out</title>
+    <style>
+        h1 {
+            text-align: center;
+            text-decoration: underline;
+        }
+        .fadefun{
+            width: 600px;
+            margin: auto;
+            padding: 10px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hide and Fade-Out  Function In JQuery</h1>
+
+    <div class="deminstrate">
+        <h2>Explanation of Hide() & FadeOut() in JQuery:-</h2>
+        <p>Hide() Function directly hide the specified content in an fraction of seconds.
+            Where as the fadeOut() function hide the specified content directly and 
+          developer defined delay speed also.  </p>
+
+    </div>
+
+
+
+    <div class="fadefun">
+        <h3>For Example:- </h3>
+        <p id="para1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit odio quod id mollitia laudantium et
+            repellendus sunt. Vitae quae laboriosam dolor fuga repellendus saepe tempore, omnis atque eos doloremque
+            assumenda ipsam vel minus officia inventore similique voluptatem eligendi quaerat magnam? Et assumenda quis
+            illum officia nesciunt cum recusandae placeat a nostrum nobis qui maiores, exercitationem aliquam quam enim
+            magnam distinctio odio laboriosam minus, voluptatibus deserunt. Consequatur?
+        </p>
+        <button onclick="paraHide()">Hide</button>
+        <button onclick="fadeiInfun()">Fade In</button>
+        <button onclick="fadeOutfun()">Fade Out</button>
+    </div>
+
+    <script>
+        function paraHide(){
+        $("#para1").hide()
+        }
+
+        function fadeiInfun(){
+        $("#para1").fadeIn(1000);
+        }
+
+        function fadeOutfun(){
+        $("#para1").fadeOut(1500)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <style>
+        h1{
+            margin: auto;
+            text-align: center;
+        }
+        .container{
+            width: 320px;
+            border: 2px solid black;
+            margin: auto;
+            padding: 10px;
+        }
+        select{
+            width: 170px;
+            text-align: center;
+        }
+        button{
+            transform: translateX(120px);
+            margin-top: 20px;
+        }
+        .result{
+            /* margin: 70px 0 0 30px; */
+            width: 350px;
+            /*border: 2px solid black;*/
+            padding: 10px;
+            transform: translateY(50px);
+            margin: auto;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Courses</h1> <br>
+    <div class="container">
+        <table>
+            <tr>
+                <td> <label for="">Name:-</label> </td>
+                <td> <input type="text" id="fname"> </td>
+            </tr>
+            <tr>
+                <td> <label for="">Contact:-</label> </td>
+                <td> <input type="number" id="fcontact"> </td>
+            </tr>
+
+            <tr>
+                <td><label for="">Email:- </label> </td>
+                <td> <input type="email" id="femail"> </td>
+            </tr>
+
+            <tr>
+                <td>Select Course :-</td>
+                <td>
+                    <select name="" id="selectCour">
+                        <option value="Python">Python</option>
+                        <option value="JAVA">JAVA</option>
+                        <option value="Web Development">WEB DEV</option>
+                        <option value="DJango">Django</option>
+                        <option value="MySQL">MySQL</option>
+
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td rowspan="2"> <button type="submit" onclick="submitcor()">Submit</button>
+                                 <button type="reset" id="ResetPage">Reset</button>
+                 </td>
+                
+            </tr>
+        </table>
+    </div>
+
+    <div class="result">
+        <p id="rname"></p>
+        <p id="rcontact"></p>
+        <p id="remail"></p>
+        <p id="rcourse"></p>
+        <p id="rfees"></p>
+        <p id="rdess"></p>
+        <p id="rtotfees"></p>
+
+    </div>
+
+    <script>
+
+        function submitcor(){
+
+       
+
+        let ename = document.getElementById("fname").value;
+        let contact = document.getElementById("fcontact").value
+        let femail = document.getElementById("femail").value;
+        let selectcou = document.getElementById("selectCour").value;
+        //let resetPage = document.getElementById("resetPage");
+
+        //console.log(selectcou);
+
+       // fees courese loop
+
+    //    if( selectcou == "python"){
+    //        console.log("sucess")
+    //        let fees = 5000;
+    //        let duration  = 48;
+    //    }
+
+        //-------class creation
+        class courses{
+            constructor(ename, femail, contact, selectcou){
+                this.ename = ename;
+                this.femail = femail;
+                this.contact = contact;
+                this.selectcou = selectcou;
+                
+              
+            }
+
+             discount(selectcou){
+                 let fees = "";
+    
+               if(this.selectcou == "Python"){
+                    fees = 20000;
+                 
+               }
+               else if(this.selectcou == "JAVA"){
+                    fees = 30000;
+               }
+               else if(this.selectcou == "Web Development"){
+                    fees = 15000;
+               }
+               else if(this.selectcou == "DJango"){
+                    fees = 1000;
+               }
+               else if(this.selectcou == "MySQL"){
+                    fees = 9000;
+    
+               }
+
+                 let totdesc = (fees/100)*10;
+                 let totalFee = fees - totdesc;
+
+               document.getElementById("rfees").innerHTML = "Fees : "+"Rs. "+ fees;
+               document.getElementById("rdess").innerHTML = "Discount : "+"Rs. "+ totdesc;
+               document.getElementById("rtotfees").innerHTML ="Total Fees : "+"Rs. "+ totalFee;
+
+
+            }
+
+            enroll(ename, femail, contact, selectcou){
+
+                document.getElementById("rname").innerHTML = "Name :"+ this.ename;
+                document.getElementById("remail").innerHTML = "Email : "+ this.femail;
+                document.getElementById("rcontact").innerHTML ="Contact : "+ this.contact;
+                document.getElementById("rcourse").innerHTML = "Course : "+ this.selectcou;
+            }
+
+            cancel(){
+             window.location.reload();
+
+            }
+           
+        }
+
+       //------- creation of object and calling functions
+        let courseDetail = new courses(ename, femail, contact, selectcou);
+        let y = courseDetail.discount()
+        
+        let selcourse = courseDetail.enroll();
+
+        // for Cancel function
+        document.getElementById("ResetPage").addEventListener("click",function(){
+            courseDetail.cancel()
+        })
+
+
+    }
+    </script>
+    
+</body>
+</html>

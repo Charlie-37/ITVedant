@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container{
+            margin: auto;
+            width: 500px;
+            padding: 20px 0 20px 20px;
+            border: 2px solid black;
+        }
+        input{
+            margin: 0 15px;
+        }
+        p{
+            font-weight: bolder;
+        }
+        button[type="reset"]{
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grading System</h1>
+    <div class="container">
+        <label for="inputGrade">Input Marks</label> : 
+        <input type="number name="inputgrade" id="inputGrade">
+        <button id="calculate" onclick="calculateGrade()">Calculate</button>
+        <button type="reset" onclick="resetGrade()">Reset</button>
+        <p id="gradePara">The Grade is : <span id="resultGrade"></span> </p>
+        
+    </div>
+
+    <script>
+        function calculateGrade(){
+            let x = document.getElementById("inputGrade").value;
+            console.log(x);
+ //------For invalid marks then refresh the window
+            if(x >=101){
+                alert("Enter Valid Marks")
+               location.reload()
+            }else{}
+
+   // ------ grading Logic
+            if(x <=100 && x>= 85 ){
+                document.getElementById("resultGrade").innerHTML = "A";
+            }
+            else if(x <= 84 && x >= 70 ){
+                document.getElementById("resultGrade").innerHTML = "B";
+            }
+            else if( x <= 69 && x >=60){
+               document.getElementById("resultGrade").innerHTML = "C";
+            }
+            else if(x <= 59 && x>= 45){
+                document.getElementById("resultGrade").innerHTML = "D";
+            }
+            else if(x <= 44 && x >= 35){
+                document.getElementById("resultGrade").innerHTML = "E";
+                }
+            else if(x <= 34 && x>= 0){
+                document.getElementById("resultGrade").innerHTML = "Fail";
+                 
+            }
+
+            // ------ for Fail Color Change
+            if( x < 34){
+                
+                document.getElementById("resultGrade").style.color = "red";
+                
+            }
+            else{
+                 document.getElementById("resultGrade").style.color = "black";
+            }
+
+        }
+
+        // -----For reset the input feild
+        function resetGrade(){
+            location.reload();
+        }
+    </script>
+    
+</body>
+</html>

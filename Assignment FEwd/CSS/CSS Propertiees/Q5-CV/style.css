@@ -1,0 +1,339 @@
+
+@font-face {
+    font-family: poppins;
+    src: url(font/Poppins-Thin.ttf);
+}
+@font-face {
+    font-family: poppinspara;
+    src: url(font/Poppins-Light.ttf);
+}
+body{
+    background-color:rgb(216,216,216);
+    font-family: poppins;
+    
+}
+
+
+#main{
+    margin-top: 0%;
+    width: 73%;
+    height: 900px;
+}
+#left{
+    background-color:rgb(64,64,64);
+    width: 300px;
+}
+
+#profilepic{
+    margin-top: 30px;
+    margin-left: 75px;
+    border-radius: 50%;
+}
+#left a:hover{
+    opacity: 0.5;
+}
+#left h3{
+    color: white;
+    margin-top: 15px;
+    margin-left: 30px;
+    letter-spacing: 1px;
+}
+#left h4{
+    color: white;
+    margin-top: -10px;
+    margin-left: 30px;
+    font-size: 15PX;
+    letter-spacing: 2px;
+}
+#left hr{
+    width: 90%;
+    height: 1px;
+}
+/*------------------------------profile----------------------------------------------------------*/
+#left .prof{
+    list-style: none;
+    color: white;
+    margin-left: -10px;
+}
+#left  .icon{
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    color: rgb(64,64,64);
+    font-size: 16px;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: 20px;
+    position: relative;
+    margin-right: 10px;
+    
+}
+#left .icon i{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+}
+
+#left .prof .data{
+    color: white;  
+    margin: -25px 10px 0 35px;
+}
+/*------------------------------progress--------------------------------------------------------*/
+#left .progress{
+    list-style: none;
+    margin-top: 20px;
+}
+#left .progress h5{
+    margin-left: -3px;
+    color: white;
+}
+#left .progress .bar{
+    background-color: black;
+    display: block;
+    height: 2px;
+    width: 80%;
+    margin-top: -5px;
+    border-radius: 10%;
+    box-shadow: black;
+    
+    
+}
+#left .progress  .per{
+  float: right;
+  margin-right: 10px;
+  margin-top: -10px;
+  color: white;
+  font-size: 13px;
+}
+#left .progress .bar span{
+    height: 2px;
+    float: left;
+    background-color:white;
+}
+#left .progress .bar .css{
+    width: 85%;
+}
+#left .progress .bar .jquery{
+    width: 60%;
+}
+#left .progress .bar .sql{
+    width: 77%;
+}
+#left .progress .bar .html{
+    width: 90%;
+}
+/*------------------------------social----------------------------------------------------------*/
+
+#left .skill{
+    list-style-type: none;
+    
+}
+#left .social{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    color: rgb(64,64,64);
+    font-size: 20px;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: 18px;
+    position: relative;
+    margin-right: 10px;
+    
+   
+}
+#left .social i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);   
+}
+
+#left .soc span{
+color: white;  
+margin-left: 50px;
+font-size: 18px;
+font-weight: bold;
+
+}
+
+#left .soc p{
+    color: white;  
+    margin-left: 50px;
+    font-size: 15px;
+    margin-top: 1px;    
+}
+
+/*-----------------------------right-------------------------------------------------------------------*/
+
+#right{
+    background-color: white;
+     font-family: poppinspara;
+     color: black;
+}
+
+#right h3{
+    /*transform: translate(-50%,-50%);*/
+    transform: translateY(0px);
+    margin-left: 25px;
+}
+#right p{
+    transform: translateY(0px);
+    font-size: 15px;
+    justify-content: space-around;
+    margin-left: 25px;
+    margin-right: 30px;
+    margin-top: -10px;
+    color: black;
+}
+
+#right hr{
+    margin-top: -0px;
+    color:rgb(64,64,64);
+    width: 95%;
+    
+}
+
+
+/*------------------------------------------Education--------------------------------*/
+#right .edu{
+    margin-top: -0px;
+    height: 340px;
+    font-family: poppinspara;
+}
+
+#right .edu h4{
+    margin-top: 10px;
+    margin-left: 15px;
+    transform: translateY(10px);
+}
+#right .edu hr{
+    width: 1px;
+    height: 250px;
+    float: left;
+    transform: translate(39px, -2px);
+    
+}
+
+#right ul{
+margin-left: 14px;
+transform: translateY(-50px);
+ margin-top: 0px;
+
+}
+ .web{
+    margin-left: 15px;
+}
+#right .edu .temp li{
+    margin-bottom: 10px;
+}
+#right .edu .temp span{
+    font-size: 15px;
+     color: black;
+    
+}
+#right .edu .temp li span{
+ margin-left: 15px;
+}
+#right .edu .temp li a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    font-size: 15px;
+    
+   
+}
+#right .edu .temp li a:hover{
+    text-decoration: underline;
+    color: blue;
+}
+
+
+/*------------------------------------------Certification-------------------------------*/
+
+#right .cert{
+    transform: translateY(0px);
+    position: relative;
+    height: 240px;
+
+}
+#right .cert h4{
+    transform: translateY(0px);
+    margin-left: 15px;
+}
+.certificate .span{
+ margin-left: 10px;
+}
+#right .cert hr{
+    height: 140px;
+    width: 1px;
+    float: left;
+    transform: translate(39px, 11px);
+}
+#right .cert ul{
+    transform: translateY(0px);
+    /* border: 2px solid black; */
+   
+     
+}
+
+
+/*------------------------------------------HOBBY------------------------------*/
+
+#right .hobby{
+    font-family: poppinspara;
+    transform: translateY(0px);
+}
+#right .hobby hr{
+    width: 95%;
+    align-content: center;
+    margin-top: -30px;
+}
+#right .hobby h3{
+    transform: translateY(-10px);
+}
+#right .hobby .hob_icon{
+  display: flex; 
+  z-index: 1;  
+  opacity: 1;
+  width: 500px;
+}
+
+#right .hobby .hobb_icon{
+ height: 50px;
+ width: 50px;
+ background-color:white;  
+ margin: 10px;
+ position: relative;
+ border-radius: 50%;
+ border: solid;
+ margin-left: 40px;
+
+}
+#right .hobby .hob_icon i{
+  font-size: 20px;
+ position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+}
+#right .hobby .hob_icon ul {
+    list-style: none;
+    display: flex;
+    transform: translateY(5px);
+    position: relative;
+}
+#right .hobby .hob_icon ul li::before{
+    content: " ";
+    width: 60px;
+    top: 36px;
+    background: black;
+    position: absolute;
+    height: 2px;
+    transform: translateX(85px);  
+}
+#right .hobby .hob_icon ul li:last-child:before{
+    display: none;
+}
+

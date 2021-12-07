@@ -1,0 +1,31 @@
+ html {
+     font-size: 16px;
+ }
+
+ #ddi {
+     height: 500px;
+     width: 400px;
+     border: 2px solid black;
+ }
+
+ .size1 {
+     font-size: 20px;
+ }
+
+ .para1 {
+     font-size: 1em;
+ }
+
+ .para2 {
+     font-size: 1rem;
+ }
+
+ .col-1 {
+     width: 300px;
+     height: 200px;
+     float: left;
+     margin: 10px;
+ }
+ .col-2{
+     clear: both;
+ }

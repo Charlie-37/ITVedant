@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+    </style>
+    <title>While Loop</title>
+</head>
+<body>
+    <h1>While Loop</h1>
+    <p id="whileLoop"></p>
+
+    <script>
+       let num = 0;
+       let i = 1;
+       while (i<20) {
+           num += "<br>" + i;
+           i+=3;
+           document.getElementById("whileLoop").innerHTML = num;
+           
+       }
+    </script>
+    
+</body>
+</html>

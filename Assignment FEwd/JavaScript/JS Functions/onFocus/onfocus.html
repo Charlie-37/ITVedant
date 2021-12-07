@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onfocus</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .expla {
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: 18px;
+            margin: auto;
+        }
+
+        .container{
+            margin: auto;
+            width: 500px;
+        }
+        input, label{
+            margin: 10px 10px;
+        }
+        button{
+         margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Onfocus Function in JavaScript</h1>
+    <div class="expla">
+        <p>The HTML DOM event onfocus is triggered whenever an HTML element it is assigned to receives focus from the
+            user.This event is usually used with &lt input>, &lt select> and &lt a> tags. These are tags that are
+            generally associated
+            with user interaction.There is a similar DOM event – onblur – which triggers when the element that it is
+            assigned to loses focus.
+
+            The onfocus DOM event is very similar to the DOM event onfocusin. The primary difference between the
+            two is that onfocusin bubbles events up to its parents, while onfocus does not.</p>
+
+            <h2>Syntax :- </h2>
+            <h4> &ltinput type="text" placeholder="Enter your password" onfocus="alertMsg()"></h4>
+    </div>
+
+    <h2>Example:- </h2>
+
+    <div class="container">
+
+        
+        <label for="alMsg">Enter Your Name:-</label>
+        <input type="text" onfocus="alertMsg(this)" id="alMsg"> <br>
+
+        <label for="alPas">Enter Your Password:-</label>
+        <input type="password" onfocus="alertPass()" id="alPas"> <br>
+        
+        
+    </div>
+
+    <script>
+       
+        function alertMsg(){
+        let x = document.getElementById('alMsg').value;
+        document.getElementById('alMsg').style.background = "lime";
+        
+        }
+        function alertPass(){
+        let x = document.getElementById('alPas').value;
+        if( x == ''){
+        document.getElementById('alPas').style.background = "aqua";
+        }
+       
+
+    }
+    </script>
+</body>
+
+</html>

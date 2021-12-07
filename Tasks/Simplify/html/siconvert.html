@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/siconvert.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0c821f3c91.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- jquery file for tabs -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    
+    <title>SI Converter</title>
+</head>
+<body>
+
+    <section id="SIbanner" >
+
+        <!-- --------------------------navbar -->
+        <!-- <nav id="navBar"></nav> -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><i class="fas fa-laptop-code"></i><span id="find">Find-</span><span id="it">IT</span> </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-sm-end" id="navbarSupportedContent" >
+                <ul class="navbar-nav " style="margin-right: 60px;">
+                  <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="index.html" style="color:green; margin-right: 30px;" >Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: green; margin-right: 25px;" href="currency.html">Currency</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: green; margin-right: 25px;" href="siconvert.html">SI Converter</a>
+                  </li>
+                  <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../html/siconvert.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:purple; margin-right: 25px;">
+                      SI Converter
+                    </a>
+                    <ul class="dropdown-menu menuOne" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Length</a></li>
+                      <li><a class="dropdown-item" href="#">Mass</a></li>
+                      <li><a class="dropdown-item" href="#">Speed</a></li>
+                      <li><a class="dropdown-item" href="#">Temperature</a></li>
+                      
+                    </ul> -->
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:green; margin-right: 20px;">
+                      Shapes
+                    </a>
+                    <ul class="dropdown-menu menuTwo" aria-labelledby="navbarDropdown" style="color:green">
+                      <li><a class="dropdown-item" href="SArea.html">Area /Surface Area</a></li>
+                      <li><a class="dropdown-item" href="#">Volume</a></li>
+                    </ul>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        <!-- -------------------------------Container -->
+
+
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body ">
+                    <div id="Banner1" class="col-md-5">
+                       
+                        <img src="../image/length.png" alt="" id="imgB">
+
+                    </div>
+
+
+
+                    <div id="Banner2" class="col-md-6">
+                        <div id="tabs">
+                            <ul>
+                              <li><a href="#tabs-1" id="imgLeng">Length</a></li>
+                              <li><a href="#tabs-2" id="imgMass">Mass</a></li>
+                              <li><a href="#tabs-3" id="imgSpeed">Speed</a></li>
+                              <li><a href="#tabs-4" id="imgTemp">Temperature</a></li>
+                            </ul>
+                            <!-- -----------length ----------->
+                            <div id="tabs-1">
+                                <form action="" id="length_form" onsubmit="event.preventDefault()">
+                                    <table id="tableLen">
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="number" id="element1" value="0">
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr id="len_Sel">
+                                          <td id="fromLen" class="Fromlen">
+                                            <select name="" id="from_len"> </select>
+                                        </td>
+                                           
+                                            <td id="toLen" class="Fromlen">
+                                                <select name="" id="to_len"> </select>
+                                            </td>
+                                        </tr>
+                                        
+                                        
+                                    </table>
+                                    <div id="result_length">
+                                        Enter A Number..!!
+
+                                    </div>
+                                    <button id="get_Lenght" onclick="get_Length()" >Calculate</button>
+                                </form>
+                            </div>
+
+                            <!----------------- mass Conversion  -->
+                            <div id="tabs-2">
+                              <form action="" id="mass_form" onsubmit="event.preventDefault()">
+                                <table id="tableMass">
+                                    <tr>
+                                        <td colspan="2">
+                                            <input type="number" id="mass_input" value="0">
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr id="mass_Sel">
+                                      <td id="fromLen" class="FromMass">
+                                        <select name="" id="from_mass"> </select>
+                                    </td>
+                                       
+                                        <td id="toMass" class="FromMass">
+                                            <select name="" id="to_mass"> </select>
+                                        </td>
+                                    </tr>
+                                    
+                                    
+                                </table>
+                                <div id="result_mass">
+                                    Enter A Number..!!
+
+                                </div>
+                                <button id="get_mass" >Calculate</button>
+                            </form>
+                          </div>
+                          <!----------------- Speed Conversion  -->
+                            <div id="tabs-3">
+                              <form action="" id="speed_form" onsubmit="event.preventDefault()">
+                                <table id="tableSpeed">
+                                    <tr>
+                                        <td colspan="2">
+                                            <input type="number" id="speed_input" value="0">
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr id="speed_Sel">
+                                      <td id="fromSpeed" class="FromSpeed">
+                                        <select name="" id="from_speed"> </select>
+                                    </td>
+                                       
+                                        <td id="toSpeed" class="FromSpeed">
+                                            <select name="" id="to_speed"> </select>
+                                        </td>
+                                    </tr>
+                                    
+                                    
+                                </table>
+                                <div id="result_speed">
+                                    Enter A Number..!!
+
+                                </div>
+                                <button id="get_speed" >Calculate</button>
+                            </form>
+                            </div>
+
+                             <!----------------- Temperature Conversion  -->
+                            <div id="tabs-4">
+                              <form action="" id="temp_form" onsubmit="event.preventDefault()">
+                                <table id="tableTemp">
+                                    <tr>
+                                        <td colspan="2">
+                                            <input type="number" id="temp_input" value="1">
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr id="tem_Sel">
+                                      <td id="fromTemp" class="FromTemp">
+                                        <select name="" id="from_Temp"> </select>
+                                    </td>
+                                       
+                                        <td id="toTemp" class="FromTEMP">
+                                            <select name="" id="to_Temp"> </select>
+                                        </td>
+                                    </tr>
+                                    
+                                    
+                                </table>
+                                <div id="result_temp">
+                                    Enter A Number..!!
+
+                                </div>
+                                <button id="get_temp" >Calculate</button>
+                            </form>
+                            </div>
+                          </div>
+                          <p>
+                            
+                          </p>
+
+                </div>
+              </div>
+            </div>
+           
+          </div>
+          </div>
+
+
+
+    </section>
+
+    <!-- -----------JS Files -->
+    
+   
+    
+    <script src="../js/siconvert.js"></script>
+    <script src="../js/massconv.js"></script>
+    <script src="../js/speedconv.js"></script>
+    <script src="../js/tempconc.js"></script>
+
+    <!-- <script src="../js/countrylist.js"></script> -->
+    <!-- <script src="../js/jquerycdn.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="password"]{
+            border: 3px solid red;
+        }
+
+        label[for="fname"]{
+            color: blue;
+            font-size: 20px;
+        }
+        h1[name="This is Attribute Selector"]{
+            text-align: center;
+        }
+        h1[name^="This is Attrib"]{    
+             /* ^ = Is used for shorten the css selector, it change the css related to matching START value */
+            font-family: monospace;
+            font-size: 40px;
+        }
+        h1[name$="ector"]{    
+             /* $ = Is used for shorten the css selector, it change the css related to matching LAST value */
+           color: cyan;
+        }
+    </style>
+</head>
+<body>
+    <h1 name="This is Attribute Selector">This is Attribute Selector</h1>
+    <form action="">
+        <label for="fname">Name</label>
+        <input type="text" name="fname" placeholder="Name"><br><br>
+
+        <label for="fpass">Password</label>
+        <input type="password" name="fpass" placeholder="Password">
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .empform{
+            width: 400px;
+            margin: auto;
+            border: 2px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Employee Details</h1>
+
+    <div class="empform">
+
+        
+
+        <table>
+            <tr>
+                <td><label for="">Employee ID :-</label></td>
+                <td><input type="number" id="empId"></td>
+            </tr>
+
+            <tr>
+                <td><label for="">Employee Name :-</label></td>
+                <td><input type="text" id="empName"></td>
+            </tr>
+
+            <tr>
+                <td><label for="">Employee Salary :-</label></td>
+                <td><input type="number" id="empSal" required><br></td>
+            </tr>
+              <tr>
+                  <td><label for="">Employee Experience :- <br>
+                                    (in Years)
+                  </label></td>
+                  <td><input type="number" id="empExp"><br></td>
+              </tr>
+
+
+            <tr>
+                <td rowspan="2"><input type="submit" onclick="submitdet()"></td>
+
+            </tr>
+        </table>
+       
+    </div>
+
+    <div class="results">
+        <p id="ResId"></p>
+        <p id="ResName"></p>
+        <p id="ResSal"></p>
+        <p id="ResWorkExp"></p>
+        <p id="TotalResultSal"></p>
+        <p id="TotalBonus"></p>
+    </div>
+
+    <script src="emp.js"></script>
+</body>
+
+</html>

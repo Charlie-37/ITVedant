@@ -1,0 +1,387 @@
+
+
+/*--------nav************----------**/
+@font-face {
+    font-family: court;
+    src: url(../font/courgette/Courgette-Regular.ttf);
+}
+@font-face {
+    font-family: comfort;
+    src: url(../font/Comforter/Comforter/Comforter-Regular.ttf);
+}
+@font-face {
+    font-family: poppinsbold;
+    src: url(../font/poppins/Poppins-Light.ttf);
+}
+.navbar-brand{
+    font-size: 26px;
+    border: none;
+}
+.fas{
+    margin-right: 10px;
+    margin-left: 30px;
+}
+#find{
+    font-family: court;
+}
+#it{
+    font-family: comfort;
+    font-weight: bold;
+}
+.dropdown-menu{
+    border: none;
+}
+.menuOne{
+    margin-left: 14px;
+}
+#navbarSupportedContent{
+    color: voilet;
+}
+
+
+.dropdown-menu li a{
+   color: rgba(233, 98, 49, 0.897);
+  
+}
+.dropdown-menu li a:hover{
+   background:linear-gradient(185deg, rgb(255, 153, 0), orange, rgba(255, 217, 0, 0.897));
+   color: white;
+}
+.navbar-nav{
+   font-family:poppinsbold ;
+   font-size: 18px;
+}
+
+
+
+
+
+
+/*--------nav************----------**/
+#bannerSurface{
+    /* border: 2px solid black; */
+    height: 83vh;
+    width: 95vw;
+    margin: auto;
+    margin-top: 80px;
+    
+    background-color: #fff;
+    /* box-shadow: 2px 2px 10px 2px  rgba(212, 96, 223, 0.493); */
+}
+/*----------------- content */
+.row{
+    margin: auto;
+    width: 86vw;
+    height: 64vh;
+    padding: 0px;
+    /* border: 2px solid black; */
+}
+.card{
+    /* border: 2px solid black; */
+    height: 61vh;
+      padding:0;
+      border: none;
+      
+}
+#Banner1{
+    padding: 10px;
+    /* border: 2px solid black; */
+    
+}
+#SAImg{
+    /* border: 2px solid black; */
+    margin-top: 20px;
+    height: 360px;
+    width: 480px;
+    transition: 0.5s;
+    float: right;
+}
+
+#Banner2{
+    padding: 0;
+    height: 63vh;
+    /* border: 2px solid black; */
+    margin: 0;
+}
+
+#SurfaceContainer{
+    /* border: 2px solid black; */
+    margin: 0;
+    height: 100%;
+    background: white;
+    /* background: rgb(255, 179, 102); */
+    float: right;
+}
+
+#selectShape{
+    height: 40px;
+    border: 2px solid rgb(235, 92, 26) ;
+    color: rgba(233, 98, 49, 0.959) ;
+    border-radius: 7px;
+}
+#containerCalc{
+    /* border: 2px solid Black; */
+    height: 100%;
+    width: 100%;
+
+}
+table{
+    margin-top: 10px;
+    /* border: 2px solid orangered; */
+    height: auto;
+    padding: 10px;
+    width: 100%;
+}
+label{
+    font: poppinsbold;
+    font-size: 20px;
+    color: orangered;
+    margin-left: 0px;
+}
+input{
+    font-family: poppinsbold;
+    font-size: 20px;
+    border: 2px solid rgba(235, 92, 26, 0.432) ;
+    border-radius: 7px;
+    width: 100%;
+    outline: none;
+    height: 40px;
+    text-align: right;
+}
+select{
+    border: 2px solid rgba(235, 92, 26, 0.432) ;
+    border-radius: 7px;
+    width: 100%;
+    outline: none;
+    padding: 5px;
+    height: 40px;
+    font: poppinsbold;
+    font-size: 18px;
+}
+.get_Result, .calc_Result{
+    font-size: 24px;
+    margin-top: 10px;
+    /* border: 2px solid black; */
+    text-align: center;
+    height: 50px;
+    font-family: poppinsbold;
+}
+
+.result_btn{
+    color: white;
+    font-family: poppinsbold;
+    border-radius: 9px;
+    font-size: 22px;
+    height: 40px;
+    width: 60%;
+    margin: auto;
+    background:linear-gradient(185deg, rgb(255, 153, 0), orange, rgba(255, 217, 0, 0.897));
+}
+.conv_btn{
+    color: white;
+    font-family: poppinsbold;
+    border-radius: 9px;
+    font-size: 22px;
+    height: 40px;
+    width: 100%;
+    margin: auto;
+    background:linear-gradient(185deg, rgb(255, 153, 0), orange, rgba(255, 217, 0, 0.897));
+}
+
+
+.card-body{
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.Conv_result{
+    text-align: right;
+    font-family: poppinsbold;
+    font-size: 20px;
+}
+
+
+/* -----media query-------- */
+@media only screen and (max-width: 1180px) {
+    #bannerSurface{
+        /* border: 2px solid black; */
+        height: 83vh;
+        width: 95vw;
+        margin: auto;
+        margin-top: 80px;
+        
+        background-color: #fff;
+        /* box-shadow: 2px 2px 10px 2px  rgba(212, 96, 223, 0.493); */
+    }
+    #bannerHome{
+        /* border: 2px solid black; */
+        height: 80vh;
+        width: 92vw;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .card{
+        height: 60vh; 
+    }
+    #Banner1{
+        width: 100%;
+    }
+    #Banner2{
+        margin-top: 0px;
+        width: 100%;
+    }
+    #imgB{
+        height: 300px;
+        width: 400px;
+        float: right;
+    }
+    #Banner1 p{
+        width: 270px;
+       
+    }
+  }
+
+  @media only screen and (max-width: 810px) {
+    #bannerHome{
+        height: 80vh;
+        width: 92vw;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .card{
+        height: 60vh; 
+    }
+    #Banner1{
+        width: 100%;
+    }
+    #Banner2{
+        height: 30vh;
+        margin-top: 0px;
+        width: 100%;
+    }
+    #imgB{
+        height: 200px;
+        width: 300px;
+        float: right;
+    }
+    #Banner1 p{
+        width: 270px;
+       
+    }
+  }
+  @media only screen and (max-width: 580px) {
+   
+    #Banner1{
+        width: 100%;
+        height: 30vh;
+        padding-left: 20px;
+    }
+    #Banner2{
+        height: 20vh;
+        margin-top: 00px;
+        width: 100%;
+        padding-right: 30px;
+        
+    }
+    #imgB{
+        height: 150px;
+        width: 200px;
+        float: right;
+    }
+    #Banner1 h1{
+       margin-top: -20px;
+       
+    }
+    #Banner1 p{
+        margin-top: -5px;
+        width: 170px;
+        font-size: 12px;
+       
+    }
+  }
+  @media only screen and (max-width: 385px) {
+    #bannerHome{
+        margin-top: 30px;
+        height: 88vh; 
+    }
+    .row{
+        height: 73vh;
+    }
+    .card{
+        height: 70vh;
+    }
+   
+    #Banner1{
+        width: 100%;
+        height: 34vh;
+        padding-left: 20px;
+    }
+    #Banner2{
+        height: 28vh;
+        
+        width: 100%;
+        padding-right: 30px;
+        
+    }
+    #imgB{
+        padding-left: 20px;
+        height: 150px;
+        width: 150px;
+        float: right;
+        
+    }
+   
+  }
+        
+  @media only screen and (max-width: 330px) {
+    #bannerHome{
+        margin-top: 30px;
+        height: 88vh; 
+    }
+    .row{
+        height: 73vh;
+    }
+    .card{
+        height: 70vh;
+    }
+   
+    #Banner1{
+        width: 100%;
+        height: 38vh;
+        padding-left: 20px;
+    }
+    #Banner2{
+        height: 20vh;
+        margin-top: 0px;
+        width: 100%;
+        padding-right: 30px;
+        
+    }
+    #imgB{
+        padding-left: 20px;
+        height: 100px;
+        width: 100px;
+        float: right;
+        
+    }
+    #Banner1 h1{
+        margin-top: 2px;
+        font-size: 20px;
+       
+    }
+    #Banner1 p{
+        margin-top: 10px;
+        width: 100px;
+        font-size: 10px;
+       
+    }
+    .LearnMore{
+        margin-top: 0px;
+        padding-left: 2px;
+        font-size: 6px;
+        width: 45px;
+        height: 20px;
+        
+    }
+  }

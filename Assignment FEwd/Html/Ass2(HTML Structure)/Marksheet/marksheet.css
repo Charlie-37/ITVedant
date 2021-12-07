@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.marksheet{
+    height: 550px;
+    width: 930px;
+    margin: 10px;
+    padding: 20px;
+    transform: translate(290px, 25px);
+    /* border: 2px solid black; */
+    align-items: center;
+}
+.marksheet table{
+    height: 500px;
+    width: 900px;
+    position: absolute;
+    text-align: center;
+    font-size: 18px;
+     border: 3px solid black;
+}
+.header, caption{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.footer{
+    font-weight: bolder;
+}

@@ -1,0 +1,112 @@
+/*--------------------- Answer 16---------------- */
+
+h1{
+    text-align: center;
+    font-family: sans-serif;
+    position: relative;
+}
+h1::before{
+    content: '';
+    background: cyan;
+    height: 3px;
+    bottom: -9px;
+    width: 280px;
+   position: absolute;
+}
+
+.ans13 {
+    
+    
+     width: 640px;
+     height: auto;
+     transform: translateX(450px);
+    
+    
+}
+
+@media(max-width:1220px){
+    .ans13{
+     transform: translateX(250px);
+    }
+
+    h1 {
+        text-align: center;
+      
+    }
+}
+
+@media(max-width: 880px) {
+    .ans13 {
+        transform: translateX(50px);
+    }
+}
+
+.allform {
+    width: 600px;
+   
+    height: auto;
+    padding: 10px;
+    
+}
+
+.ans13 .f-table {
+    padding: 0px;
+    width: 510px;
+    height: 690px;
+    font-size: 18px;
+    background: linear-gradient(#003366, #000d1a);
+    color: white;
+    
+    margin-left: 20px;
+
+}
+
+.f-table label {
+    text-align: right;
+    float: right;
+
+}
+
+.f-table .headfoot {
+    font-size: 20px;
+    background: yellow;
+    color: black;
+    margin-left: 10px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.f-table input,
+select, textarea {
+    margin-left: 15px;
+    font-size: 16px;
+    padding: 3px;
+}
+
+.f-table .headfoot span {
+    margin-left: 20px;
+
+}
+
+button {
+    border: none;
+    outline: none;
+    color: white;
+    height: 40px;
+    width: 80px;
+    justify-content: space-between;
+    padding: 5px;
+    font-size: 15px;
+    transform: translateX(300px);
+}
+
+.sub {
+    background: green;
+
+}
+
+.rest {
+    background-color: red;
+
+
+}

@@ -1,0 +1,473 @@
+
+Q5: Create a Resume with best CSS3 styling with external CSS. Resume must contain all your educational, 
+personal details, with minimum 2 webpages.Link both webpages with navigation lines.
+
+[A] HTML code:-
+
+Sunilb.html -
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resume</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    </head>
+    <body>
+        <table id="main" align="center">
+        
+            <td id="left">
+              <a href="IMG_20181229_155050_715.jpg"><img src="IMG_20181229_155050_715.jpg" id="profilepic" height="160px" width="160px"></a>  <br>
+                <h2>SUNIL BHAVE</h2>
+                <h3>ENGINEER</h3>
+                <hr color="white"><br><br>
+
+<!------------------------PROFILE-------------------------------------------------------->
+                 <ul class="prof">
+                     <li>
+                         <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                         </div>
+                         <div class="data">Badlapur,Thane 421503</div>
+                     </li>
+                     <li>
+                        <div class="icon"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+                        <div class="data">7709931296</div>
+                    </li>
+                    <li>
+                        <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                        <div class="data">sunilbhave69@gmail.com</div>
+                    </li>
+                 </ul><br><br>
+                  <hr color="white"><br><br>
+
+                 <h2>SKILL'S</h2>
+
+
+<!------------------------PROGRESS-------------------------------------------------------->
+                    <ul class="progress">
+                        <li>
+                            <h4>HTML</h4>
+                            <span class="bar"><span class="html"></span></span><span class="per">90%</span>
+                        </li>
+
+                        <li>
+                            <h4>CSS</h4>
+                            <span class="bar"><span class="css"></span></span></span><span class="per">85%</span>
+                        </li>
+
+                        <li>
+                            <h4>JQUERY</h4>
+                            <span class="bar"><span class="jquery"></span></span></span><span class="per">60%</span>
+                        </li>
+
+                        <li>
+                            <h4>SQL</h4>
+                            <span class="bar"><span class="sql"></span></span></span><span class="per">77%</span>
+                        </li>        
+                             </ul><br><br>
+                 
+                
+                <hr color="white"><br><br>
+<!------------------------SKILLS-------------------------------------------------------->
+                <h2>SOCIAL</h2>
+                  <ul class="skill">
+                      <li>
+                          <div class="social"><i class="fab fa-facebook-f"></i>
+                          <div class="soc">
+                              <span>Facebook</span><br>
+                              <p>sunilbhave@facebook</p>
+                          </div></div>
+                      </li>
+                      <li>
+                        <div class="social"><i class="fab fa-instagram"></i>
+                        <div class="soc">
+                            <span>Instagram</span><br>
+                            <p>sunil_bhave99</p>
+                        </div></div>
+                    </li>
+                    <li>
+                        <div class="social"><i class="fab fa-snapchat-ghost"></i>
+                        <div class="soc">
+                            <span>Snapchat</span><br>
+                            <p>sunilb703</p>
+                        </div></div>
+                    </li>
+                  </ul> <br><br>
+            </td>
+
+<!------------------------right-------------------------------------------------------->
+
+            <td id="right">
+                <h2>ABOUT MYSELF</h2>
+                <p>I am very honest , self-motivated, punctual, responsible, and very hard working. I am a mature and adaptable to all
+                    challenging situation. I am very good in observing and analyzing skills. I am able to work in both team environment
+                    as well as using own initiative. I am able to work well in under pressure and adhere to strict deadlines.
+                </p><br><br>
+
+                <hr color="grey"><br>
+                
+                <div class="edu">
+
+                    <h2>EDUCATION</h2>
+                        <hr color="grey"><br><br>
+
+
+                        <ul type="disc" class="temp">
+                            <li>
+                                <h3>2005 - 2016</h3>
+                                <a href="xmarksheet.pdf"><span>Completed HSC in CBSE Board</span></a><br><br>
+                            </li>
+
+                            <li>
+                                <h3>2016 - 2018</h3>
+                                <h3>12<sup>th</sup> Heigher Secondary Education</h3>
+                                <span>@Panna Junior High School Badlapur Thane</span><br><br>
+                            </li>
+
+                            <li>
+                                <h3>2018- PRESENT</h3>
+                                <span>@Konkan Gyanpeeth College Of Engineering Karjat</span>
+                            </li>
+
+                        </ul>
+
+                </div>
+
+                <!------------------------------------------------Certification---------------------------------------->
+                <hr color="grey">
+               <Div class="cert"><h2>CERTIFICATION & INTERESTS</h2>
+
+                <hr color="grey">
+
+                     <ul type="disc" class="certificate"><br><br>
+                        <li>
+                             <h3>WEB DEVELOPMENT</h3>
+                             <span class="web ">Completed Web Developmaent Course</span><br><br>
+                             <span>Completed MS-CIT</span><br><br>
+
+                        </li>
+                        <li>
+                             <h3>FULL STACK DEVELOPMENT</h3>
+                        </li>
+                    </ul><br><br>
+
+                </Div><br><br>
+
+             <!------------------------------------------------HOBBY--------------------------------------->   
+                
+                <div class="hobby">
+                    <hr color="grey"><br><br>
+                    <h2>HOBBY</h2>
+                    <div class="hob_icon">
+                        <ul id="iconic">
+                             <li><div class="hobb_icon"> <i class="fas fa-music"></i>&nbsp;&nbsp;&nbsp;</div> </li>
+                             <li><div class="hobb_icon"><i class="fas fa-biking"></i>&nbsp;&nbsp;&nbsp;</div></li>
+                             <li><div class="hobb_icon"><i class="fas fa-gamepad"></i>&nbsp;&nbsp;&nbsp;</div></li>
+                             <li><div class="hobb_icon"><i class="fas fa-futbol"></i>&nbsp;&nbsp;&nbsp;</div> </li>
+                         </ul>
+                    </div>
+            
+                </div><br><br>
+            </td>
+        </table>
+    </body>
+</html>
+
+[B] CSS code:-
+
+
+body{
+    background-color:rgb(216,216,216);
+    font-family: Georgia;
+}
+
+
+#main{
+    margin-top: 0%;
+    
+    width: 73%;
+
+}
+#left{
+    background-color:rgb(64,64,64);
+    width: 300px;
+}
+#profilepic{
+   /* height: 500px;
+    width: 500px;
+    transform: translate(-50% ,-50%);*/
+    margin-top: 0px;
+    margin-left: 65px;
+    border-radius: 50%;
+}
+#left a:hover{
+    opacity: 0.5;
+}
+#left h2{
+    color: white;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+#left h3{
+    color: white;
+    margin-top: -20px;
+    margin-left: 30px;
+    font-size: 15PX;
+}
+#left hr{
+    width: 90%;
+    height: 1px;
+}
+/*------------------------------profile----------------------------------------------------------*/
+#left .prof{
+    list-style: none;
+    color: white;
+    margin-left: -10px;
+}
+#left  .icon{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    color: rgb(64,64,64);
+    font-size: 20px;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: 20px;
+    position: relative;
+    margin-right: 10px;
+    
+}
+#left .icon i{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+}
+
+#left .prof .data{
+    color: white;  
+    margin-left: 50px;
+    margin-top: -25px;
+}
+/*------------------------------skills--------------------------------------------------------*/
+#left .progress{
+    list-style: none;
+    margin-top: 40px;
+}
+#left .progress h4{
+    margin-left: -3px;
+    color: white;
+}
+#left .progress .bar{
+    background-color: black;
+    display: block;
+    height: 2px;
+    width: 80%;
+    margin-top: -5px;
+    border-radius: 10%;
+    box-shadow: black;
+}
+#left .progress  .per{
+  float: right;
+  margin-right: 10px;
+  margin-top: -10px;
+  color: white;
+  font-size: 13px;
+}
+#left .progress .bar span{
+    height: 2px;
+    float: left;
+    background-color:white;
+}
+#left .progress .bar .css{
+    width: 85%;
+}
+#left .progress .bar .jquery{
+    width: 60%;
+}
+#left .progress .bar .sql{
+    width: 77%;
+}
+#left .progress .bar .html{
+    width: 90%;
+}
+/*------------------------------social----------------------------------------------------------*/
+
+#left .skill{
+    list-style-type: none;
+}
+#left .social{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    color: rgb(64,64,64);
+    font-size: 20px;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: 20px;
+    position: relative;
+    margin-right: 10px;
+}
+#left .social i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);   
+}
+#left .soc span{
+color: white;  
+margin-left: 50px;
+font-size: 20px;
+}
+#left .soc p{
+    color: white;  
+    margin-left: 50px;
+    font-size: 15px;
+    margin-top: 1px;    
+}
+
+/*-----------------------------right-------------------------------------------------------------------*/
+
+#right{
+    background-color: white;
+    color: rgb(64,64,64);
+}
+
+#right h2{
+    /*transform: translate(-50%,-50%);*/
+    transform: translateY(1px);
+    margin-left: 25px;
+}
+#right p{
+    transform: translateY(-1px);
+    font-size: 17px;
+    justify-content: space-around;
+    margin-left: 25px;
+    margin-right: 30px;
+}
+
+#right hr{
+    color:rgb(64,64,64);
+    width: 95%;
+    
+}
+#right .edu h2{
+    margin-top: 10px;
+    margin-left: 25px; 
+    transform: translateY(20px);
+}
+
+/*------------------------------------------Education--------------------------------*/
+#right .edu hr{
+    width: 1px;
+    height: 280px;
+    float: left;
+    margin-left: 40px;
+    transform: translateY(20px);
+    
+}
+
+#right ul{
+margin-left: 14px;
+transform: translateY(-40px);
+
+}
+#right .edu .temp li{
+    margin-bottom: 20px;
+}
+#right ul h3{
+    font-size: 20px;
+}
+#right .edu .temp li a{
+    text-decoration: none;
+    color: black;
+}
+#right .edu .temp li a:hover{
+    text-decoration: underline;
+    color: blue;
+}
+
+
+/*------------------------------------------Certification-------------------------------*/
+
+#right .cert{
+    transform: translateY(40px);
+    position: relative;
+}
+#right .cert h3{
+    transform: translateY(10px);
+}
+
+#right .cert hr{
+    height: 150px;
+    width: 1px;
+    float: left;
+    margin-left: 40px;
+    transform: translateY(-1px);
+}
+#right .cert ul{
+    transform: translateY(-60px)
+   
+     
+}
+
+
+/*------------------------------------------HOBBY------------------------------*/
+
+#right .hobby{
+    transform: translateY(10px);
+}
+#right .hobby hr{
+    color:rgb(64,64,64);
+    width: 95%;
+    align-content: center;
+    margin-top: -30px;
+}
+#right .hobby h2{
+    color:rgb(64,64,64) ;
+    transform: translateY(-10px);
+}
+#right .hobby .hob_icon{
+  display: flex; 
+  z-index: 1;  
+  opacity: 1;
+}
+
+#right .hobby .hob_icon .hobb_icon{
+ height: 80px;
+ width: 80px;
+ background-color:white;  
+ margin: 10px;
+ position: relative;
+ border-radius: 50%;
+ border: solid;
+ margin-left: 40px;
+
+}
+#right .hobby .hob_icon i{
+  font-size: 40px;
+ position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+}
+#right .hobby .hob_icon ul {
+    list-style: none;
+    display: flex;
+    transform: translateY(5px);
+    position: relative;
+}
+#right .hobby .hob_icon ul li::before{
+    content: " ";
+    width: 50px;
+    top: 50px;
+    background: black;
+    position: absolute;
+    height: 2px;
+    transform: translateX(125px);  
+}
+#right .hobby .hob_icon ul li:last-child:before{
+    display: none;
+}
+

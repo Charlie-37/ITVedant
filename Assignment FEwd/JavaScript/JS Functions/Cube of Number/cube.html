@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube of Number</title>
+    <style>
+        h1,
+        h3 {
+            text-align: center;
+        }
+
+        .container {
+            margin: auto;
+            width: 500px;
+            height: 100px;
+            border: 2px solid black;
+            padding: 20px 10px 10px 20px;
+        }
+
+        input,
+        button[type="reset"] {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cube Of The Number</h1>
+    <div class="container">
+        <label for="cubeInt">Enter The Number : </label>
+        <input type="number" name="cubecheck" id="cubeInt">
+        <button onclick="cubeNum()">Check</button>
+        <button onclick="resetNum()" type="reset">Reset</button> <br>
+        <h3 id="resultNum"></h3>
+    </div>
+
+    <script>
+        function cubeNum() {
+            let x = document.getElementById("cubeInt").value;
+
+            //--- Check if the input is null 
+            if (x == '') {
+                //--- true then reload the page in 1.5 second
+                document.getElementById('resultNum').innerHTML = "Enter The Number Please !! ";
+                setInterval(() => {
+                    location.reload()
+                }, 1500);
+            } else {
+                x = parseInt(x);
+                let result = x * x * x;
+                document.getElementById('resultNum').innerHTML = "The Cube of Given Number is  : " + result;
+            }
+        }
+
+        // for reset the input field
+        function resetNum() {
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/SArea.css">
+    <script src="https://kit.fontawesome.com/0c821f3c91.js" crossorigin="anonymous"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- jquery file for tabs -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    
+    <title>Area / Surface Area</title>
+  
+</head>
+<body class="bg-gradient-to-r from-red-500 via-red-400 to-yellow-200 ...">
+
+    <section id="bannerSurface" >
+
+        <!-- --------------------------navbar -->
+        <!-- <nav id="navBar"></nav> -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><i class="fas fa-laptop-code"></i><span id="find">Find-</span><span id="it">IT</span> </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-sm-end" id="navbarSupportedContent" >
+                <ul class="navbar-nav " style="margin-right: 60px;">
+                  <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="index.html" style="color:rgba(233, 98, 49, 0.897); margin-right: 30px;" >Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: rgba(233, 98, 49, 0.897); margin-right: 25px;" href="currency.html">Currency</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: rgba(233, 98, 49, 0.897); margin-right: 25px;" href="siconvert.html">SI Converter</a>
+                  </li>
+                  <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../html/siconvert.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:purple; margin-right: 25px;">
+                      SI Converter
+                    </a>
+                    <ul class="dropdown-menu menuOne" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Length</a></li>
+                      <li><a class="dropdown-item" href="#">Mass</a></li>
+                      <li><a class="dropdown-item" href="#">Speed</a></li>
+                      <li><a class="dropdown-item" href="#">Temperature</a></li>
+                      
+                    </ul>
+                  </li> -->
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:rgba(233, 98, 49, 0.897);">
+                      Shapes
+                    </a>
+                    <ul class="dropdown-menu menuTwo" aria-labelledby="navbarDropdown" style="color:rgba(233, 98, 49, 0.897) ; margin-right: 40px;">
+                      <li><a class="dropdown-item" href="SArea.html">Area / Surface Area</a></li>
+                      <li><a class="dropdown-item" href="#">Volume</a></li>
+                    </ul>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        <!-- -------------------------------Container -->
+
+
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body ">
+                    <div id="Banner1" class="col-md-5">
+                        <img src="" alt="" id="SAImg">
+
+                    </div>
+                    <div id="Banner2" class="col-md-7">
+                        <div class="card m-lg-auto" style="width: 39rem;" id="SurfaceContainer">
+                             <select name="" id="selectShape" onchange="selShape()">
+
+                            </select>
+
+                            <div id="containerCalc">
+                                hello world
+
+                            </div>
+                           
+                            <!-- <select id="language" onChange="update()">
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                                <option value="pt">Português</option>
+                            </select>
+                            <input type="text" id="value">
+                            <input type="text" id="text">
+                    
+                            <script type="text/javascript">
+                                function update() {
+                                    var select = document.getElementById('language');
+                                    var option = select.options[select.selectedIndex];
+                    
+                                    document.getElementById('value').value = option.value;
+                                    document.getElementById('text').value = option.text;
+                                }
+                    
+                                update(); -->
+                            </script>
+                           
+                         </div>
+
+                </div>
+              </div>
+            </div>
+           
+          </div>
+
+
+    </section>
+
+    <!-- -----------JS Files -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+    <script src="../js/SArea.js"></script>
+    <!-- <script src="../js/countrylist.js"></script> -->
+    <!-- <script src="../js/jquerycdn.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

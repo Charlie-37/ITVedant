@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="test.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <title>Testimonials</title>
+  </head>
+  <body>
+    <section id="testimonials">
+         <h1 class="heading">Testomonial</h1>
+        <!-- <img src="image/home-testimonials-background.jpg" class="bg-image"> -->
+      <div class="container-bg">
+       
+        <div class="container-box">
+          <div class="indicator">
+            <span class="btn active"></span>
+            <span class="btn"></span>
+            <span class="btn"></span>
+            <span class="btn"></span>
+            <span class="btn"></span>
+            <span class="btn"></span>
+          </div>
+          <div class="container">
+            <div class="slider" id="slide">
+              <div class="text-box" id="box1">
+                <div class="text-bg">
+                  <div class="content">
+                    <div class="para">
+                      <p>
+                        Testimonials give you the opportunity to provide proof
+                        about your services. Make it easy for potential clients
+                        to see what others are saying about you and your company
+                        by adding testimonials to your website and marketing
+                        materials.
+                      </p>
+                    </div>
+                    <div class="head">
+                      <h1>Sunil Bhave</h1>
+                      <span>KGCE Karjat</span>
+                    </div>
+                  </div>
+                  <div class="img-box">
+                    <img src="image/sunil.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-box" id="box6">
+                <div class="text-bg">
+                  <div class="content">
+                    <div class="para">
+                      <p>
+                        Testimonials give you the opportunity to provide proof
+                        about your services. Make it easy for potential clients
+                        to see what others are saying about you and your company
+                        by adding testimonials to your website and marketing
+                        materials.
+                      </p>
+                    </div>
+                    <div class="head">
+                      <h1>Bhavesh Ainkar</h1>
+                      <span>KGCE Karjat.</span>
+                    </div>
+                  </div>
+                  <div class="img-box">
+                    <img src="image/bhavesh.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-box" id="box2">
+                <div class="text-bg">
+                  <div class="content">
+                    <div class="para">
+                      <p>
+                        Testimonials give you the opportunity to provide proof
+                        about your services. Make it easy for potential clients
+                        to see what others are saying about you and your company
+                        by adding testimonials to your website and marketing
+                        materials.
+                      </p>
+                    </div>
+                    <div class="head">
+                      <h1>Tejas Jadav</h1>
+                      <span>KGCE Karjat.</span>
+                    </div>
+                  </div>
+                  <div class="img-box">
+                    <img src="image/tejas.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-box" id="box3">
+                <div class="text-bg">
+                  <div class="content">
+                    <div class="para">
+                      <p>
+                        Testimonials give you the opportunity to provide proof
+                        about your services. Make it easy for potential clients
+                        to see what others are saying about you and your company
+                        by adding testimonials to your website and marketing
+                        materials.
+                      </p>
+                    </div>
+                    <div class="head">
+                      <h1>Ruchita Gurav</h1>
+                      <span>KGCE Karjat.</span>
+                    </div>
+                  </div>
+                  <div class="img-box">
+                    <img src="image/ruchita.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-box" id="box4">
+                <div class="text-bg">
+                  <div class="content">
+                    <div class="para">
+                      <p>
+                        Testimonials give you the opportunity to provide proof
+                        about your services. Make it easy for potential clients
+                        to see what others are saying about you and your company
+                        by adding testimonials to your website and marketing
+                        materials.
+                      </p>
+                    </div>
+                    <div class="head">
+                      <h1>Rutuja Sawant</h1>
+                      <span>KGCE Karjat.</span>
+                    </div>
+                  </div>
+                  <div class="img-box">
+                    <img src="image/rutuja.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-box" id="box5">
+                <div class="text-bg">
+                  <div class="content">
+                    <div class="para">
+                      <p>
+                        Testimonials give you the opportunity to provide proof
+                        about your services. Make it easy for potential clients
+                        to see what others are saying about you and your company
+                        by adding testimonials to your website and marketing
+                        materials.
+                      </p>
+                    </div>
+                    <div class="head">
+                      <h1>Dipali Bhangrath</h1>
+                      <span>KGCE Karjat.</span>
+                    </div>
+                  </div>
+                  <div class="img-box">
+                    <img src="image/dipali.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        var btn = document.getElementsByClassName("btn");
+        var slide = document.getElementById("slide");
+
+        btn[0].onclick = function () {
+          slide.style.transform = "translateX(0px)";
+          //   for showing active btn by increase width
+          for (i = 0; i < 5; i++) {
+            btn[i].classList.remove("active");
+          }
+          this.classList.add("active");
+        };
+
+        btn[1].onclick = function () {
+          slide.style.transform = "translateX(-800px)";
+          //   for showing active btn by increase width
+          for (i = 0; i < 5; i++) {
+            btn[i].classList.remove("active");
+          }
+          this.classList.add("active");
+        };
+
+        btn[2].onclick = function () {
+          slide.style.transform = "translateX(-1600px)";
+          //   for showing active btn by increase width
+          for (i = 0; i < 5; i++) {
+            btn[i].classList.remove("active");
+          }
+          this.classList.add("active");
+        };
+
+        btn[3].onclick = function () {
+          slide.style.transform = "translateX(-2400px)";
+          //   for showing active btn by increase width
+          for (i = 0; i < 5; i++) {
+            btn[i].classList.remove("active");
+          }
+          this.classList.add("active");
+        };
+
+        btn[4].onclick = function () {
+          slide.style.transform = "translateX(-3200px)";
+          //   for showing active btn by increase width
+          for (i = 0; i < 5; i++) {
+            btn[i].classList.remove("active");
+          }
+          this.classList.add("active");
+        };
+
+        btn[5].onclick = function () {
+          slide.style.transform = "translateX(-4000px)";
+          //   for showing active btn by increase width, commented this one coz it was glitching.
+            // for(i=0; i<5; i++){
+            //     btn[i].classList.remove("active");
+            // }
+            // this.classList.add("active");
+        };
+      </script>
+       <div class="curve"> 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 420" class="curve-body">
+            <path fill=white fill-opacity="1" d="M0,32L120,69.3C240,107,480,181,720,208C960,235,1200,213,1320,202.7L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,241,320,120,320L0,320Z"></path>
+        </svg>
+       </div> 
+    </section>
+  </body>
+</html>

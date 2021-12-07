@@ -1,0 +1,97 @@
+*{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+        width: 100%;
+        background: rgba(110, 103, 103, 0.521);
+        padding: 0 20px 0px 30px;
+    }
+
+    nav .logo{
+        font-size: 30px;
+        text-align: center;
+        color: black;
+        font-family: monospace;
+    }
+    nav .toggle .fas{
+        font-size: 25px;
+        display: none;
+    }
+
+    nav ul{
+        list-style-type: none;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        font-family: sans-serif;
+        letter-spacing: 1px;
+        font-size: 18px;
+    }
+
+    nav ul li{
+        margin: 10px 10px;
+    }
+
+    nav ul li a{
+        text-decoration: none;
+        color: white;
+        position: relative;
+        margin: 0px 20px;
+    }
+    nav ul li a::after{
+        position: absolute;
+        content: '';
+        width: 0%;
+        background:rgb(49, 201, 228);
+        height: 3px;
+        left:0;
+        bottom: -6px;
+        transition: 0.5s;
+    }
+    nav ul li a:hover:after{
+        width: 100%;
+    }
+    #click{
+        display: none;
+    }
+
+    #click:checked ~ .toggle i:before{
+        content: "\f00d";
+        transition: 0.5s ease ;
+    }
+
+    @media (max-width:920px){
+        nav ul{
+            position: fixed;
+            display: block;
+            height: 100vh;
+            width: 100%;
+            top: 70px;
+            left: -100%;
+           background: rgba(26, 25, 25, 0.781);
+           font-size: 23px;
+           transition: 0.4s ease;
+    }
+    nav ul li{
+        margin: 50px 0;
+    }
+
+    nav .toggle .fas{
+        display: block;
+    }
+    #click:checked ~ ul{
+        left: 0%;
+
+    }
+    
+
+
+    }
+        

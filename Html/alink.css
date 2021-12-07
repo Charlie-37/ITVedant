@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    background: rgba(66, 62, 62, 0.726);
+}
+nav label{
+    font-size: 30px;
+    color: rgb(20, 19, 19);
+    margin: 0 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+nav ul{
+    display: inline;
+    list-style-type: none;
+    font-size: 22px;
+    float: right;
+    margin: 0 30px;
+    justify-content: space-between;
+}
+.nav-bar li{
+    display: inline;
+    margin: 0 10px;
+    color: white;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    position: relative;
+    
+}
+.nav-bar li a{
+    text-decoration: none;
+    color: white;
+}
+.nav-bar li::after{
+    content: '';
+    background:cyan;
+    height: 3px;
+    width: 0%;
+    left: 0;
+    bottom: -6px;
+    position: absolute;
+    transition: 0.7s;   
+}
+.nav-bar li:hover:after{
+    width: 100%;
+}
+.deffination{
+    height:auto;
+    /* border: 2px solid black; */
+    width: 700px;
+    margin: 50px 0 100px 50px;
+    transform: translateX(300px);
+}
+.deffination h1{
+    margin-top: 20PX;
+    font-size: 30px;
+    font-family: monospace;
+    text-align: center;
+    position: relative;
+}
+.deffination h1::after{
+    content: '';
+    background: cyan;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: -7px;
+    position: absolute;
+}
+.content,p{
+    font-size: 26px;
+    margin: 10px 20px 20px 20px;
+    justify-content: space-between;
+    font-family: serif;
+}
+#top{
+    font: 16px;
+    background:linear-gradient(red, orange, yellow);
+    height: 60px;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    position: relative;
+}

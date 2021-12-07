@@ -1,0 +1,98 @@
+*{
+    margin-top: 0;
+    margin-left:0;
+    
+}
+.navbar{
+    
+    height: 50px;
+    width: 100%;
+    border: 2px solid black;
+    margin-top: 0px;
+    background-color: black;
+}
+.navbar ul{
+    margin-top: 10px;
+    margin-left: 750px;
+}
+.navbar ul li{
+    text-decoration: none;
+    display: inline;
+    margin-left: 20px;
+    font-size: 22px;
+    color: white;
+    
+}
+.heading{
+    background-color: rgb(212, 200, 200);
+    text-align: center;
+    margin-top: 10px;
+}
+.heading h1{
+    color: white;
+    background:linear-gradient(270deg, green, blue, aqua);
+}
+
+.heading h3{
+    color: white;
+    background:linear-gradient(270deg, green, blue, aqua);
+}
+
+.heading h5{
+    color:white;
+    background:linear-gradient(270deg, green, blue, aqua);
+} 
+
+
+.d1{
+    height: 400px;
+    width: 600px;
+    margin-top: 150px;
+    border: 2px solid black;
+    padding: 5px;
+    transform: translate(50px, 0px);
+    background:linear-gradient(300deg, rgb(48, 48, 40), rgb(125, 156, 125), white);
+    scale: 1;
+}
+
+.d2{
+    transform: translate(700px,-90px);
+    height: 400px;
+    width: 600px;
+    border: 2px solid black;
+    padding: 5px;
+    background:linear-gradient(300deg, rgb(185, 88, 181), rgb(91, 94, 117), white);
+    
+}
+.d3{
+    height: 400px;
+    width: 600px;
+    border: 2px solid black;
+    padding: 5px;
+    transform: translate(50px,-150px);
+    background:linear-gradient(30deg, rgb(216, 216, 20), rgb(216, 30, 30), rgb(23, 190, 87));
+    scale: 1;
+}
+
+p{
+    font-size: 20px;
+}
+
+.anchor{
+    text-align: center;
+}
+
+
+.ttable{
+    border: 0px solid black; 
+    padding-left: 4px; 
+    height: 300px;
+     width: 600px; 
+     font-size: 20px;
+     align-items: center;
+     transform: translateX(70%);
+
+}
+.thead{
+    background-color: grey;
+}

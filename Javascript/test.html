@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+
+<body>
+    <h1>Prime Number Check</h1>
+
+    <input type="number" placeholder="Enter Any Number" id="inpNum">
+    <button type="submit" onclick="submitint()">Check</button>
+    <p id="resultnum"></p>
+
+    <script>
+        function submitint() {
+            let num = document.getElementById("inpNum").value;
+            num = parseInt(num);
+            let isPrime = true;
+            // console.log(num);
+
+            if (num === 1) {
+                document.getElementById("resultnum").innerHTML = "Number Is neither Prime nor Composite Number";
+            } else if (num > 1) {
+                for (let i = 2; i < num; i++) {
+                    if (num % i == 0) {
+                        isPrime = false;
+                        document.getElementById("resultnum").innerHTML = "Number Is Not a Prime  Number";
+                        break;
+                    } else {
+                        document.getElementById("resultnum").innerHTML = "Number Is a Prime Number";
+
+                    }
+                }
+
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

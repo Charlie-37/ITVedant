@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Selectable</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+    <style>
+        #select .ui-selecting {
+            background: rgb(47, 188, 235);
+        }
+
+        #select .ui-selected {
+            background: rgb(47, 188, 235);
+            color: white;
+        }
+
+        #select {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+
+        #select li {
+            margin: 3px;
+            padding: 0.4em;
+            font-size: 1.4em;
+            height: 18px;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $("#select").selectable();
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Demonstrate selectable interaction from jqueryUI</h1>
+
+    <ol id="select">
+        <li class="ui-widget-content">Click 1</li>
+        <li class="ui-widget-content">Click 2</li>
+        <li class="ui-widget-content">Click 3</li>
+        <li class="ui-widget-content">Click 4</li>
+        <li class="ui-widget-content">Click 5</li>
+        <li class="ui-widget-content">Click 6</li>
+        <li class="ui-widget-content">Click 7</li>
+    </ol>
+
+
+</body>
+
+</html>

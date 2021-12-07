@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=WindSong&display=swap');
+
+html{
+    font-size: 62.5%;
+
+    /* 100%  = 16px = 1rem
+    1px = 6.25%
+    10px = 62.5%  = 1 rem */
+}
+*{
+    margin: 0;
+}
+#banner{
+    text-decoration: none;
+}
+.banner{
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* border: 2px solid black; */
+    position: relative;
+}
+.banner img{
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    z-index: -1;
+    position: absolute;
+    transform: translateY(-100vh);
+}
+.overlay{
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.753);
+    z-index: 1;
+
+}
+nav{
+    position: relatives;
+    height: 6.0rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+    transform: translateY(-100vh);
+}
+.logo{
+    display: flex;
+    /* border: 2px solid black; */
+}
+.first{
+    color: white;
+    font-family: 'WindSong', cursive;
+    margin: 1.0rem 1.0rem 1.0rem 1.0rem;
+    font-size: 3.5rem;
+
+}
+.second{
+    color: rgb(27, 233, 223);
+    font-family: 'Architects Daughter', cursive;
+    margin-top: 1rem;
+    margin-left:1.0rem;
+    font-weight: lighter;
+    font-size: 2.5rem;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    font-size: 2.0rem;
+    /* margin-left: 500px; */
+    color: white;
+    margin-right: 3.0rem;
+    margin-top: 1.5rem;
+    font-family: 'Poppins';
+    cursor: pointer;
+    outline: none;
+}
+nav ul li{
+    display: inline;
+    margin-left: 3.5rem;
+    position: relative;
+}
+nav ul li::after{
+    content: '';
+    background: rgb(27, 161, 223);
+    left: 0;
+    height: .2px;
+    position: absolute;
+    bottom: 1.0rem;
+    width: 0%;
+    transition: 0.5s;
+}
+.clicke{
+    border: .2rem solid white;
+    border-radius: 1.0rem;   
+}
+nav ul li:hover:after{
+    width: 100%;
+
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.abimg{
+    height: 40rem;
+    width: 60rem;
+    
+}
+.headl{
+    /* border: 2px solid black; */
+    width: 90.0rem;
+    height: 15.0rem;
+    position:absolute;
+    transform: translate(31rem, -65vh);
+    
+    
+}
+.headl h1{
+    color: rgb(255, 255, 255);
+    font-size: 6.0rem;
+    font-family: 'Poppins';
+    letter-spacing: .1rem;
+    transform: translateX(17.0rem);
+    margin: 0 0 0 0;
+}
+.headl h2{
+    color: rgb(255, 255, 255);
+    font-size: 2.6rem;
+    font-family: 'Poppins';
+    transform: translateX(21.0rem);
+    font-weight: normal;
+    letter-spacing: .1rem;
+    margin: 0 0 0 0;
+}
+/* ------------------container---------------------- */
+
+#container{
+    margin-top: 4.0rem;
+    
+}
+
+.about{
+    /* height: 1200px;  */
+    width: 96%;
+    transform: translateX(2.0rem);
+}
+.about h1{
+    font-size: 3.5rem;
+     font-family: 'Poppins';
+     transform: translateX(6.50rem);
+     position: relative;
+     width: 20.0rem;
+}
+.about h1::after{
+    content: '';
+    width: 12.0rem;
+    position: absolute;
+    left: 1.0rem;
+    bottom: -1.0rem;
+    background: rgb(66, 178, 243);
+    height: .2rem;
+}
+.about table{
+    height: 55.0rem;
+    width: 94%;
+    font-family: 'Poppins';
+    transform: translate(4.0rem, 0rem);
+}
+.about table td h3{
+ transform: translateY(-1.0rem); 
+ margin-bottom: -1.0rem;
+ font-size: 1.8rem;  
+}
+
+.about table td p{
+    font-size: 1.6rem;
+    transform: translateY(-1.0rem);
+     margin-bottom: 1.0rem;  
+}
+
+.t2{
+    background: rgba(223, 219, 219, 0.651);
+    margin-top: 7.0rem;
+    
+}
+
+/* -------------------footer---------------- */
+
+footer{
+    height: 33.0rem;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.781);
+    position: relative;
+    margin-top: 3.0rem;
+}
+
+.bfotter{
+    height: 29.0rem;
+    width: 95%;
+    transform: translate(3.0rem, 2.0rem);
+    position: relative;
+    font-family: 'Poppins';
+    padding: 1.0rem 0 0 1.0rem;
+    /* border: 2px solid black; */
+
+}
+.bfotter table{
+    height: 24.0rem;
+    width: 95%;
+    position: relative;
+    margin: 0 0 0 0;
+    padding: 0;
+    /* border: 2px solid black; */
+}
+
+.bfotter table td{
+    height: 2.0rem;
+}
+
+
+.fas{
+    font-size: 1.4rem;
+    background: #000;
+    color: white;
+   /* transform: translate(90px, 12px); */
+    padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+    border-radius: 50%;
+    margin: 1.5rem 2.0rem -2.0rem 9.0rem;
+
+}
+
+
+
+
+.aboutc{
+    height: 20.0rem;
+    width: 50.0rem;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+
+.leftp{
+    color: white;
+    margin: -3.0rem 1.0rem 2.0rem 15.0rem;
+    font-size: 1.6rem;
+}
+
+.bfotter h3{
+    font-size: 2.5rem;
+    margin: -6.0rem 0 0 21.0rem;
+    color: rgb(40, 122, 228);
+}
+.rightp{
+    width: 40.0rem;
+    height: 11.0rem;
+    padding: 1.0rem;
+    font-size: 1.6rem;
+     margin: 0 0 -1.5rem 20.0rem;
+     color: white;
+     justify-content: space-between;
+}
+
+.social{
+    margin: 1.0rem 0px -7.0rem 21.0rem;
+    width: 300px;
+}
+.fab{
+    font-size: 3.0rem;
+    margin:0 3.0rem -1.0rem 0;
+    color: white;
+
+}
+.bfotter h2{
+    margin: 0;
+    font-size: 1.6rem;
+    margin: 1.5rem 0 0 45.2rem;
+    color: rgb(145, 139, 139);
+}
+
+@media(max-width:998px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media(max-width:768px){
+    html{
+        font-size: 45%;
+    }
+}
+
+

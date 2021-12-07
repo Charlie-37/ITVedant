@@ -1,0 +1,10 @@
+.tut1, .tut2, .tut3{
+    width: 500px;
+    padding: 10px;
+}
+#quest{
+    cursor: pointer;
+}
+#ans{
+    display: none;
+}

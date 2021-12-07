@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        form{
+            margin: auto;
+            margin-top: 20px;
+            margin-left: 20px;
+            padding: 10px;
+
+        }
+
+        input{
+            margin: 5px;
+            height: 20px;
+            width: 200px;
+            font-size: 18px;
+        }
+        button{
+        margin: 5px;
+        }
+        span{
+            color: red;
+            font-size: 16px;
+        }
+    </style>
+    <title>Form Validation</title>
+</head>
+<body>
+
+    <form action="" id="validate FormMe">
+
+        <input type="text" id="fname" placeholder="Name"> <span id="nameError"></span> <br>
+        <input type="number" id="fnumber" placeholder="Conatct Number"><span id="contactError"></span><br>
+        <input type="email" id="femail" placeholder="Email"><span id="contactError">Error</span><br>
+        <input type="numer" id="fnumber" placeholder="Conatct Number"><span id="contactError">Error</span><br>
+        <button type="submit" onclick=" return formSubmit()"> Submit</button>
+        
+
+    </form>
+    
+    <script src="../js/formvalid.js"></script>
+</body>
+</html>

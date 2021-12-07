@@ -1,0 +1,130 @@
+
+@font-face {
+    font-family: prasad;
+    src: url(fonts/Allison-Regular.ttf);
+}
+
+.container table{
+    height: 400px;
+    width: 600px;
+    margin-left: 100px;
+    text-align: center;
+    font-family: prasad;
+}
+
+.container table tr:nth-child(2n){
+    background-color: rgba(26, 25, 25, 0.452);
+}
+
+.container table tr:not(3){
+    font-weight: bolder;
+}
+
+.container table tr:nth-child(5) td:nth-child(2n+1){
+    background: lime;
+}
+
+.para p:nth-child(2n){
+    font-weight: bolder;
+    font-size: 18px;
+}
+.para p:nth-child(2n+1) {
+    font-family: sans-serif;
+    font-style: italic;
+}
+
+.formpy{
+    margin-left: 100px;
+}
+
+/* .formpy form input:required{
+    background-color: lime;
+    border: 2px solid red;
+}
+.formpy form input:optional{
+    background-color: yellow;
+} */
+.formpy form input:in-range{
+    border: 2px solid green;
+}
+
+.formpy form input:out-of-range{
+    border: 2px solid red;
+}
+#hello::before{
+    content: "";
+    background: cyan;
+    position: absolute;
+    width: 0px;
+    height: 4px;
+    margin-top: 40px;
+    transition: .5s;
+    
+    
+}
+#hello:hover:before {  
+    width: 170px;
+}
+#hello{
+    width: 300px;
+    padding-top: 10px;
+    font-size: 50px;
+    height: 100px;
+    color: white;
+    background-color: black;
+    text-shadow: 0px 3px 10px red;
+    border: 1px solid yellowgreen;
+}
+.cont{
+    height: 400px;
+    width: 900px;
+    background: yellow;
+    display: flex;
+    text-align: center;
+    
+}
+.cont .box1{
+    height: 100px;
+    width: 100px;
+    border: 2px solid red;
+    border-top-left-radius:50px;
+    border-bottom-left-radius:50px;
+    border-left-color: cyan;
+    border-top-color: blue;
+    border-bottom-color: white;
+    border-bottom-width:5px ;
+    border-right-color: black;
+    border-right-width: 10px;
+    border-top-right-radius:50px;
+    margin-right: 10px;
+
+    
+}
+.cont .box2 {
+    height: 100px;
+    width: 100px;
+    border: 2px solid red;
+    animation: yolo 3s ease;
+    
+
+}
+
+
+.cont .box3{
+    height: 100px;
+    width: 100px;
+    border: 2px solid green;
+    top: 30px;
+    left: 20px;
+     /* margin: 10px 20px 30px; */
+            /*top l/r bottom */
+
+}
+.cont .box4 {
+    height: 100px;
+    width: 100px;
+    border: 2px solid red;
+
+}
+
+

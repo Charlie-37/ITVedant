@@ -1,0 +1,83 @@
+
+
+.span1 span{
+    background-color: lime;
+    height: 40px;
+    width: 100px;
+    display: inline;
+    
+}
+.span2 span {
+    background-color: lime;
+    height: 40px;
+    width: 100px;
+    display: block;
+    
+}
+.span3 span {
+    background-color: lime;
+    height: 40px;
+    width: 100px;
+    display: inline-block;
+}
+
+#data{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: flex-end ;
+    flex-wrap: wrap;
+    flex-basis: 50px;
+}
+
+.item{
+    background-color: yellow;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    padding: 3px;
+    
+}
+#animationdemo{
+    height: 500px;
+    width: 800px;
+    background-color: rgba(65, 63, 63, 0.267);
+    position: relative;
+}
+
+#data1{
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: grey;
+    animation: data2 3s infinite;
+    animation-duration: cubic-bezier(0.42, 0, 0.89, 0.12);
+   position: absolute;
+   
+
+   
+}
+#data12{
+     height: 100px;
+     width: 100px;
+     border-radius: 20px;
+     background-color: green;
+     transform: translateY(100px);
+     position: absolute;
+}
+
+@keyframes data2 {
+    0%{
+        top: 0;
+        left: 0;
+    }
+     100% {
+        transform: translate(0px, 400px) rotateZ(90deg);
+        background-color: red;
+        border-radius: 0px;
+        
+     }
+    
+    
+}

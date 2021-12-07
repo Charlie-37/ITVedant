@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container{
+            width: 500px;
+            margin: auto;
+            border: 2px solid black;
+            padding: 20px 20px 10px 20px;
+            height: 230px;
+        }
+        input{
+            margin: 0px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cash Seperator</h1>
+    <div class="container">
+        <label for="amount">Enter Your Amount :</label>
+        <input type="number" name="camount" id="amount">
+        <button onclick="seprtAmount()">Calculate</button>
+        <button id="reset" onclick="resetAmount()">Reset</button> <br>
+
+        <p> 
+            <p id="noteTwoTh"></p>
+        </p>
+        <p> 
+            <p id="noteFiveHun"></p>
+        </p>
+         <p>
+             <p id="noteTwoHun"></p>
+         </p>
+        <p> 
+            <p id="noteOneHun"></p>
+        </p>
+    </div>
+    <script src="cash.js"></script>
+</body>
+</html>

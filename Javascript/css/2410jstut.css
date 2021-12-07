@@ -1,0 +1,37 @@
+ * {
+     margin-left: 10px;
+ }
+
+ h1 {
+     text-align: center;
+ }
+
+ p {
+     width: 400px;
+     margin: 10px;
+     justify-content: space-between;
+     font-size: 20px;
+ }
+
+ a {
+     font-size: 25px;
+
+ }
+
+ #container2 {
+     background-color: grey;
+     padding: 5px;
+ }
+
+ #container3 {
+     font-size: 18px;
+     margin: 10px;
+ }
+ #imagestry{
+     height: 400px;
+     width: 600px;
+    }
+    #imagestry img{
+        height: 200px;
+        width: 400px;
+    }

@@ -1,0 +1,99 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.outer{
+    transform: translate(100px, 20px);
+    border: 2px solid black;
+    height: 4
+    00px;
+    width: 500px;
+    padding: 30px;
+}
+
+.d1{
+    height: 150px;
+    width: 150px;
+    background: lime;
+    transform: skewY(30deg);
+    margin-left: 300px;
+    margin-top: 100px;
+    
+}
+.d2 {
+    height: 150px;
+    width: 150px;
+    background: orange;
+    transform: skewY(320deg);
+    margin-top:-130px;
+    margin-left: 150px;
+
+}
+.d3 {
+    height: 150px;
+    width: 150px;
+    background: aqua;
+    transform: skewY(320deg);
+    margin-left: 300px;
+    margin-top: -65px;
+    z-index:1;
+}
+.d4 {
+    height: 150px;
+    width: 150px;
+    background: grey;
+    transform: skewY(30deg);
+    margin-left: 150px;
+    
+    margin-top: -130px;
+}
+.d5{
+    height: 132px;
+    width: 150px;
+    background: violet;
+    transform: skew(-51deg, 30deg) translate(-303px, -104px) rotateX(21deg) translateZ(0px);
+    margin-left: 400px;
+    z-index: -1;
+    margin-top: -0px;
+}
+
+.block{
+    height: 300px;
+    width: 400px;
+    background: lime;
+    margin-left: 100px;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.blockin{
+    height: 200px;
+    width: 200px;
+    background: brown;
+    transition: transform 2s;
+}
+.blockin:hover{
+    transform: perspective(200px) skewX(20deg)  scale(1);
+
+}
+.block2 {
+    height: 300px;
+    width: 400px;
+    background: lime;
+    margin-left: 100px;
+    margin-top: 30px;
+    padding: 90px;
+}
+
+.blockin2 {
+    height: 200px;
+    width: 200px;
+    background:brown;
+    transition: transform 2s;
+}
+
+.blockin2:hover {
+    transform: perspective(200px) skewY(20deg);
+
+}

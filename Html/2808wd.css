@@ -1,0 +1,37 @@
+/* .color{
+    height: 100px;
+    width: 100px;
+    background:lime;
+    animation: color infinite 5s;
+} */
+/* @keyframes color{
+
+    25%{
+        background: rgb(201, 34, 159);
+        transform: translate(300px, 0px);
+        height: 150px;
+    }
+    50%{
+        background: green;
+        transform: translate(300px, 300px);
+        width: 300px;
+    }
+    75%{
+        background: yellow;
+        transform: translate(0px, 300px);
+        border-radius: 50%;
+
+    }
+    100%{
+        background: rgb(93, 48, 216);
+        transform: translate(00px, 0px);
+    }
+
+} */
+
+.tablef{
+    width: 500px;
+    background: linear-gradient( 30deg, rgba(218, 13, 115, 0.452), rgb(231, 224, 231));
+    border: 8px solid violet;
+    box-shadow: 10px 10px 20px 10px purple;
+}
