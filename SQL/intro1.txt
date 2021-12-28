@@ -1,0 +1,20 @@
+mysql -u root        //sql starting command
+
+mysql -u root -p    // password
+
+create database dbName;   // create the data base
+
+show databases;   // showing database;
+
+use dbName    // uodating database;
+
+create table emp1(id int,name char(30),email varchar(30));  // creation of table with some column inside the database
+
+desc emp1;  // showing the table
+
+show tables;  // display the total tables inside the current database
+
+select * from tableName ; //dsiplays the input values inside the table;
+
+
+Note:- putting string value inside the declared integer displays 0 on the output;
