@@ -45,7 +45,7 @@
     //     res *= x;
     // }
     // console.log(res);
-    /*----------------**----------------*/
+/*----------------**----------------*/
     
     // reverse the input digit;
     
@@ -64,7 +64,58 @@
     // console.log(rev);
     
     /*----------------**----------------*/
+    
+    /*----------------* Print----------------*/
+    
+    // let n = 5;
+    // for(i = 0; i<n; i++){
+        
+    //         for(j = 0; j<=i; j++ ){
+            
+    //                 console.log("*")
+    //             }
+    //             console.log("")
+    //         }
+            
+            
+     /*----------------sum 1st 10 num using while loop---------------*/
+    //  let n = 5
+    //  let sum = 0;
+     
+    //  for(i = 0; i<n; i++){
+    //      sum = sum + (2 * i)
+    //      console.log(sum)
+    //     }
+        
+    /*---------------- mult table---------------*/
+    
+    // let  n = 9
+    // let res = 0;
+    // for(i = 1; i<=10; i++){
+        //     res = 9 * i;
+        //     console.log(res);
+        // }
+        
+    
+    
+    /*---------------- mult table reverce---------------*/
+    
+    //    let  n = 9
+    //     let res = 0;
+    //     for(i = 10; i >= 0; i--){
+        //             res = 9 * i;
+        //             console.log(res);
+        //     }
+        
+/*---------------- factorial using while loop---------------*/
 
-
-
-
+// let n = 4
+// let fact  = 1;
+// let i = 1;
+// while(i<=n){
+    //     fact = fact * i;
+    //     i ++;
+    //     console.log(fact)
+    // }
+    
+/*---------------- mult table reverce---------------*/
