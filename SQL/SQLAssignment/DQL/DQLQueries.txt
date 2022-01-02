@@ -123,17 +123,14 @@ MariaDB [sqlass]> select ENAME,SAL,COMM from employee where COMM>SAL;
 7. Display the name, job title and salary of everyone hired during 1983.
 OUTPUT:- Doubt;
 
-MariaDB [sqlass]> select ENAME,JOB,SAL,`HIREDATE mm-dd-yyyy` from employee where `HIREDATE mm-dd-yyyy` BETWEEN "1/1/1983" AND "12/31/1983";
-+-------+-----------+------+---------------------+
-| ENAME | JOB       | SAL  | HIREDATE mm-dd-yyyy |
-+-------+-----------+------+---------------------+
-| SMITH | CLERK     |  800 | 12/17/1980          |
-| SCOTT | ANALYST   | 3000 | 12/3/1982           |
-| KING  | PRESIDENT | 5000 | 11/17/1981          |
-| ADAMS | CLERK     | 1100 | 1/12/1983           |
-| FORD  | ANALYST   | 3000 | 12/3/1981           |
-+-------+-----------+------+---------------------+
-5 rows in set (0.000 sec)
+MariaDB [sqlass]> select ENAME,JOB,SAL,`HIREDATE mm-dd-yyyy` from employee where `HIREDATE mm-dd-yyyy` LIKE '%1983';
++-------+-------+------+---------------------+
+| ENAME | JOB   | SAL  | HIREDATE mm-dd-yyyy |
++-------+-------+------+---------------------+
+| ADAMS | CLERK | 1100 | 1/12/1983           |
++-------+-------+------+---------------------+
+1 row in set (0.001 sec)
+
 //--------------------***---------------//
 
 8. Display the names of employees where salaries are less than 5500.
@@ -167,16 +164,6 @@ Empty set (0.001 sec)
 
 
 
-//----7500 sal was not present so query set to MORE than 2500.
-
-MariaDB [sqlass]> select ENAME,EMPNO from employee where JOB="MANAGER" AND SAL>2500;
-+-------+-------+
-| ENAME | EMPNO |
-+-------+-------+
-| JONES |  7566 |
-| BLAKE |  7698 |
-+-------+-------+
-2 rows in set (0.000 sec)
 //--------------------***---------------//
 
 10. Display the information about managers and the president from the EMP table,order by department number.
@@ -230,14 +217,14 @@ MariaDB [sqlass]> select * from employee where ENAME LIKE 'C%';
 13. Display the name, job and department of employees whose name falls in the alphabetical range ‘C’ to ‘L’.
 OUTPUT:-
 
-MariaDB [sqlass]> select ENAME,JOB,DEPTNO from employee WHERE ENAME >='C' AND ENAME < 'L' ORDER BY ENAME;
+MariaDB [sqlass]> select ENAME,JOB,DEPTNO from employee WHERE ENAME between 'C' AND 'L';
 +-------+-----------+--------+
 | ENAME | JOB       | DEPTNO |
 +-------+-----------+--------+
-| CLARK | MANAGER   |     10 |
-| FORD  | ANALYST   |     20 |
 | JONES | MANAGER   |     20 |
+| CLARK | MANAGER   |     10 |
 | KING  | PRESIDENT |     10 |
+| FORD  | ANALYST   |     20 |
 +-------+-----------+--------+
 4 rows in set (0.001 sec)
 //--------------------***---------------//
