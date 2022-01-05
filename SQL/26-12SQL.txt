@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 HP@DESKTOP-3CFCEM5 c:\xampp
@@ -468,3 +469,475 @@ MariaDB [sunildata]> select * from project;
 3 rows in set (0.000 sec)
 
 MariaDB [sunildata]>
+=======
+
+
+HP@DESKTOP-3CFCEM5 c:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.13-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases; //Checking Database
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sunil              |
+| sunildata          |
+| test               |
++--------------------+
+7 rows in set (0.016 sec)
+
+MariaDB [(none)]> use sunildata;  //Opening database
+Database changed
+MariaDB [sunildata]> show sunildata;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'sunildata' at line 1
+MariaDB [sunildata]> show tables; //showing all tables in database
++---------------------+
+| Tables_in_sunildata |
++---------------------+
+| account             |
+| client              |
+| emp                 |
+| emp1                |
+| project             |
+| stdo                |
+| student             |
+| studentmarks        |
+| teacher             |
++---------------------+
+9 rows in set (0.001 sec)
+
+MariaDB [sunildata]> desc emp; //table structure
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name    | varchar(30) | NO   |     | NULL    |                |
+| contact | varchar(12) | NO   |     | NULL    |                |
+| email   | varchar(30) | YES  | UNI | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+4 rows in set (0.030 sec)
+
+// Query:- A Single "Foreign key" of a table references to the id's of two defferent table//
+
+MariaDB [sunildata]> select * from emp;
++-----+--------+-----------+---------------------+
+| id  | name   | contact   | email               |
++-----+--------+-----------+---------------------+
+| 101 | Sunil  | 92652     | sunjgh@gmik.com     |
+| 102 | Prasad | 925662652 | prsadffhg5@gmik.com |
+| 103 | Tushar | 9223256   | tushargjh@gmik.com  |
++-----+--------+-----------+---------------------+
+3 rows in set (0.033 sec)
+
+
+
+MariaDB [sunildata]> create table emp2(id int primary key, name varchar(30));
+Query OK, 0 rows affected (0.038 sec)
+
+MariaDB [sunildata]> insert into emp2 values(101,"Sunil"),(104,"Prasad");
+Query OK, 2 rows affected (0.012 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> select * from emp2;
++-----+--------+
+| id  | name   |
++-----+--------+
+| 101 | Sunil  |
+| 104 | Prasad |
++-----+--------+
+2 rows in set (0.000 sec)
+
+// --the table references to the upper two parent table---//
+MariaDB [sunildata]> create table demofk(id int,city varchar(30),foreign key(id) references emp(id),foreign key(id) references emp2(id));
+Query OK, 0 rows affected (0.044 sec)
+
+MariaDB [sunildata]> insert into demofk values(101,"Mumbai");
+Query OK, 1 row affected (0.007 sec)
+
+//---Checking the cases (I.e. inserting the values in foreign key which is present in one table but not in other table)---//
+
+MariaDB [sunildata]> insert into demofk values(103,"Mumbai");
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`sunildata`.`demofk`, CONSTRAINT `demofk_ibfk_2` FOREIGN KEY (`id`) REFERENCES `emp2` (`id`))
+MariaDB [sunildata]>
+MariaDB [sunildata]> insert into demofk values(104,"Mumbai");
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`sunildata`.`demofk`, CONSTRAINT `demofk_ibfk_1` FOREIGN KEY (`id`) REFERENCES `emp` (`id`))
+MariaDB [sunildata]> 
+/----------********------------;
+
+
+//---You cannot drop a table(Parent Table) which is references to a other table----//
+MariaDB [sunildata]> drop table emp;
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`sunildata`.`demofk`, CONSTRAINT `demofk_ibfk_1` FOREIGN KEY (`id`) REFERENCES `emp` (`id`))
+ 
+// ----first we need to drop the table having Foreign Key(Child Table)----//
+MariaDB [sunildata]> drop table demofk;
+Query OK, 0 rows affected (0.021 sec)
+
+//---Now you can delete the parent table---//
+MariaDB [sunildata]> drop table emp2;
+Query OK, 0 rows affected (0.019 sec)
+///------------------------------*---------------//
+
+
+
+MariaDB [sunildata]> create table emp2(id int primary key, name varchar(30));
+Query OK, 0 rows affected (0.036 sec)
+
+MariaDB [sunildata]> insert into emp2 values(101,"Sunil"),(104,"Prasad");
+Query OK, 2 rows affected (0.010 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> create table demofk(id int,city varchar(30),foreign key(id) references emp(id), foreign key(id) references emp2(id));
+Query OK, 0 rows affected (0.038 sec)
+
+MariaDB [sunildata]> insert into demofk values(101,"Mumbai");
+Query OK, 1 row affected (0.009 sec)
+
+//-- Deleting the Foreign key by specifing the foreign key name---//
+
+MariaDB [sunildata]> alter table demofk drop foreign key demofk_ibfk_2;
+Query OK, 0 rows affected (0.018 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> alter table demofk drop foreign key demofk_ibfk_1;
+Query OK, 0 rows affected (0.013 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> drop table demofk;
+Query OK, 0 rows affected (0.015 sec)
+
+//------***---------------//
+
+//----Giving name to the Foreign Key which helps to make easy to know the parent table details.-------//
+MariaDB [sunildata]> create table demofk(id int,city varchar(30), constraint refemp1_id foreign key(id) references emp(id),constraint refemp2_id foreign key(id) references emp2(id));
+Query OK, 0 rows affected (0.040 sec)
+
+//---Checking the names-----//
+MariaDB [sunildata]> insert into demofk values(103,"Mumbai");
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`sunildata`.`demofk`, CONSTRAINT `refemp2_id` FOREIGN KEY (`id`) REFERENCES `emp2` (`id`))
+MariaDB [sunildata]> insert into demofk values(104,"Mumbai");
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`sunildata`.`demofk`, CONSTRAINT `refemp1_id` FOREIGN KEY (`id`) REFERENCES `emp` (`id`))
+MariaDB [sunildata]>
+///*******************----------------***********///;
+
+
+MariaDB [sunildata]> select * from emp;
++-----+--------+-----------+---------------------+
+| id  | name   | contact   | email               |
++-----+--------+-----------+---------------------+
+| 101 | Sunil  | 92652     | sunjgh@gmik.com     |
+| 102 | Prasad | 925662652 | prsadffhg5@gmik.com |
+| 103 | Tushar | 9223256   | tushargjh@gmik.com  |
++-----+--------+-----------+---------------------+
+3 rows in set (0.013 sec)
+
+MariaDB [sunildata]> select * from emp2;
++-----+--------+
+| id  | name   |
++-----+--------+
+| 101 | Sunil  |
+| 104 | Prasad |
++-----+--------+
+2 rows in set (0.000 sec)
+
+MariaDB [sunildata]> select * from demofk;
+Empty set (0.000 sec)
+
+MariaDB [sunildata]> insert into emp values(103,"Adhu",95655,"adgh@gjbsb.com");
+ERROR 1062 (23000): Duplicate entry '103' for key 'PRIMARY'
+MariaDB [sunildata]> insert into emp values(106,"Adhu",95655,"adgh@gjbsb.com");
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [sunildata]> insert into emp values(107,"Adhu",95655,"adgh@gjbsb.com");
+ERROR 1062 (23000): Duplicate entry 'adgh@gjbsb.com' for key 'email'
+MariaDB [sunildata]> insert into emp values(108,"jaja",92225655,"jahgdgh@gjbsb.com");
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [sunildata]> insert into emp2 values(103,"Tushar"),(105,"vijay"),(110,"Swaraj");
+Query OK, 3 rows affected (0.008 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> drop table demofk;
+Query OK, 0 rows affected (0.019 sec)
+///-------------*****-------------//
+
+//------Note:- the referenced column of other must be a primaryKey of that table------//
+MariaDB [sunildata]> insert into parentFK values(1,"Sunil"),(2,"Prasad"),(3,"Tushar"),(4,"Khalid");
+Query OK, 4 rows affected (0.006 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> select * from parentFK;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | Sunil  |
+|    2 | Prasad |
+|    3 | Tushar |
+|    4 | Khalid |
++------+--------+
+4 rows in set (0.000 sec)
+
+
+MariaDB [sunildata]> alter table parentFK add primary key(id);
+Query OK, 0 rows affected (0.064 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> desc parentFK;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(30) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.012 sec)
+//-- Creation of Foreign Key containing ON DELETE CASCADE---//
+MariaDB [sunildata]> create table demofk(id int, Salary int,Emp_ID int,constraint refemp1_id foreign key(Emp_ID) references parentFK(id) on delete cascade);
+Query OK, 0 rows affected (0.028 sec)
+
+MariaDB [sunildata]> desc demofk;
++--------+---------+------+-----+---------+-------+
+| Field  | Type    | Null | Key | Default | Extra |
++--------+---------+------+-----+---------+-------+
+| id     | int(11) | YES  |     | NULL    |       |
+| Salary | int(11) | YES  |     | NULL    |       |
+| Emp_ID | int(11) | YES  | MUL | NULL    |       |
++--------+---------+------+-----+---------+-------+
+3 rows in set (0.010 sec)
+
+MariaDB [sunildata]> insert into demofk values(101,65000,1),(102,95600,2),(103,95200,3),(104,85000,1),(105,95111,4),
+    -> (106,95007,1),(107,5200,2);
+Query OK, 7 rows affected (0.006 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> select * from demofk;
++------+--------+--------+
+| id   | Salary | Emp_ID |
++------+--------+--------+
+|  101 |  65000 |      1 |
+|  102 |  95600 |      2 |
+|  103 |  95200 |      3 |
+|  104 |  85000 |      1 |
+|  105 |  95111 |      4 |
+|  106 |  95007 |      1 |
+|  107 |   5200 |      2 |
++------+--------+--------+
+7 rows in set (0.000 sec)
+
+//----Case Checking by deleting a row from the parent table---////
+
+MariaDB [sunildata]> delete from parentFK where id=1;
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [sunildata]> select * from parentfk;
++----+--------+
+| id | name   |
++----+--------+
+|  2 | Prasad |
+|  3 | Tushar |
+|  4 | Khalid |
++----+--------+
+3 rows in set (0.000 sec)
+
+MariaDB [sunildata]> select * from demofk;
++------+--------+--------+
+| id   | Salary | Emp_ID |
++------+--------+--------+
+|  102 |  95600 |      2 |
+|  103 |  95200 |      3 |
+|  105 |  95111 |      4 |
+|  107 |   5200 |      2 |
++------+--------+--------+
+4 rows in set (0.000 sec)
+
+MariaDB [sunildata]>
+//------------------*******--------------------------//
+// ----Foreign Key (ON DELETE SET NULL)---//
+
+MariaDB [sunildata]> create table ondetnull(id int, salary int, Emp_id int, foreign key(Emp_id) references parentfk(id) on delete set null);
+Query OK, 0 rows affected (0.049 sec)
+
+
+MariaDB [sunildata]> insert into parentfk values(1,"Sunil");
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [sunildata]> select * from parentfk;
++----+--------+
+| id | name   |
++----+--------+
+|  1 | Sunil  |
+|  2 | Prasad |
+|  3 | Tushar |
+|  4 | Khalid |
++----+--------+
+4 rows in set (0.000 sec)
+
+MariaDB [sunildata]>  insert into ondetnull values(101,65000,1),(102,95600,2),(103,95200,3),(104,85000,1),(105,95111,4),(106,95007,1),(107,5200,2);
+Query OK, 7 rows affected (0.009 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> select * from ondetnull;
++------+--------+--------+
+| id   | salary | Emp_id |
++------+--------+--------+
+|  101 |  65000 |      1 |
+|  102 |  95600 |      2 |
+|  103 |  95200 |      3 |
+|  104 |  85000 |      1 |
+|  105 |  95111 |      4 |
+|  106 |  95007 |      1 |
+|  107 |   5200 |      2 |
++------+--------+--------+
+7 rows in set (0.000 sec)
+//---Checking on delete set null--//
+
+MariaDB [sunildata]> delete from parentfk where id=2;
+Query OK, 1 row affected (0.012 sec)
+
+MariaDB [sunildata]> select * from parentfk;
++----+--------+
+| id | name   |
++----+--------+
+|  1 | Sunil  |
+|  3 | Tushar |
+|  4 | Khalid |
++----+--------+
+3 rows in set (0.000 sec)
+
+MariaDB [sunildata]> select * from ondetnull;
++------+--------+--------+
+| id   | salary | Emp_id |
++------+--------+--------+
+|  101 |  65000 |      1 |
+|  102 |  95600 |   NULL |
+|  103 |  95200 |      3 |
+|  104 |  85000 |      1 |
+|  105 |  95111 |      4 |
+|  106 |  95007 |      1 |
+|  107 |   5200 |   NULL |
++------+--------+--------+
+7 rows in set (0.000 sec)
+
+MariaDB [sunildata]>
+
+
+
+//---- Creation of Relational Database-----//
+//---Types:-
+     ONE to ONE
+	 ONE to MANY
+	 MANY to MANY
+	 Many to ONE---//
+MariaDB [sunildata]> create table employee(id int auto_increment primary key, name varchar(30));
+Query OK, 0 rows affected (0.050 sec)
+
+MariaDB [sunildata]> insert into employee values(1,"Sunil"),('',"Prasad"),('',"Tushar"),('',"Aradhna");
+Query OK, 4 rows affected, 3 warnings (0.012 sec)
+Records: 4  Duplicates: 0  Warnings: 3
+
+MariaDB [sunildata]> select * from employee;
++----+---------+
+| id | name    |
++----+---------+
+|  1 | Sunil   |
+|  2 | Prasad  |
+|  3 | Tushar  |
+|  4 | Aradhna |
++----+---------+
+4 rows in set (0.000 sec)
+
+
+MariaDB [sunildata]> create table acadmic(id int primary key,HSC int,SSC int,graduate int,P_Graduate int,Emp_Id int,foreign key(Emp_Id) references employee(id));
+Query OK, 0 rows affected (0.047 sec)
+
+MariaDB [sunildata]> insert into acadmic values(101,65,89,52,98,1);
+Query OK, 1 row affected (0.010 sec)
+
+MariaDB [sunildata]> insert into acadmic values(102,98,45,65,78,2);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [sunildata]> insert into acadmic values(103,62,45,64,65,3);
+Query OK, 1 row affected (0.010 sec)
+
+MariaDB [sunildata]> insert into acadmic values(104,95,62,75,72,4);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [sunildata]> alter table acadmic add unique key(Emp_Id);
+Query OK, 0 rows affected (0.062 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> select * from acadmic;
++-----+------+------+----------+------------+--------+
+| id  | HSC  | SSC  | graduate | P_Graduate | Emp_Id |
++-----+------+------+----------+------------+--------+
+| 101 |   65 |   89 |       52 |         98 |      1 |
+| 102 |   98 |   45 |       65 |         78 |      2 |
+| 103 |   62 |   45 |       64 |         65 |      3 |
+| 104 |   95 |   62 |       75 |         72 |      4 |
++-----+------+------+----------+------------+--------+
+4 rows in set (0.001 sec)
+
+
+
+
+MariaDB [sunildata]> create table EmpAccount(id int primary key, salary int,month varchar(30),Emp_Id int,foreign key(Emp_Id) references employee(id));
+Query OK, 0 rows affected (0.038 sec)
+
+MariaDB [sunildata]>  insert into EmpAccount values(101,65226,"January",1);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [sunildata]> insert into EmpAccount values(102,65000,"March",1);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [sunildata]> insert into EmpAccount values(102,65000,"July",2);
+ERROR 1062 (23000): Duplicate entry '102' for key 'PRIMARY'
+MariaDB [sunildata]> insert into EmpAccount values(103,65000,"July",2);
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [sunildata]> insert into EmpAccount values(104,36660,"March",3);
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [sunildata]> select * from EmpAccount;
++-----+--------+---------+--------+
+| id  | salary | month   | Emp_Id |
++-----+--------+---------+--------+
+| 101 |  65226 | January |      1 |
+| 102 |  65000 | March   |      1 |
+| 103 |  65000 | July    |      2 |
+| 104 |  36660 | March   |      3 |
++-----+--------+---------+--------+
+4 rows in set (0.000 sec)
+
+MariaDB [sunildata]>
+
+MariaDB [sunildata]> create table project(id int primary key, P_Name varchar(30), duration int,Client_Id int, foreign key(Client_Id) references employee(id));
+Query OK, 0 rows affected (0.026 sec)
+
+MariaDB [sunildata]> insert into project values(1,"Plantation",6,1);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [sunildata]> insert into project values(2,"E_Commerce",2,3),(3,"Interior",5,2);
+Query OK, 2 rows affected (0.008 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> select * from project;
++----+------------+----------+-----------+
+| id | P_Name     | duration | Client_Id |
++----+------------+----------+-----------+
+|  1 | Plantation |        6 |         1 |
+|  2 | E_Commerce |        2 |         3 |
+|  3 | Interior   |        5 |         2 |
++----+------------+----------+-----------+
+3 rows in set (0.000 sec)
+
+MariaDB [sunildata]>
+>>>>>>> 8588ca0 (commit)
