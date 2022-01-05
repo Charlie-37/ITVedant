@@ -77,3 +77,18 @@
 
 # del x
 # print(x)  #it will give undefined x
+
+
+# /------------instance data------------*/
+
+# mystring = "hello"
+# myfloat = 10.0
+# myint = 20
+
+# # testing code
+
+# if mystring == "hello":
+#     print("string : %s" % mystring)
+
+# if isinstance(myfloat,float) and myfloat == 10.0:
+#     print("Float : %f" % myfl
