@@ -55,3 +55,42 @@
 
 
 
+<<<<<<< HEAD
+=======
+# principal = float(input("Enter Principal Amount : "))
+# rateIn = float(input("Enter the rate of Interest : "))
+# time = int(input("Enter the time in Years : "))
+# interest = (principal * rateIn * time) / 100
+# print("The Interest is : ", interest)
+
+# /------------Variable Redecelration------------*/
+# x = 10
+# print(x)
+
+# x = "Hello"
+# print(x)
+
+
+# /------------Variable Deletion (to save space)------------*/
+
+# x = 10
+# print(x)
+
+# del x
+# print(x)  #it will give undefined x
+
+
+# /------------instance data------------*/
+
+# mystring = "hello"
+# myfloat = 10.0
+# myint = 20
+
+# # testing code
+
+# if mystring == "hello":
+#     print("string : %s" % mystring)
+
+# if isinstance(myfloat,float) and myfloat == 10.0:
+#     print("Float : %f" % myfl
+>>>>>>> 1a73c9d (commit)
