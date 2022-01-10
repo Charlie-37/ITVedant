@@ -1,0 +1,201 @@
+//*-----------------Creating Patient Table-----------*//
+
+MariaDB [dbhospital]> create table pt_table(
+    -> P_Id varchar(5) Primary key,
+    -> Name varchar(20) not null,
+    -> Age int not null,
+    -> Weight int not null,
+    -> Gender varchar(10) not null,
+    -> Address varchar(30) not null,
+    -> Phone_No varchar(20) not null,
+    -> Disease varchar(30) not null,
+    -> Doctor_Id varchar(10) not null
+    -> );
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [dbhospital]> desc pt_table;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| P_Id      | varchar(5)  | NO   | PRI | NULL    |       |
+| Name      | varchar(20) | NO   |     | NULL    |       |
+| Age       | int(11)     | NO   |     | NULL    |       |
+| Weight    | int(11)     | NO   |     | NULL    |       |
+| Gender    | varchar(10) | NO   |     | NULL    |       |
+| Address   | varchar(30) | NO   |     | NULL    |       |
+| Phone_No  | varchar(20) | NO   |     | NULL    |       |
+| Disease   | varchar(30) | NO   |     | NULL    |       |
+| Doctor_Id | varchar(10) | NO   |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+9 rows in set (0.020 sec)
+
+MariaDB [dbhospital]> alter table pt_table add constraint check(P_Id >=1000);
+Query OK, 0 rows affected (0.080 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [dbhospital]> desc pt_table;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| P_Id      | varchar(5)  | NO   | PRI | NULL    |       |
+| Name      | varchar(20) | NO   |     | NULL    |       |
+| Age       | int(11)     | NO   |     | NULL    |       |
+| Weight    | int(11)     | NO   |     | NULL    |       |
+| Gender    | varchar(10) | NO   |     | NULL    |       |
+| Address   | varchar(30) | NO   |     | NULL    |       |
+| Phone_No  | varchar(20) | NO   |     | NULL    |       |
+| Disease   | varchar(30) | NO   |     | NULL    |       |
+| Doctor_Id | varchar(10) | NO   |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+9 rows in set (0.022 sec)
+
+MariaDB [dbhospital]>
+
+//*-------Creating Doctor Table---------------*//
+
+MariaDB [dbhospital]> create table Dr_table(
+    -> Dr_Id int primary key check(Dr_Id >= 101),
+    -> Dr_Name varchar(30) not null,
+    -> Contact varchar(20) not null,
+    -> Dr_Dept varchar(30) not null
+    -> );
+Query OK, 0 rows affected (0.040 sec)
+
+MariaDB [dbhospital]> desc Dr_table;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| Dr_Id   | int(11)     | NO   | PRI | NULL    |       |
+| Dr_Name | varchar(30) | NO   |     | NULL    |       |
+| Contact | varchar(20) | NO   |     | NULL    |       |
+| Dr_Dept | varchar(30) | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.025 sec)
+
+//*-----------------Creation Lab Tabe-------------*//
+
+MariaDB [dbhospital]> create table Lab_table(
+    -> Lab_No varchar(10) primary key,
+    -> P_Id varchar(10) not null,
+    -> Weight int not null,
+    -> Doc_Id int,
+    -> Date varchar(20) not null,
+    -> Category varchar(20) not null,
+    -> Amount int not null,
+    -> Foreign key(Doc_Id) references Dr_table(Dr_Id)
+    -> );
+Query OK, 0 rows affected (0.044 sec)
+
+MariaDB [dbhospital]> desc Lab_table;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| Lab_No   | varchar(10) | NO   | PRI | NULL    |       |
+| P_Id     | varchar(10) | NO   |     | NULL    |       |
+| Weight   | int(11)     | NO   |     | NULL    |       |
+| Doc_Id   | int(11)     | YES  | MUL | NULL    |       |
+| Date     | varchar(20) | NO   |     | NULL    |       |
+| Category | varchar(20) | NO   |     | NULL    |       |
+| Amount   | int(11)     | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.021 sec)
+ //*--------------Creation In Patient Table------------*//
+ 
+ MariaDB [dbhospital]> create table InPat_table(
+    -> P_Id varchar(10) primary key,
+    -> Room_No varchar(10) not null,
+    -> `Date_of_Admis yyyy-mm-dd`  varchar(30) not null,
+    -> `Date_of_Disc yyyy-mm-dd` varchar(30) not null,
+    -> Lab_No varchar(10),
+    -> foreign key(Lab_No) references Lab_table(Lab_No));
+Query OK, 0 rows affected (0.035 sec)
+
+MariaDB [dbhospital]> desc InPat_table;
++--------------------------+-------------+------+-----+---------+-------+
+| Field                    | Type        | Null | Key | Default | Extra |
++--------------------------+-------------+------+-----+---------+-------+
+| P_Id                     | varchar(10) | NO   | PRI | NULL    |       |
+| Room_No                  | varchar(10) | NO   |     | NULL    |       |
+| Date_of_Admis yyyy-mm-dd | varchar(30) | NO   |     | NULL    |       |
+| Date_of_Disc yyyy-mm-dd  | varchar(30) | NO   |     | NULL    |       |
+| Lab_No                   | varchar(10) | YES  | MUL | NULL    |       |
++--------------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.022 sec)
+
+
+//*---------------Creation Out Patient Table ----------*//
+
+MariaDB [dbhospital]> create table OutPat_table(
+    -> P_Id varchar(10) primary key,
+    -> `Date yyyy-mm-dd` varchar(20) not null,
+    -> Lab_No varchar(10),
+    -> foreign key(Lab_No) references Lab_table(Lab_No));
+Query OK, 0 rows affected (0.048 sec)
+
+MariaDB [dbhospital]> desc OutPat_table;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| P_Id            | varchar(10) | NO   | PRI | NULL    |       |
+| Date yyyy-mm-dd | varchar(20) | NO   |     | NULL    |       |
+| Lab_No          | varchar(10) | YES  | MUL | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.027 sec)
+
+MariaDB [dbhospital]>
+
+//*--------------Creation Room Table----------------*//
+
+MariaDB [dbhospital]> create table Room_table(
+    -> R_No varchar(10) primary key,
+    -> R_type varchar(30) not null,
+    -> R_Status varchar(3) not null
+    -> );
+Query OK, 0 rows affected (0.038 sec)
+
+MariaDB [dbhospital]> desc Room_table;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| R_No     | varchar(10) | NO   | PRI | NULL    |       |
+| R_type   | varchar(30) | NO   |     | NULL    |       |
+| R_Status | varchar(3)  | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.025 sec)
+
+//*----------Creation Bill Table--------------*//
+
+MariaDB [dbhospital]> create table Bill_table(
+    -> Bill_No varchar(50) primary key,
+    -> P_ID varchar(10) not null,
+    -> `Doctor Charge` int not null,
+    -> `Medicine Charge`int not null,
+    -> `Room Charge` int not null,
+    -> `Operation Charge` int,
+    -> `No Of Days` int,
+    -> `Nursing Charge` int,
+    -> Advance int,
+    -> `Lab Charge` int ,
+    -> Bill int not null
+    -> );
+Query OK, 0 rows affected (0.036 sec)
+
+MariaDB [dbhospital]> desc Bill_table;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| Bill_No          | varchar(50) | NO   | PRI | NULL    |       |
+| P_ID             | varchar(10) | NO   |     | NULL    |       |
+| Doctor Charge    | int(11)     | NO   |     | NULL    |       |
+| Medicine Charge  | int(11)     | NO   |     | NULL    |       |
+| Room Charge      | int(11)     | NO   |     | NULL    |       |
+| Operation Charge | int(11)     | YES  |     | NULL    |       |
+| No Of Days       | int(11)     | YES  |     | NULL    |       |
+| Nursing Charge   | int(11)     | YES  |     | NULL    |       |
+| Advance          | int(11)     | YES  |     | NULL    |       |
+| Lab Charge       | int(11)     | YES  |     | NULL    |       |
+| Bill             | int(11)     | NO   |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+11 rows in set (0.022 sec)
+
+

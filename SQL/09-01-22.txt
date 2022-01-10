@@ -1,0 +1,517 @@
+
+Setting environment for using XAMPP for Windows.
+PRASAD@DESKTOP-24GFU1E c:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.17-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++----------------------+
+| Database             |
++----------------------+
+| food_order           |
+| information_schema   |
+| institute_management |
+| joints               |
+| march9               |
+| mkpflaskbatch        |
+| mydatabase           |
+| mydatabases          |
+| mysql                |
+| performance_schema   |
+| phpmyadmin           |
+| placement            |
+| prasad               |
+| slip_19              |
+| test                 |
++----------------------+
+15 rows in set (0.017 sec)
+
+MariaDB [(none)]> use joints;
+Database changed
+MariaDB [joints]> show tables;
++------------------+
+| Tables_in_joints |
++------------------+
+| cart             |
+| category         |
+| product          |
+| user             |
++------------------+
+4 rows in set (0.001 sec)
+
+MariaDB [joints]> select * from cart;
++------+------------+---------+
+| id   | product_id | user_id |
++------+------------+---------+
+|    1 |          2 |       2 |
+|    2 |          1 |       1 |
+|    3 |          2 |       1 |
+|    4 |          3 |       1 |
++------+------------+---------+
+4 rows in set (0.021 sec)
+
+MariaDB [joints]> select * from category;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | RAm    |
+|    2 | Rajesh |
+|    3 | Manish |
+|    4 | Radha  |
++------+--------+
+4 rows in set (0.002 sec)
+
+MariaDB [joints]> select * from user;
++------+---------+-------------+------------+
+| id   | name    | email       | contact    |
++------+---------+-------------+------------+
+|    1 | Tushar  | t@gmail.com | 8975634953 |
+|    2 | Sunil   | s@gmail.com | 564634953  |
+|    3 | Asharaf | a@gmail.com | 596544953  |
+|    4 | Nil     | n@gmail.com | 698534953  |
++------+---------+-------------+------------+
+4 rows in set (0.013 sec)
+
+MariaDB [joints]> select * from product;
++------+--------+-------+-------+--------+
+| id   | name   | price | descr | cat_id |
++------+--------+-------+-------+--------+
+|    1 | Eggs   |     5 | White |      1 |
+|    2 | laptop | 65000 | Black |      2 |
+|    3 | Mouse  |   600 | Black |      4 |
++------+--------+-------+-------+--------+
+3 rows in set (0.013 sec)
+
+MariaDB [joints]> select u.id "User id",u.name "user name",c.id "cart id",c.product_id "cart product id",c.user_id "cart userid",p.id "product id",p.name "product name",p.cat_id "prodcut cat_id" from cart c inner join product p inner join user u on c.product_id=p.cat_id and c.user_id=u.id;
++---------+-----------+---------+-----------------+-------------+------------+--------------+----------------+
+| User id | user name | cart id | cart product id | cart userid | product id | product name | prodcut cat_id |
++---------+-----------+---------+-----------------+-------------+------------+--------------+----------------+
+|       1 | Tushar    |       2 |               1 |           1 |          1 | Eggs         |              1 |
+|       1 | Tushar    |       3 |               2 |           1 |          2 | laptop       |              2 |
+|       2 | Sunil     |       1 |               2 |           2 |          2 | laptop       |              2 |
++---------+-----------+---------+-----------------+-------------+------------+--------------+----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [joints]> create table place_order(o_id int,o_date date,total_bill float,status varchar(30),user_id int);
+Query OK, 0 rows affected (0.033 sec)
+
+MariaDB [joints]> desc place_holder;
+ERROR 1146 (42S02): Table 'joints.place_holder' doesn't exist
+MariaDB [joints]> desc place_order;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| o_id       | int(11)     | YES  |     | NULL    |       |
+| o_date     | date        | YES  |     | NULL    |       |
+| total_bill | float       | YES  |     | NULL    |       |
+| status     | varchar(30) | YES  |     | NULL    |       |
+| user_id    | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.017 sec)
+
+MariaDB [joints]> create view user_uv as select * from user;
+Query OK, 0 rows affected (0.009 sec)
+
+MariaDB [joints]> select * from user_uv;
++------+---------+-------------+------------+
+| id   | name    | email       | contact    |
++------+---------+-------------+------------+
+|    1 | Tushar  | t@gmail.com | 8975634953 |
+|    2 | Sunil   | s@gmail.com | 564634953  |
+|    3 | Asharaf | a@gmail.com | 596544953  |
+|    4 | Nil     | n@gmail.com | 698534953  |
++------+---------+-------------+------------+
+4 rows in set (0.015 sec)
+
+MariaDB [joints]> create view user_ut as select name,email from user;
+Query OK, 0 rows affected (0.014 sec)
+
+MariaDB [joints]> select * from user_uv;
++------+---------+-------------+------------+
+| id   | name    | email       | contact    |
++------+---------+-------------+------------+
+|    1 | Tushar  | t@gmail.com | 8975634953 |
+|    2 | Sunil   | s@gmail.com | 564634953  |
+|    3 | Asharaf | a@gmail.com | 596544953  |
+|    4 | Nil     | n@gmail.com | 698534953  |
++------+---------+-------------+------------+
+4 rows in set (0.000 sec)
+
+MariaDB [joints]> select * from user_ut;
++---------+-------------+
+| name    | email       |
++---------+-------------+
+| Tushar  | t@gmail.com |
+| Sunil   | s@gmail.com |
+| Asharaf | a@gmail.com |
+| Nil     | n@gmail.com |
++---------+-------------+
+4 rows in set (0.001 sec)
+
+MariaDB [joints]> insert into user_ut valuse("Mahesh","m@123");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'valuse("Mahesh","m@123")' at line 1
+MariaDB [joints]> insert into user_ut values("Mahesh","m@123");
+Query OK, 1 row affected (0.015 sec)
+
+MariaDB [joints]> select * from user_ut;
++---------+-------------+
+| name    | email       |
++---------+-------------+
+| Tushar  | t@gmail.com |
+| Sunil   | s@gmail.com |
+| Asharaf | a@gmail.com |
+| Nil     | n@gmail.com |
+| Mahesh  | m@123       |
++---------+-------------+
+5 rows in set (0.000 sec)
+
+MariaDB [joints]> select * from user;
++------+---------+-------------+------------+
+| id   | name    | email       | contact    |
++------+---------+-------------+------------+
+|    1 | Tushar  | t@gmail.com | 8975634953 |
+|    2 | Sunil   | s@gmail.com | 564634953  |
+|    3 | Asharaf | a@gmail.com | 596544953  |
+|    4 | Nil     | n@gmail.com | 698534953  |
+| NULL | Mahesh  | m@123       | NULL       |
++------+---------+-------------+------------+
+5 rows in set (0.000 sec)
+
+MariaDB [joints]> create view cat_prod as select p.id "Product id",p.name as "Product Name",price,c.name "Category Name" from product p inner join category c on p.cat_id=c.id;
+Query OK, 0 rows affected (0.042 sec)
+
+MariaDB [joints]> select * from cat_prod;
++------------+--------------+-------+---------------+
+| Product id | Product Name | price | Category Name |
++------------+--------------+-------+---------------+
+|          1 | Eggs         |     5 | RAm           |
+|          2 | laptop       | 65000 | Rajesh        |
+|          3 | Mouse        |   600 | Radha         |
++------------+--------------+-------+---------------+
+3 rows in set (0.013 sec)
+
+MariaDB [joints]> insert into product values(4,"Keyboard","Red Key",null);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [joints]> insert into product values(4,"Keyboard",1800,"Red Key",null);
+Query OK, 1 row affected (0.013 sec)
+
+MariaDB [joints]> select * from product;
++------+----------+-------+---------+--------+
+| id   | name     | price | descr   | cat_id |
++------+----------+-------+---------+--------+
+|    1 | Eggs     |     5 | White   |      1 |
+|    2 | laptop   | 65000 | Black   |      2 |
+|    3 | Mouse    |   600 | Black   |      4 |
+|    4 | Keyboard |  1800 | Red Key |   NULL |
++------+----------+-------+---------+--------+
+4 rows in set (0.000 sec)
+
+MariaDB [joints]> select * from cat_prod;
++------------+--------------+-------+---------------+
+| Product id | Product Name | price | Category Name |
++------------+--------------+-------+---------------+
+|          1 | Eggs         |     5 | RAm           |
+|          2 | laptop       | 65000 | Rajesh        |
+|          3 | Mouse        |   600 | Radha         |
++------------+--------------+-------+---------------+
+3 rows in set (0.000 sec)
+
+MariaDB [joints]>MariaDB [(none)]> use sunildata;
+Database changed
+MariaDB [sunildata]> select * from cat_prod;
+ERROR 1146 (42S02): Table 'sunildata.cat_prod' doesn't exist
+MariaDB [sunildata]> show tables;
++---------------------+
+| Tables_in_sunildata |
++---------------------+
+| cart_prod           |
+| category            |
+| product             |
+| user                |
+| user_vt             |
++---------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [sunildata]> select * from cart_prod;
++------------+--------------+-------+---------------+
+| Product Id | Product Name | price | Category Name |
++------------+--------------+-------+---------------+
+|          3 | IPhone       |  1000 | Aradhna       |
+|          4 | MI           | 15000 | Khalid        |
+|          5 | OPPO         | 20000 | Sujay         |
+|          6 | Lenove       | 60000 | Khalid        |
++------------+--------------+-------+---------------+
+4 rows in set (0.001 sec)
+
+MariaDB [sunildata]> select * from category;
++-----+---------+
+| id  | name    |
++-----+---------+
+| 101 | Aradhna |
+| 102 | Khalid  |
+| 103 | Sujay   |
++-----+---------+
+3 rows in set (0.000 sec)
+
+MariaDB [sunildata]> select * from product;
++----+----------+--------+--------------+--------+
+| id | name     | price  | desct        | cat_id |
++----+----------+--------+--------------+--------+
+|  1 | Samsung  | 952666 | SamMobile    |      3 |
+|  2 | OnePlus  | 150000 | OPMobile     |      2 |
+|  3 | IPhone   |   1000 | IMobile      |    101 |
+|  4 | MI       |  15000 | XiomiMobile  |    102 |
+|  5 | OPPO     |  20000 | OPPOMobile   |    103 |
+|  6 | Lenove   |  60000 | LenoveMobile |    102 |
+|  7 | Motorola | 780000 | MotoMobile   |      0 |
++----+----------+--------+--------------+--------+
+7 rows in set (0.000 sec)
+
+MariaDB [sunildata]>  create table cart(id int primary key, user_id int, prod_id int);
+Query OK, 0 rows affected (0.031 sec)
+
+MariaDB [sunildata]> insert into cart(user_id,prod_id) values(1,101), (2,102);
+ERROR 1062 (23000): Duplicate entry '0' for key 'PRIMARY'
+MariaDB [sunildata]> insert into cart values(1,1,101);
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [sunildata]> insert into cart values(2,2,102);
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [sunildata]> insert into cart values(3,3,103);
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [sunildata]> insert into cart values(4,1,102);
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [sunildata]> insert into cart values(5,2,101);
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [sunildata]> insert into cart values(6,3,102);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [sunildata]> insert into cart values(7,3,101);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [sunildata]> insert into cart values(7,1,103);
+ERROR 1062 (23000): Duplicate entry '7' for key 'PRIMARY'
+MariaDB [sunildata]> insert into cart values(8,1,103);
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [sunildata]> select * from cart;
++----+---------+---------+
+| id | user_id | prod_id |
++----+---------+---------+
+|  1 |       1 |     101 |
+|  2 |       2 |     102 |
+|  3 |       3 |     103 |
+|  4 |       1 |     102 |
+|  5 |       2 |     101 |
+|  6 |       3 |     102 |
+|  7 |       3 |     101 |
+|  8 |       1 |     103 |
++----+---------+---------+
+8 rows in set (0.000 sec)
+
+MariaDB [sunildata]> create view get_cartInfo as select cr.id "Cart ID", u.name "User Name", email,address, p.name "Product Name", price from cart cr inner join user u on cr.user_id=u.id inner join product on cr.prod_id=p.id;
+ERROR 1054 (42S22): Unknown column 'address' in 'field list'
+MariaDB [sunildata]> select * from user;
++-----+--------+------------------+-----------+
+| id  | name   | email            | contact   |
++-----+--------+------------------+-----------+
+| 101 | Sunil  | sunil67@hjdjd    | 95664265  |
+| 102 | Prasad | prasadhhh@hsghjd | 956524265 |
+| 103 | Tushar | NULL             | NULL      |
++-----+--------+------------------+-----------+
+3 rows in set (0.000 sec)
+
+MariaDB [sunildata]> create view get_cartInfo as select cr.id "Cart ID", u.name "User Name", email,contact, p.name "Product Name", price from cart cr inner join user u on cr.user_id=u.id inner join product on cr.prod_id=p.id;
+ERROR 1054 (42S22): Unknown column 'p.name' in 'field list'
+MariaDB [sunildata]> create view get_cartInfo as select cr.id "Cart ID", u.name "User Name", email,contact, p.name "Product Name", price from cart cr inner join user u on cr.user_id=u.id inner join product p on cr.prod_id=p.id;
+Query OK, 0 rows affected (0.009 sec)
+
+MariaDB [sunildata]> select * from get_cartInfo;
+Empty set (0.009 sec)
+
+MariaDB [sunildata]> create view get_cartInfo as select cr.id "Cart ID", u.name "User Name", email,contact, p.name "Product Name", price from cart cr inner join user u on cr.user_id=u.id inner join product p on cr.prod_id=p.id;
+ERROR 1050 (42S01): Table 'get_cartInfo' already exists
+MariaDB [sunildata]>
+MariaDB [sunildata]> drop table cart;
+Query OK, 0 rows affected (0.016 sec)
+
+MariaDB [sunildata]>  create table cart(id int primary key, user_id int, prod_id int);
+Query OK, 0 rows affected (0.038 sec)
+
+MariaDB [sunildata]> insert into cart values(2,2,1);
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [sunildata]> insert into cart values(2,2,2)
+    -> ;
+ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+MariaDB [sunildata]> insert into cart values(1,2,2)
+    -> ;
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [sunildata]> insert into cart values(3,3,3);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [sunildata]> insert into cart values(4,1,3);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [sunildata]>  insert into cart values(5,2,101);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [sunildata]>  insert into cart values(6,2,1);
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [sunildata]> insert into cart values(6,3,2);
+ERROR 1062 (23000): Duplicate entry '6' for key 'PRIMARY'
+MariaDB [sunildata]> insert into cart values(7,3,2);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [sunildata]> insert into cart values(7,3,1);
+ERROR 1062 (23000): Duplicate entry '7' for key 'PRIMARY'
+MariaDB [sunildata]> insert into cart values(8,3,1);
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [sunildata]> select * from cart;
++----+---------+---------+
+| id | user_id | prod_id |
++----+---------+---------+
+|  1 |       2 |       2 |
+|  2 |       2 |       1 |
+|  3 |       3 |       3 |
+|  4 |       1 |       3 |
+|  5 |       2 |     101 |
+|  6 |       2 |       1 |
+|  7 |       3 |       2 |
+|  8 |       3 |       1 |
++----+---------+---------+
+8 rows in set (0.000 sec)
+
+MariaDB [sunildata]> drop table user;
+Query OK, 0 rows affected (0.015 sec)
+
+MariaDB [sunildata]> create table user(id int primary key ,name varchar(30), contact varcher(15), city varchar(30));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(15), city varchar(30))' at line 1
+MariaDB [sunildata]> create table user(id int primary key ,name varchar(30), contact varchar(15), city varchar(30));
+Query OK, 0 rows affected (0.038 sec)
+
+MariaDB [sunildata]> insert into user values(1,"Prasad",466652,"Mumbai");
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [sunildata]> insert into user values(2,"Sunil",9566652,"Thane");
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [sunildata]> insert into user values(3,"Tushar",98622552,"Kalyan");
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [sunildata]> create view get_cartInfo as select cr.id "Cart ID", u.name "User Name",contact,city, p.name "Product Name", price from cart cr inner join user u on cr.user_id=u.id inner join product p on cr.prod_id=p.id;
+ERROR 1050 (42S01): Table 'get_cartInfo' already exists
+MariaDB [sunildata]> drop table get_cartInfo;
+ERROR 1965 (42S02): 'sunildata.get_cartinfo' is a view
+MariaDB [sunildata]> create view get_cartInfo as select cr.id "Cart ID", u.name "User Name",contact,city, p.name "Product Name", price from cart cr inner join user u on cr.user_id=u.id inner join product p on cr.prod_id=p.id;
+ERROR 1050 (42S01): Table 'get_cartInfo' already exists
+MariaDB [sunildata]> drop view get_cartInfo;
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [sunildata]> create view get_cartInfo as select cr.id "Cart ID", u.name "User Name",contact,city, p.name "Product Name", price from cart cr inner join user u on cr.user_id=u.id inner join product p on cr.prod_id=p.id;
+Query OK, 0 rows affected (0.008 sec)
+
+MariaDB [sunildata]> select * from get_cartInfo;
++---------+-----------+----------+--------+--------------+--------+
+| Cart ID | User Name | contact  | city   | Product Name | price  |
++---------+-----------+----------+--------+--------------+--------+
+|       4 | Prasad    | 466652   | Mumbai | IPhone       |   1000 |
+|       1 | Sunil     | 9566652  | Thane  | OnePlus      | 150000 |
+|       2 | Sunil     | 9566652  | Thane  | Samsung      | 952666 |
+|       6 | Sunil     | 9566652  | Thane  | Samsung      | 952666 |
+|       3 | Tushar    | 98622552 | Kalyan | IPhone       |   1000 |
+|       7 | Tushar    | 98622552 | Kalyan | OnePlus      | 150000 |
+|       8 | Tushar    | 98622552 | Kalyan | Samsung      | 952666 |
++---------+-----------+----------+--------+--------------+--------+
+7 rows in set (0.001 sec)
+
+MariaDB [sunildata]> select * from get_cartInfo where city="Kalyan";
++---------+-----------+----------+--------+--------------+--------+
+| Cart ID | User Name | contact  | city   | Product Name | price  |
++---------+-----------+----------+--------+--------------+--------+
+|       3 | Tushar    | 98622552 | Kalyan | IPhone       |   1000 |
+|       7 | Tushar    | 98622552 | Kalyan | OnePlus      | 150000 |
+|       8 | Tushar    | 98622552 | Kalyan | Samsung      | 952666 |
++---------+-----------+----------+--------+--------------+--------+
+3 rows in set (0.005 sec)
+
+MariaDB [sunildata]> select * from category;
++-----+---------+
+| id  | name    |
++-----+---------+
+| 101 | Aradhna |
+| 102 | Khalid  |
+| 103 | Sujay   |
++-----+---------+
+3 rows in set (0.005 sec)
+
+MariaDB [sunildata]> drop table category;
+Query OK, 0 rows affected (0.017 sec)
+
+MariaDB [sunildata]> create table category(id int primary key auto_increment, name varchar(30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [sunildata]> create table category(id int primary key auto_increment, name varchar(30));
+Query OK, 0 rows affected (0.039 sec)
+
+MariaDB [sunildata]> insert into category(name) values("Mobile"),("Computer");
+Query OK, 2 rows affected (0.010 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> insert into category(name) values("Utensil"),("Electronic");
+Query OK, 2 rows affected (0.006 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [sunildata]> select * from category;
++----+------------+
+| id | name       |
++----+------------+
+|  1 | Mobile     |
+|  2 | Computer   |
+|  3 | Utensil    |
+|  4 | Electronic |
++----+------------+
+4 rows in set (0.000 sec)
+
+
+//* Trick Question
+
+MariaDB [sunildata]> select * from emp;
++----+---------+-------------------+-------------+------------+
+| id | name    | email             | designation | Manager_ID |
++----+---------+-------------------+-------------+------------+
+|  1 | Sunil   | Sunil@gjdh        | Director    |       NULL |
+|  2 | Prasad  | Pradasad@gjdh     | Director    |       NULL |
+|  3 | Aradhna | Aradhna@gdjdgdb   | CG          |          5 |
+|  4 | Tushar  | Tushar@gdjdgdb    | BM          |          2 |
+|  5 | Ashraf  | Ashraf@gmaildgdb  | Sales-M     |          1 |
+|  6 | Vijay   | Vijay@gmail.com   | Trainee     |          4 |
+|  7 | Mitesh  | Mitesh@gmaildgdb  | Trainer     |          4 |
+|  8 | Bhavesh | Bhavesh@gmai.cpmb | CG          |          5 |
++----+---------+-------------------+-------------+------------+
+8 rows in set (0.000 sec)
+
+MariaDB [sunildata]> select a.name "Employee Name", a.email,a.designation,a.manager_id,b.name "Manager" from emp a join emp b on a.manager_id = b.id;
++---------------+-------------------+-------------+------------+---------+
+| Employee Name | email             | designation | manager_id | Manager |
++---------------+-------------------+-------------+------------+---------+
+| Aradhna       | Aradhna@gdjdgdb   | CG          |          5 | Ashraf  |
+| Tushar        | Tushar@gdjdgdb    | BM          |          2 | Prasad  |
+| Ashraf        | Ashraf@gmaildgdb  | Sales-M     |          1 | Sunil   |
+| Vijay         | Vijay@gmail.com   | Trainee     |          4 | Tushar  |
+| Mitesh        | Mitesh@gmaildgdb  | Trainer     |          4 | Tushar  |
+| Bhavesh       | Bhavesh@gmai.cpmb | CG          |          5 | Ashraf  |
++---------------+-------------------+-------------+------------+---------+
+6 rows in set (0.001 sec)
