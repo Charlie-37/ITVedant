@@ -1,0 +1,186 @@
+//*--------------Table Creation------------**//
+
+MariaDB [sqlass]> create table emp(eid int primary key, name varchar(20), surname varchar(20), dept varchar(20), project varchar(20), city varchar(20), dob varchar(30), gender varchar(10));
+Query OK, 0 rows affected (0.036 sec)
+
+MariaDB [sqlass]> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| eid     | int(11)     | NO   | PRI | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
+| surname | varchar(20) | YES  |     | NULL    |       |
+| dept    | varchar(20) | YES  |     | NULL    |       |
+| project | varchar(20) | YES  |     | NULL    |       |
+| city    | varchar(20) | YES  |     | NULL    |       |
+| dob     | varchar(30) | YES  |     | NULL    |       |
+| gender  | varchar(10) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+8 rows in set (0.011 sec)
+
+MariaDB [sqlass]> select * from emp;
++-----+---------+-----------+---------+---------+--------+------------+--------+
+| eid | name    | surname   | dept    | project | city   | dob        | gender |
++-----+---------+-----------+---------+---------+--------+------------+--------+
+|   1 | Harshad | Dongre    | HR      | P1      | Pune   | 01/12/1976 | M      |
+|   2 | Mac     | Fernandes | Admin   | P3      | Thane  | 02/05/1968 | M      |
+|   3 | Kirti   | Gupta     | Account | P2      | Vashi  | 01/05/1968 | F      |
+|   4 | Rohit   | Ghodke    | HR      | P3      | Pune   |            | M      |
+|   5 | kanchan | Kulkerni  | Admin   | P1      | Mumbai | 03/07/1994 | F      |
++-----+---------+-----------+---------+---------+--------+------------+--------+
+5 rows in set (0.001 sec)
+
+//*-------------Ouery Ouestion--------*//
+1.Write a query to fetch the Employee name from the emp table in upper case and use the ALIAS name as EmpName.
+
+OUTPUT:-
+
+MariaDB [sqlass]> select upper(name) as EmpName from emp;
++---------+
+| EmpName |
++---------+
+| HARSHAD |
+| MAC     |
+| KIRTI   |
+| ROHIT   |
+| KANCHAN |
++---------+
+5 rows in set (0.001 sec)
+
+2. Write a query to fetch the number of employees working in the department ‘HR’.
+OUTPUT:-
+
+MariaDB [sqlass]> select count(dept) as Number_Of_Employee, DEPT from emp where dept="HR";
++--------------------+------+
+| Number_Of_Employee | DEPT |
++--------------------+------+
+|                  2 | HR   |
++--------------------+------+
+1 row in set (0.000 sec)
+
+
+3. Write a query to get the current date.
+OUTPUT:-
+
+MariaDB [sqlass]>  select CURDATE();
++------------+
+| CURDATE()  |
++------------+
+| 2022-01-23 |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [sqlass]> SELECT SYSDATE();
++---------------------+
+| SYSDATE()           |
++---------------------+
+| 2022-01-23 17:26:44 |
++---------------------+
+1 row in set (0.000 sec)
+
+4. Write a query to retrieve the first four characters of  Employee surname from the emp table.
+OUTPUT:-
+
+MariaDB [sqlass]> select SUBSTR(surname, 1,4) from emp;
++----------------------+
+| SUBSTR(surname, 1,4) |
++----------------------+
+| Dong                 |
+| Fern                 |
+| Gupt                 |
+| Ghod                 |
+| Kulk                 |
++----------------------+
+5 rows in set (0.001 sec)
+
+5. Write a query to find the names of employees that begin with ‘K’.
+OUTPUT:-
+
+MariaDB [sqlass]> select name from emp where surname LIKE 'k%';
++---------+
+| name    |
++---------+
+| kanchan |
++---------+
+1 row in set (0.000 sec)
+
+6. Write a query to retrieve the name and surname in a single column as “FullName”. The first name and the last name must be separated with space.
+OUTPUT:-
+
+MariaDB [sqlass]> select CONCAT(name,' ',surname) as FullName from emp;
++------------------+
+| FullName         |
++------------------+
+| Harshad Dongre   |
+| Mac Fernandes    |
+| Kirti Gupta      |
+| Rohit Ghodke     |
+| kanchan Kulkerni |
++------------------+
+5 rows in set (0.000 sec)
+
+7. Write a query to fetch all the records from the emp table ordered by surname in descending order. 
+OUTPUT:-
+
+MariaDB [sqlass]> select * from emp ORDER BY surname DESC;
++-----+---------+-----------+---------+---------+--------+------------+--------+
+| eid | name    | surname   | dept    | project | city   | dob        | gender |
++-----+---------+-----------+---------+---------+--------+------------+--------+
+|   5 | kanchan | Kulkerni  | Admin   | P1      | Mumbai | 03/07/1994 | F      |
+|   3 | Kirti   | Gupta     | Account | P2      | Vashi  | 01/05/1968 | F      |
+|   4 | Rohit   | Ghodke    | HR      | P3      | Pune   |            | M      |
+|   2 | Mac     | Fernandes | Admin   | P3      | Thane  | 02/05/1968 | M      |
+|   1 | Harshad | Dongre    | HR      | P1      | Pune   | 01/12/1976 | M      |
++-----+---------+-----------+---------+---------+--------+------------+--------+
+5 rows in set (0.000 sec)
+
+8. Write a query to fetch details of all employees excluding the employees with first names, “Rohit” and “kirti” from the emp table.
+OUTPUT:-
+
+MariaDB [sqlass]> select * from emp where name NOT IN("Rohit", "kirti");
++-----+---------+-----------+-------+---------+--------+------------+--------+
+| eid | name    | surname   | dept  | project | city   | dob        | gender |
++-----+---------+-----------+-------+---------+--------+------------+--------+
+|   1 | Harshad | Dongre    | HR    | P1      | Pune   | 01/12/1976 | M      |
+|   2 | Mac     | Fernandes | Admin | P3      | Thane  | 02/05/1968 | M      |
+|   5 | kanchan | Kulkerni  | Admin | P1      | Mumbai | 03/07/1994 | F      |
++-----+---------+-----------+-------+---------+--------+------------+--------+
+3 rows in set (0.001 sec)
+
+9. Write a query to fetch department-wise count of employees .
+OUTPUT:-
+
+MariaDB [sqlass]> select COUNT(dept) as No_OF_Emp, dept from emp GROUP BY dept;
++-----------+---------+
+| No_OF_Emp | dept    |
++-----------+---------+
+|         1 | Account |
+|         2 | Admin   |
+|         2 | HR      |
++-----------+---------+
+3 rows in set (0.000 sec)
+
+
+10. Write a query to fetch department-wise count of employees sorted by dept. count in ascending order.
+OUTPUT:-
+
+MariaDB [sqlass]> select COUNT(dept) as No_OF_Emp, dept from emp GROUP BY dept ORDER BY dept;
++-----------+---------+
+| No_OF_Emp | dept    |
++-----------+---------+
+|         1 | Account |
+|         2 | Admin   |
+|         2 | HR      |
++-----------+---------+
+3 rows in set (0.001 sec)
+
+11. Find the name of the department having the number of employee less than 2.
+OUTPUT:-
+
+MariaDB [sqlass]> select COUNT(dept) as No_OF_Emp, dept from emp GROUP BY dept HAVING COUNT(DEPT) < 2;
++-----------+---------+
+| No_OF_Emp | dept    |
++-----------+---------+
+|         1 | Account |
++-----------+---------+
+1 row in set (0.001 sec)
