@@ -1,0 +1,180 @@
+//*-------------Table-----------*//
+MariaDB [sqlass]> select * from employee;
++-------+--------+-----------+------+------------+------+------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800 |    0 |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975 |    0 |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 |    0 |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 |    0 |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1981-12-09 | 3000 |    0 |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000 |    0 |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 |    0 |   NULL |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 |    0 |     20 |
++-------+--------+-----------+------+------------+------+------+--------+
+12 rows in set (0.000 sec)
+
+//*----------------Queries Questions-----------*//
+1. List the names and hire dates in format ('20/3/84') in dept 20.
+OUTPUT:- 
+
+MariaDB [sqlass]> SELECT ENAME,DATE_FORMAT(HIREDATE, '%d-%m-%y') from employee where DEPTNO=20;
++-------+-----------------------------------+
+| ENAME | DATE_FORMAT(HIREDATE, '%d-%m-%y') |
++-------+-----------------------------------+
+| SMITH | 17-12-80                          |
+| JONES | 02-04-81                          |
+| SCOTT | 09-12-81                          |
+| FORD  | 03-12-81                          |
++-------+-----------------------------------+
+4 rows in set (0.006 sec)
+
+2. How many months has the president worked for the company.
+OUTPUT:- 
+MariaDB [sqlass]>  SELECT ENAME, TIMESTAMPDIFF(month, HIREDATE, CURDATE()) as DATE_DIFF from employee where JOB="PRESIDENT" ;
++-------+-----------+
+| ENAME | DATE_DIFF |
++-------+-----------+
+| KING  |       482 |
++-------+-----------+
+1 row in set (0.000 sec)
+
+
+3. List the names of all employees where hire date is in month of December.
+OUTPUT:- 
+MariaDB [sqlass]> select * from employee where HIREDATE LIKE '_____12%';
++-------+-------+---------+------+------------+------+------+--------+
+| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
++-------+-------+---------+------+------------+------+------+--------+
+|  7369 | SMITH | CLERK   | 7902 | 1980-12-17 |  800 |    0 |     20 |
+|  7788 | SCOTT | ANALYST | 7566 | 1981-12-09 | 3000 |    0 |     20 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3000 |    0 |     20 |
++-------+-------+---------+------+------------+------+------+--------+
+3 rows in set (0.000 sec)
+
+4. Find average annual salary per job in each department.
+OUTPUT:- 
+MariaDB [sqlass]> select AVG(SAL) as AVG, JOB from employee GROUP BY JOB;
++-----------+-----------+
+| AVG       | JOB       |
++-----------+-----------+
+| 3000.0000 | ANALYST   |
+|  950.0000 | CLERK     |
+| 2758.3333 | MANAGER   |
+| 5000.0000 | PRESIDENT |
+| 1400.0000 | SALESMAN  |
++-----------+-----------+
+5 rows in set (0.000 sec)
+
+5. Count number of employees in dept 30
+OUTPUT:- 
+MariaDB [sqlass]> select COUNT(DEPTNO) as NO_Of_Employee, DEPTNO from employee where DEPTNO=30;
++----------------+--------+
+| NO_Of_Employee | DEPTNO |
++----------------+--------+
+|              5 |     30 |
++----------------+--------+
+1 row in set (0.000 sec)
+
+
+6. Compute average, minimum and maximum salaries of employees for each department
+OUTPUT:- 
+MariaDB [sqlass]> select AVG(SAL) as AVG, MIN(SAL) as MIN, MAX(SAL) as MAX ,JOB from employee GROUP BY JOB;
++-----------+------+------+-----------+
+| AVG       | MIN  | MAX  | JOB       |
++-----------+------+------+-----------+
+| 3000.0000 | 3000 | 3000 | ANALYST   |
+|  950.0000 |  800 | 1100 | CLERK     |
+| 2758.3333 | 2450 | 2975 | MANAGER   |
+| 5000.0000 | 5000 | 5000 | PRESIDENT |
+| 1400.0000 | 1250 | 1600 | SALESMAN  |
++-----------+------+------+-----------+
+5 rows in set (0.001 sec)
+
+
+7. Display deptno's where more than two clerks are working
+OUTPUT:- 
+
+MariaDB [sqlass]> select DEPTNO, COUNT(JOB) from employee where JOB = "CLERK";
++--------+------------+
+| DEPTNO | COUNT(JOB) |
++--------+------------+
+|     20 |          2 |
++--------+------------+
+1 row in set (0.001 sec)
+
+//*-----Main OUTPUT----*//
+
+MariaDB [sqlass]> select DEPTNO, COUNT(JOB) from employee where JOB = "CLERK" HAVING COUNT(JOB) > 2;
+Empty set (0.000 sec)
+
+
+8. Who was the first employee hired in each department
+OUTPUT:- 
+
+MariaDB [sqlass]> select ENAME, JOB ,MIN(HIREDATE) FROM employee GROUP BY JOB;
++-------+-----------+---------------+
+| ENAME | JOB       | MIN(HIREDATE) |
++-------+-----------+---------------+
+| SCOTT | ANALYST   | 1981-12-03    |
+| SMITH | CLERK     | 1980-12-17    |
+| JONES | MANAGER   | 1981-04-02    |
+| KING  | PRESIDENT | 1981-11-17    |
+| ALLEN | SALESMAN  | 1981-02-20    |
++-------+-----------+---------------+
+5 rows in set (0.001 sec)
+9. Show count of employees and their total sum of salary. Display only those jobs where minimum salary is greater than or equal to 3000
+OUTPUT:-
+MariaDB [sqlass]> select count(JOB),JOB, SAL+COMM as Total_Salary from employee GROUP BY JOB HAVING Total_Salary >= 3000;
++------------+-----------+--------------+
+| count(JOB) | JOB       | Total_Salary |
++------------+-----------+--------------+
+|          2 | ANALYST   |         3000 |
+|          1 | PRESIDENT |         5000 |
++------------+-----------+--------------+
+2 rows in set (0.001 sec) 
+
+10. Find out difference between highest and lowest salaries from emp table
+OUTPUT:- 
+MariaDB [sqlass]> select MIN(SAL) as MIN, MAX(SAL) as MAX, MAX(SAL)- MIN(SAL) as Diff from employee;
++------+------+------+
+| MIN  | MAX  | Diff |
++------+------+------+
+|  800 | 5000 | 4200 |
++------+------+------+
+1 row in set (0.000 sec)
+
+
+11. Find all departments which have more than 3 employees.
+OUTPUT:- 
+
+12. Find the employees who earn more than the lowest salary in each department.
+OUTPUT:- 
+
+13. Display employee who earn more than the lowest salary in department 30
+OUTPUT:- 
+
+14. Find employees who earn more than every employee in each department ordering to the department
+OUTPUT:- 
+
+15. Determine average salary of employees.
+OUTPUT:- 
+
+16. Find the job with highest average salary
+OUTPUT:- 
+
+17. Display the name of job, hire date for employees whose salary is greater than the highest salary in any SALES department
+OUTPUT:- 
+
+18. Find out all the jobs either in department 20 or where salary is greater than 3000.
+OUTPUT:- 
+
+19. Find out the employees who earn the highest salary in each department.
+OUTPUT:- 
+
+20. Display the employees who are doing the same job as ‘FORD’.OUTPUT:- 
+OUTPUT:- 
