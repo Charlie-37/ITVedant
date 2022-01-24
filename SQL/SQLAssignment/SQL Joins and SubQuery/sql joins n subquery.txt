@@ -152,29 +152,150 @@ MariaDB [sqlass]> select MIN(SAL) as MIN, MAX(SAL) as MAX, MAX(SAL)- MIN(SAL) as
 11. Find all departments which have more than 3 employees.
 OUTPUT:- 
 
+MariaDB [sqlass]> select JOB from employee GROUP BY JOB HAVING COUNT(JOB) > 3;
++----------+
+| JOB      |
++----------+
+| SALESMAN |
++----------+
+1 row in set (0.001 sec)
+
 12. Find the employees who earn more than the lowest salary in each department.
 OUTPUT:- 
 
+MariaDB [sqlass]> select ENAME, JOB, SAL from employee where SAL> ALL(select MIN(SAL) from employee);
++--------+-----------+------+
+| ENAME  | JOB       | SAL  |
++--------+-----------+------+
+| ALLEN  | SALESMAN  | 1600 |
+| WARD   | SALESMAN  | 1250 |
+| JONES  | MANAGER   | 2975 |
+| MARTIN | SALESMAN  | 1250 |
+| BLAKE  | MANAGER   | 2850 |
+| CLARK  | MANAGER   | 2450 |
+| SCOTT  | ANALYST   | 3000 |
+| KING   | PRESIDENT | 5000 |
+| TURNER | SALESMAN  | 1500 |
+| ADAMS  | CLERK     | 1100 |
+| FORD   | ANALYST   | 3000 |
++--------+-----------+------+
+11 rows in set (0.001 sec)
+
 13. Display employee who earn more than the lowest salary in department 30
 OUTPUT:- 
-
+MariaDB [sqlass]> select ENAME, JOB, DEPTNO,SAL from employee where SAL> ALL(select MIN(SAL) from employee) HAVING DEPTNO=30;
++--------+----------+--------+------+
+| ENAME  | JOB      | DEPTNO | SAL  |
++--------+----------+--------+------+
+| ALLEN  | SALESMAN |     30 | 1600 |
+| WARD   | SALESMAN |     30 | 1250 |
+| MARTIN | SALESMAN |     30 | 1250 |
+| BLAKE  | MANAGER  |     30 | 2850 |
+| TURNER | SALESMAN |     30 | 1500 |
++--------+----------+--------+------+
+5 rows in set (0.001 sec)
 14. Find employees who earn more than every employee in each department ordering to the department
 OUTPUT:- 
-
+MariaDB [sqlass]> select ENAME, JOB, DEPTNO,SAL from employee where SAL> ALL(select MIN(SAL) from employee) GROUP BY JOB ORDER BY DEPTNO;
++-------+-----------+--------+------+
+| ENAME | JOB       | DEPTNO | SAL  |
++-------+-----------+--------+------+
+| ADAMS | CLERK     |   NULL | 1100 |
+| KING  | PRESIDENT |     10 | 5000 |
+| SCOTT | ANALYST   |     20 | 3000 |
+| JONES | MANAGER   |     20 | 2975 |
+| ALLEN | SALESMAN  |     30 | 1600 |
++-------+-----------+--------+------+
+5 rows in set (0.001 sec)
 15. Determine average salary of employees.
 OUTPUT:- 
+MariaDB [sqlass]> select AVG(SAL) as AVG_SAL from employee;
++-----------+
+| AVG_SAL   |
++-----------+
+| 2231.2500 |
++-----------+
+1 row in set (0.000 sec)
+
+//*----OTHER OP---*//
+MariaDB [sqlass]> select AVG(SAL) as AVG_SAL, JOB from employee GROUP BY JOB;
++-----------+-----------+
+| AVG_SAL   | JOB       |
++-----------+-----------+
+| 3000.0000 | ANALYST   |
+|  950.0000 | CLERK     |
+| 2758.3333 | MANAGER   |
+| 5000.0000 | PRESIDENT |
+| 1400.0000 | SALESMAN  |
++-----------+-----------+
+5 rows in set (0.001 sec)
 
 16. Find the job with highest average salary
 OUTPUT:- 
 
+MariaDB [sqlass]> select JOB, MAX(avg_sal) from (select JOB, avg(SAL) avg_sal from employee where JOB != "PRESIDENT"  GROUP BY JOB) as avg;
++---------+--------------+
+| JOB     | MAX(avg_sal) |
++---------+--------------+
+| ANALYST |    3000.0000 |
++---------+--------------+
+1 row in set (0.001 sec)
+
+
 17. Display the name of job, hire date for employees whose salary is greater than the highest salary in any SALES department
 OUTPUT:- 
+MariaDB [sqlass]> select ENAME,JOB,HIREDATE,sal from employee where SAL >(select MAX(SAL) from employee where JOB = "SALESMAN");
++-------+-----------+------------+------+
+| ENAME | JOB       | HIREDATE   | sal  |
++-------+-----------+------------+------+
+| JONES | MANAGER   | 1981-04-02 | 2975 |
+| BLAKE | MANAGER   | 1981-05-01 | 2850 |
+| CLARK | MANAGER   | 1981-06-09 | 2450 |
+| SCOTT | ANALYST   | 1981-12-09 | 3000 |
+| KING  | PRESIDENT | 1981-11-17 | 5000 |
+| FORD  | ANALYST   | 1981-12-03 | 3000 |
++-------+-----------+------------+------+
+6 rows in set (0.001 sec)
 
 18. Find out all the jobs either in department 20 or where salary is greater than 3000.
-OUTPUT:- 
+OUTPUT:-
+MariaDB [sqlass]> select JOB, DEPTNO,SAL FROM EMPLOYEE where DEPTNO = 20  OR(select SAL > 3000);
++-----------+--------+------+
+| JOB       | DEPTNO | SAL  |
++-----------+--------+------+
+| CLERK     |     20 |  800 |
+| MANAGER   |     20 | 2975 |
+| ANALYST   |     20 | 3000 |
+| PRESIDENT |     10 | 5000 |
+| ANALYST   |     20 | 3000 |
++-----------+--------+------+
+5 rows in set (0.000 sec) 
 
 19. Find out the employees who earn the highest salary in each department.
 OUTPUT:- 
 
+MariaDB [sqlass]> select ENAME, MAX(SAL), JOB from employee GROUP BY JOB
+    -> ;
++-------+----------+-----------+
+| ENAME | MAX(SAL) | JOB       |
++-------+----------+-----------+
+| SCOTT |     3000 | ANALYST   |
+| SMITH |     1100 | CLERK     |
+| JONES |     2975 | MANAGER   |
+| KING  |     5000 | PRESIDENT |
+| ALLEN |     1600 | SALESMAN  |
++-------+----------+-----------+
+5 rows in set (0.001 sec)
+
+MariaDB [sqlass]>
+
 20. Display the employees who are doing the same job as ‘FORD’.OUTPUT:- 
 OUTPUT:- 
+MariaDB [sqlass]> select ENAME, JOB from employee where JOB = (select JOB from employee where ENAME="FORD");
++-------+---------+
+| ENAME | JOB     |
++-------+---------+
+| SCOTT | ANALYST |
+| FORD  | ANALYST |
++-------+---------+
+2 rows in set (0.000 sec)
