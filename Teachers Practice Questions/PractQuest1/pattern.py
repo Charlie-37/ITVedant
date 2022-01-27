@@ -320,3 +320,39 @@ E
 * * * 
 *****
 '''
+
+# /*--------------Pattern 16----------*/
+# n = 6
+# for i in range(1, n):
+#   for j in range(i, 0, -1):
+#     print(j, end='')
+#   print(" ")
+
+#OUTPUT 
+
+'''
+1 
+21    
+321   
+4321  
+54321 
+'''
+
+# /*--------------Pattern 17----------*/
+for i in range(6,0,-1):
+  for space in range(6,i,-1):
+    print(" ",end="")
+  for j in range(1,i+1):
+    print(j,end=" ")
+  print()
+
+#OUTPUT 
+
+'''
+1 2 3 4 5 6 
+ 1 2 3 4 5 
+  1 2 3 4
+   1 2 3
+    1 2
+     1
+'''
