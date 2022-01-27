@@ -55,8 +55,7 @@
 
 
 
-<<<<<<< HEAD
-=======
+
 # principal = float(input("Enter Principal Amount : "))
 # rateIn = float(input("Enter the rate of Interest : "))
 # time = int(input("Enter the time in Years : "))
@@ -93,4 +92,4 @@
 
 # if isinstance(myfloat,float) and myfloat == 10.0:
 #     print("Float : %f" % myfl
->>>>>>> 1a73c9d (commit)
+
