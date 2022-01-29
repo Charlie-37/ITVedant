@@ -161,3 +161,40 @@
 #  //*-------------------**-----------------------------//
 
 # 7.	Create a function which accepts any String or print in reverse order. Eg. coder      O.P: redoc
+
+# txt1 = input("Enter the string to Reverse : ")
+
+# slist=[]
+
+# rlist =[]
+# def revs(txt1):
+#     for i in range(len(txt1)):
+        
+#            slist.append(txt1[i])
+#     x = len(slist)
+#     print(slist)
+
+#     while x>0:
+#         rlist.append(slist[x-1])
+#         x = x-1
+
+
+#     reversedS = ""
+#     for k in rlist:
+#         reversedS += str(k)+""
+#     print(reversedS)
+
+    
+
+
+#     # Direct method
+#     #print("The reverse string is : ", "".join(rlist))
+
+
+
+    
+
+
+
+revs(txt1)
+
