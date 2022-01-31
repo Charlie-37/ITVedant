@@ -191,10 +191,29 @@
 #     #print("The reverse string is : ", "".join(rlist))
 
 
+# revs(txt1)
 
-    
+#  //*-------------------**-----------------------------//
+
+# 8.	Create a function which accepts any String or print in reverse order. Eg. itvedant team     O.P: maet tnadevti
+
+str1 = "ITvedant team";
+l1=[]
+l2 =[]
+reve=""
+for i in range(0, len(str1)):
+    l1.append(str1[i])
+
+x = len(l1)
+
+while x>0:
+    l2.append(l1[x-1])
+    x = x-1
 
 
+for k in l2:
+    reve += str(k)+""
 
-revs(txt1)
+
+print()
 
