@@ -38,24 +38,28 @@
 #//*---------------------****-----------------*//
 #//*---------------------Factorial-----------------*//
 
-# x = int(input("Enter the Numbar : "))
-# res = 1
-# fact = 1
+x = int(input("Enter the Numbar : "))
+res = 1
+fact = 1
 
-# while fact<=x:
-#     res = res * fact
-#     fact +=1
+while fact<=x:
+    res = res * fact
+    fact +=1
+print(res)
 
-# print(res)
 
+#//*---------------------****-----------------*//
 #//*---------------------Addition Till N Number-----------------*//
 
-x = int(input("Enter the Numbar : "))
+# x = int(input("Enter the Numbar : "))
 
-res = 0
-n = 1
+# res = 0
+# n = 1
 
-while n<=x:
-    res = res + n
-    n = n+1
-print(res)
+# while n<=x:
+#     res = res + n
+#     n = n+1
+# print(res)
+
+
+#//*---------------------****-----------------*//
