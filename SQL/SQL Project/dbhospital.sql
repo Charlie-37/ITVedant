@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2022 at 08:28 AM
+-- Generation Time: Feb 02, 2022 at 12:32 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -229,7 +229,8 @@ INSERT INTO `room_table` (`R_No`, `R_type`, `R_Status`) VALUES
 -- Indexes for table `bill_table`
 --
 ALTER TABLE `bill_table`
-  ADD PRIMARY KEY (`Bill_No`);
+  ADD PRIMARY KEY (`Bill_No`),
+  ADD KEY `P_ID` (`P_ID`);
 
 --
 -- Indexes for table `dr_table`
@@ -275,6 +276,12 @@ ALTER TABLE `room_table`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `bill_table`
+--
+ALTER TABLE `bill_table`
+  ADD CONSTRAINT `bill_table_ibfk_1` FOREIGN KEY (`P_ID`) REFERENCES `pt_table` (`P_Id`);
 
 --
 -- Constraints for table `inpat_table`

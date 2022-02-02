@@ -38,14 +38,14 @@
 #//*---------------------****-----------------*//
 #//*---------------------Factorial-----------------*//
 
-x = int(input("Enter the Numbar : "))
-res = 1
-fact = 1
+# x = int(input("Enter the Numbar : "))
+# res = 1
+# fact = 1
 
-while fact<=x:
-    res = res * fact
-    fact +=1
-print(res)
+# while fact<=x:
+#     res = res * fact
+#     fact +=1
+# print(res)
 
 
 #//*---------------------****-----------------*//
