@@ -215,5 +215,5 @@ for k in l2:
     reve += str(k)+""
 
 
-print()
+print(reve)
 
