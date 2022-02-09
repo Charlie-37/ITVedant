@@ -127,6 +127,46 @@
 
 
 
+# //* ---------------Leap---------*//
+
+# x = int(input("Enter the number : "))
+
+# if x%4 == 0:
+#     if x%100 ==0:
+#         if x%400 ==0:
+#             print("Leap year")
+#         else:
+#             print("Not a leap")
+#     else:
+#         print("Leap year")
+# else:
+#     print("Not a aleap year");
+
+
+
+# # //* ---------------Factorial---------*//
+# x = int(input("Enter the number : "))
+# fact = 1
+# res = 1
+
+# while fact <= x:
+#     res = res*fact
+#     fact+=1
+# print(res)
+
+# # //* ---------------Slicing n rev---------*//
+
+# n = input("Enter the sentence : ")
+n = "My name is sunil"
+o = n.split()
+#print(o)
+z = n[ : : -1]
+k =[]
+for i in range(0, len(o)):
+    a= o[i]
+    x = a[ : : -1]
+    print(x, end=" ")
+    
 
 
 
