@@ -128,9 +128,7 @@ m = "I love python programming and python"
 
 
 # //* -------------LIST--------------**/
-
-# x = [1,3,5,7,9]
-
+x = [1,3,5,7,9]
 # # //*---------Append()---------//
 # # //* Adds value at the last in the list
 # x.append(10)
@@ -142,3 +140,13 @@ m = "I love python programming and python"
 # x.insert(1,"two")
 # print(x)
 
+# # //*--------Extend()-------------//
+# y = [10,12,13,14]
+# x.extend(y)
+# print(x)
+
+# //* Experiment Difference between append and extend
+x.append(" and so on append")
+x.extend("and so on extend")
+
+print(x)
