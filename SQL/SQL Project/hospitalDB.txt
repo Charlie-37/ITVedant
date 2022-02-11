@@ -95,6 +95,8 @@ MariaDB [dbhospital]> desc Dr_table;
 
 MariaDB [dbhospital]> select * from Dr_table;
 +-------+----------------+------------+----------------------+
+
+
 | Dr_Id | Dr_Name        | Contact    | Dr_Dept              |
 +-------+----------------+------------+----------------------+
 |   101 | Dr.Rajendra J. | 954622812  | Thyrorid Specialist  |

@@ -1,0 +1,69 @@
+#//*-----------------List---------------*//
+
+x = [2,4,6,8,10]
+
+
+
+Q1.write a code to add a element 'eleven' , inside list at the end
+
+output-:[2,4,6,8,10,'eleven']
+
+CODE: 
+
+x.append("eleven")
+print(x)
+
+
+
+
+Q2.perform an operation to get the following output
+
+output-: ['one', 2, 4, 6, 8, 10, 'eleven']
+
+CODE: 
+
+
+
+Q3.perform an operation to merge the list y inside list x
+
+y= [12,13,14]
+
+output-: ['one', 2, 4, 6, 8, 10, 'eleven', 12, 13, 14]
+
+CODE: 
+
+
+
+
+Q4.perform an operation to get the following output
+
+output-: [14, 13, 12, 'eleven', 10, 8, 6, 4, 2, 'one']
+
+CODE: 
+
+
+
+Q5.Perform one single operation to remove 'eleven', 10, 8 all together at once
+
+output-: [14, 13, 12, 6, 4, 2, 'one']
+
+CODE: 
+
+
+Q6.write a code to remove 'one' element from the list
+
+output-: [14, 13, 12, 6, 4, 2]
+
+CODE: 
+
+
+
+Q7.write a code to get the following output
+
+x = ["hey","there","hello","world"]
+
+y= " "
+
+output-: 'hey there hello world'
+
+CODE: 

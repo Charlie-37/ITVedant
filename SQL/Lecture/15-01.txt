@@ -1,0 +1,372 @@
+Setting environment for using XAMPP for Windows.
+HP@DESKTOP-3CFCEM5 c:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.22-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use sunildata;
+Database changed
+MariaDB [sunildata]> show tables;
++---------------------+
+| Tables_in_sunildata |
++---------------------+
+| cart                |
+| cart_prod           |
+| category            |
+| emp                 |
+| get_cartinfo        |
+| product             |
+| user                |
+| user_vt             |
++---------------------+
+8 rows in set (0.015 sec)
+
+MariaDB [sunildata]> desc category;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(30) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.029 sec)
+
+MariaDB [sunildata]> desc employee;
+ERROR 1146 (42S02): Table 'sunildata.employee' doesn't exist
+MariaDB [sunildata]> desc emp;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | NO   | PRI | NULL    |       |
+| name        | varchar(30) | YES  |     | NULL    |       |
+| email       | varchar(30) | YES  |     | NULL    |       |
+| designation | varchar(30) | YES  |     | NULL    |       |
+| Manager_ID  | int(10)     | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+5 rows in set (0.029 sec)
+
+MariaDB [sunildata]> select * from emp;
++----+---------+-------------------+-------------+------------+
+| id | name    | email             | designation | Manager_ID |
++----+---------+-------------------+-------------+------------+
+|  1 | Sunil   | Sunil@gjdh        | Director    |       NULL |
+|  2 | Prasad  | Pradasad@gjdh     | Director    |       NULL |
+|  3 | Aradhna | Aradhna@gdjdgdb   | CG          |          5 |
+|  4 | Tushar  | Tushar@gdjdgdb    | BM          |          2 |
+|  5 | Ashraf  | Ashraf@gmaildgdb  | Sales-M     |          1 |
+|  6 | Vijay   | Vijay@gmail.com   | Trainee     |          4 |
+|  7 | Mitesh  | Mitesh@gmaildgdb  | Trainer     |          4 |
+|  8 | Bhavesh | Bhavesh@gmai.cpmb | CG          |          5 |
++----+---------+-------------------+-------------+------------+
+8 rows in set (0.049 sec)
+
+MariaDB [sunildata]> select id, upper(name), loweer(email) from emp;
+ERROR 1305 (42000): FUNCTION sunildata.loweer does not exist
+MariaDB [sunildata]> select id, upper(name), lower(email) from emp;
++----+-------------+-------------------+
+| id | upper(name) | lower(email)      |
++----+-------------+-------------------+
+|  1 | SUNIL       | sunil@gjdh        |
+|  2 | PRASAD      | pradasad@gjdh     |
+|  3 | ARADHNA     | aradhna@gdjdgdb   |
+|  4 | TUSHAR      | tushar@gdjdgdb    |
+|  5 | ASHRAF      | ashraf@gmaildgdb  |
+|  6 | VIJAY       | vijay@gmail.com   |
+|  7 | MITESH      | mitesh@gmaildgdb  |
+|  8 | BHAVESH     | bhavesh@gmai.cpmb |
++----+-------------+-------------------+
+8 rows in set (0.000 sec)
+
+MariaDB [sunildata]> select ascii(A);
+ERROR 1054 (42S22): Unknown column 'A' in 'field list'
+MariaDB [sunildata]> select ascii('A');
++------------+
+| ascii('A') |
++------------+
+|         65 |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select chr(65);
++---------+
+| chr(65) |
++---------+
+| A       |
++---------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select ascii(' ');
++------------+
+| ascii(' ') |
++------------+
+|         32 |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select length("developer");
++---------------------+
+| length("developer") |
++---------------------+
+|                   9 |
++---------------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select length(email), email from emo;
+ERROR 1146 (42S02): Table 'sunildata.emo' doesn't exist
+MariaDB [sunildata]> select length(email), email from emp;
++---------------+-------------------+
+| length(email) | email             |
++---------------+-------------------+
+|            10 | Sunil@gjdh        |
+|            13 | Pradasad@gjdh     |
+|            15 | Aradhna@gdjdgdb   |
+|            14 | Tushar@gdjdgdb    |
+|            16 | Ashraf@gmaildgdb  |
+|            15 | Vijay@gmail.com   |
+|            16 | Mitesh@gmaildgdb  |
+|            17 | Bhavesh@gmai.cpmb |
++---------------+-------------------+
+8 rows in set (0.000 sec)
+
+MariaDB [sunildata]> select concat(name, " " ,'Patil');
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+MariaDB [sunildata]> select concat(name, " " ,'Patil') from emp;
++----------------------------+
+| concat(name, " " ,'Patil') |
++----------------------------+
+| Sunil Patil                |
+| Prasad Patil               |
+| Aradhna Patil              |
+| Tushar Patil               |
+| Ashraf Patil               |
+| Vijay Patil                |
+| Mitesh Patil               |
+| Bhavesh Patil              |
++----------------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [sunildata]> select ltrim("    ITVedant   Thane   ") as address;
++---------------------+
+| address             |
++---------------------+
+| ITVedant   Thane    |
++---------------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select trim("    ITVedant   Thane   ") as address;
++------------------+
+| address          |
++------------------+
+| ITVedant   Thane |
++------------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select rtrim("    ITVedant   Thane   ") as address;
++----------------------+
+| address              |
++----------------------+
+|     ITVedant   Thane |
++----------------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select replace('123Developer123','123','');
++-------------------------------------+
+| replace('123Developer123','123','') |
++-------------------------------------+
+| Developer                           |
++-------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select replace('123Developer123','123','u');
++--------------------------------------+
+| replace('123Developer123','123','u') |
++--------------------------------------+
+| uDeveloperu                          |
++--------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select replace('111Developer123','1','u');
++------------------------------------+
+| replace('111Developer123','1','u') |
++------------------------------------+
+| uuuDeveloperu23                    |
++------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select substr("Itvedant Thane",3,4);
++------------------------------+
+| substr("Itvedant Thane",3,4) |
++------------------------------+
+| veda                         |
++------------------------------+
+1 row in set (0.000 sec)
+
+
+MariaDB [sunildata]> select min(id) from emp;
++---------+
+| min(id) |
++---------+
+|       1 |
++---------+
+1 row in set (0.001 sec)
+
+MariaDB [sunildata]> select max(id) from emp;
++---------+
+| max(id) |
++---------+
+|       8 |
++---------+
+1 row in set (0.001 sec)
+
+MariaDB [sunildata]> select round(23.40);
++--------------+
+| round(23.40) |
++--------------+
+|           23 |
++--------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select ceil(23.69);
++-------------+
+| ceil(23.69) |
++-------------+
+|          24 |
++-------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select floor(23.01);
++--------------+
+| floor(23.01) |
++--------------+
+|           23 |
++--------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select floor(23.91);
++--------------+
+| floor(23.91) |
++--------------+
+|           23 |
++--------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select sqrt(4);
++---------+
+| sqrt(4) |
++---------+
+|       2 |
++---------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select sqrt(4.78);
++-------------------+
+| sqrt(4.78)        |
++-------------------+
+| 2.186321110907545 |
++-------------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select power(10,2);
++-------------+
+| power(10,2) |
++-------------+
+|         100 |
++-------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select log(12);
++--------------------+
+| log(12)            |
++--------------------+
+| 2.4849066497880004 |
++--------------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select greatest(34,65,99);
++--------------------+
+| greatest(34,65,99) |
++--------------------+
+|                 99 |
++--------------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select least(34,65,99);
++-----------------+
+| least(34,65,99) |
++-----------------+
+|              34 |
++-----------------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select count(*) from emp;
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [sunildata]> select count(*) from emp by id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'by id' at line 1
+MariaDB [sunildata]>
+MariaDB [sunildata]> select count(email) from emp group by email;;
++--------------+
+| count(email) |
++--------------+
+|            1 |
+|            1 |
+|            1 |
+|            1 |
+|            1 |
+|            1 |
+|            1 |
+|            1 |
++--------------+
+8 rows in set (0.000 sec)
+
+ERROR: No query specified
+
+MariaDB [sunildata]> select * from emp;
++----+---------+-------------------+-------------+------------+
+| id | name    | email             | designation | Manager_ID |
++----+---------+-------------------+-------------+------------+
+|  1 | Sunil   | Sunil@gjdh        | Director    |       NULL |
+|  2 | Prasad  | Pradasad@gjdh     | Director    |       NULL |
+|  3 | Aradhna | Aradhna@gdjdgdb   | CG          |          5 |
+|  4 | Tushar  | Tushar@gdjdgdb    | BM          |          2 |
+|  5 | Ashraf  | Ashraf@gmaildgdb  | Sales-M     |          1 |
+|  6 | Vijay   | Vijay@gmail.com   | Trainee     |          4 |
+|  7 | Mitesh  | Mitesh@gmaildgdb  | Trainer     |          4 |
+|  8 | Bhavesh | Bhavesh@gmai.cpmb | CG          |          5 |
++----+---------+-------------------+-------------+------------+
+8 rows in set (0.001 sec)
+
+MariaDB [sunildata]> select count(designation) from emp group by designation;
++--------------------+
+| count(designation) |
++--------------------+
+|                  1 |
+|                  2 |
+|                  2 |
+|                  1 |
+|                  1 |
+|                  1 |
++--------------------+
+6 rows in set (0.000 sec)
+
+MariaDB [sunildata]> select count(designation),designation from emp group by designation;
++--------------------+-------------+
+| count(designation) | designation |
++--------------------+-------------+
+|                  1 | BM          |
+|                  2 | CG          |
+|                  2 | Director    |
+|                  1 | Sales-M     |
+|                  1 | Trainee     |
+|                  1 | Trainer     |
++--------------------+-------------+
+6 rows in set (0.001 sec)
