@@ -9,8 +9,8 @@ n = "i LoVe PYtHoN pRogRaMminG"
 # # n = n.lower()
 # # print(n)
 
-# x = n.lower()
-# print(x)
+x = n.lower()
+print(x)
 
 
 
@@ -150,3 +150,7 @@ x.append(" and so on append")
 x.extend("and so on extend")
 
 print(x)
+
+x = "I love Python, Python is best"
+y = x.find("is")
+print(y)
