@@ -70,7 +70,7 @@ print(list1)
 #//*--------Update()-----**/
 
 # //* Single value delete by indexing
-list8 = [1,2,3,4,5,6,7,8,9,0]
+# list8 = [1,2,3,4,5,6,7,8,9,0]
 ##print(list8)
 ##list8[4]="five"
 ##print(list8)
@@ -83,11 +83,11 @@ list8 = [1,2,3,4,5,6,7,8,9,0]
 
 # //* Some experements
 
-list8[3:7]="this"
-print(list8)
+# list8[3:7]="this"
+# print(list8)
 
-list8[3:7]=["this"]
-print(list8)
+# list8[3:7]=["this"]
+# print(list8)
 
 # //*------ del --------*//
 ##del list8[4]
@@ -122,23 +122,26 @@ d = {"father":50, "Mother":34, "sister":23}
 ##print(getval3)
 
 
-d1 = {"a":2, "b":33, "c":31}
+# d1 = {"a":2, "b":33, "c":31}
 
-d.update(d1)
-print(d)
+# d.update(d1)
+# print(d)
 
-##d.update('father', 21)
-##print(d)
+# d["father"] = 55
+# print(d)
 
 
-d.pop("Mother")
-print(d)
+# d.pop("Mother")
+# print(d)
 
-x = d["b"]
-print(x)
+# x = d["b"]
+# print(x)
 
-d["a"]=40
-print(d)
+# d["a"]=40
+# print(d)
 
-d["a"]=55
-print(d)
+# d["a"]=55
+# print(d)
+
+x = (1)
+print(type(x))
