@@ -2,7 +2,7 @@ from time import sleep
 from playsound import playsound
 import datetime
 import time
-
+# //*----------User Data------------------------------*//
 user_data={
     90001:{
         "card_no": 90001,
@@ -309,33 +309,7 @@ def acc_choi(en_acc_no,en_card_no,en_acc_ty) :
             cash_withdrawl = atm_class(en_acc_no,en_card_no,en_acc_ty,'')
             print("Cash Withdrawl")
             cash_withdrawl.cash_withd()
-            # withd = int(input("Enter Your Ammount : "))
-
-            # if withd %100 != 0:
-            #     print("Multiple of 100, 200, 500 Only.")
-            # else:
-            #     if withd>10000:
-            #         print("Only Maximum 10000 can Withdraw at a Time")
-
-            #     else:
-
-            #         if withd>totamu:
-            #             print("Insuffecient Balance In ATM.")
-            #         else:
-            #             if pin_check.pin_valididation():
-            #                 acc_bal = pin_check.get_bal()
-
-            #                 if withd > acc_bal:
-            #                     print("Insuffecient Account Blance.")
-            #                     user_atm()
-            #                 else:
-
-            #                     print("Take Your Cash & Don't Forget to get your card")
-            #                     twoth(withd)
-
-            #                     print("Avaliable Balance : ", acc_bal - withd,"\n")
-            #                     user_atm()
-        
+       
         elif en_choi == "6":
             print("exit ")
             break
@@ -346,9 +320,7 @@ def acc_choi(en_acc_no,en_card_no,en_acc_ty) :
 
 
 
-
-
-
+# //*----------------CASH Withdrawl Note Management functions-------------**/
 
 # # //*-------------------Two THOUSAND NOTE----------------**//
 def twoth(withd):
@@ -431,7 +403,6 @@ def fivhun(passfiv):
         twohun(passtwohun)
         
 
-# //*----------------CASH Withdrawl Note Management functions-------------**/
 
 # //*---------Two Hundred  NOTE----------**//
 
