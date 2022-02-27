@@ -164,7 +164,7 @@ class atm_class:
                             user_atm()
                         else:
                             time.sleep(1)
-                            playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys\cash.mp3')
+                            #playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys\cash.mp3')
                             #time.sleep(5)
                             print("Take Your Cash & Don't Forget to get your card")
                             twoth(withd)
