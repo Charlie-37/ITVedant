@@ -212,4 +212,14 @@
 
 
 from playsound import playsound
-playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys/cash.mp3')
+playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys\cash.mp3')
+
+
+# user = {
+#     "name" : "sunil",
+#     "pin" : 0
+
+# }
+
+# x = user["pin"]
+# print(x)

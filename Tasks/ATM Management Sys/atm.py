@@ -49,13 +49,14 @@ user_data={
         "name": "Harshal Suryavanshi",
         "card_vdate": "08/22",
         "acc_ty":"saving",
-        "bal":4500
+        "bal":4500,
+
     }
 
 }
 
 # //*------------------ATM CASH NOTES-------------*//
-notwot = 0
+notwot = 2
 nofivh = 5
 notwoh = 3
 noOnhun = 10
@@ -81,21 +82,25 @@ class atm_class:
     def new_pin_set(self):
     
         if "pin" in user_data[self.en_acc_no]:
-            print("Pin Already Exists")
+            print("Pin Already Exists\n")
             user_atm()
            
         else:
             
             new_pin = int(input("Enter New 4 digi pin : "))
-            user_data[self.en_acc_no].setdefault("pin", new_pin)
+            str_new_pin = str(new_pin)
+            if len(str_new_pin) == 4:
+                user_data[self.en_acc_no].setdefault("pin", new_pin)
 
-            if user_data[self.en_acc_no]["pin"] == new_pin:
-                print("New Pin Created\n")
+                if user_data[self.en_acc_no]["pin"] == new_pin:
+                    print("New Pin Created\n")
+                    user_atm()
+                else:
+                    print("SomeThing went wrong")
+                    user_atm()
                 user_atm()
             else:
-                print("SomeThing went wrong")
-                user_atm()
-            user_atm()
+                print("Enter 4 digit Pin\n")
 
     #//*----------------------- Pin Updation-------------------------------------*//
     def upd_pin(self):
@@ -159,7 +164,7 @@ class atm_class:
                             user_atm()
                         else:
                             time.sleep(1)
-                            playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys/cash.mp3')
+                            playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys\cash.mp3')
                             #time.sleep(5)
                             print("Take Your Cash & Don't Forget to get your card")
                             twoth(withd)

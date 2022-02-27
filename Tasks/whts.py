@@ -6,10 +6,14 @@ import time
 
 
 i = 0
-while i<100:
+while i<5:
     time.sleep(0.5)
-    pyautogui.typewrite("From Russia !!!")
+    pyautogui.typewrite("Sadla Mahatre")
     time.sleep(0.2)
     pyautogui.press("enter")
     i+=1
+
+
+
+
 
