@@ -262,16 +262,7 @@ def acc_choi(en_acc_no,en_card_no,en_acc_ty) :
 
         elif en_choi == "3":
             # //*----Pin Validating if true get balance
-            # if pin_valid(en_acc_no,en_card_no,en_acc_ty):
-
-            #     print("balance Enquery ")
-            #     balc = atm_class(en_acc_no,en_card_no,en_acc_ty,'')
-            #     balc.get_bal()
-            #     user_atm()
-            # else:
-            #     print("Wrong Pin\n")
-            #     user_atm()
-
+           
             pin_val = atm_class(en_acc_no,en_card_no,en_acc_ty,'')
             if pin_val.pin_valididation():
                 print("balance Enquery ")
