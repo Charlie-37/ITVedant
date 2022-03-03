@@ -176,7 +176,8 @@ class atm_class:
                                 print("Please enter Multiple of 2000 and 500")
                                 user_atm()
                             else:
-                                playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys\cash.mp3')
+                                #playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys\cash.mp3')
+                                playsound('audio\cash.mp3')
                                 print("Take Your Cash & Don't Forget to get your card\n")
 
                                 if noOfTwoth !=0:
@@ -331,7 +332,8 @@ def twoth(withd):
     remfiv=nofivh-req500n
     modfivhun = passfiv%500
 
-    if remfiv<=0:
+    if remfiv <= 0:
+
         passtwohun = modfivhun - (remfiv*500)
         noOffiv = nofivh
 

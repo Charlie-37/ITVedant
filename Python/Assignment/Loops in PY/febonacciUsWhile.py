@@ -2,7 +2,7 @@ n = int(input("Enter the number to Find Febonacci : "))
 i = 0
 x=0
 y=1
-print("Febonacci till {n} :s" )
+print(f"Febonacci till {n} :s" )
 while i<n:
     print(x, end = " ")
     z = x + y
