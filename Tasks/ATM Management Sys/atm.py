@@ -2,6 +2,7 @@ from time import sleep
 from playsound import playsound
 import datetime
 import time
+
 # //*----------User Data------------------------------*//
 user_data={
     90001:{
@@ -52,11 +53,10 @@ user_data={
         "bal":4500,
 
     }
-
 }
 
 # //*------------------ATM CASH NOTES-------------*//
-notwot = 2
+notwot = 6
 nofivh = 5
 notwoh = 3
 noOnhun = 10
@@ -70,6 +70,7 @@ class atm_class:
         self.en_card_no = en_card_no
         self.en_acc_ty = en_acc_ty
         self.en_acc_pin = en_acc_pin
+        #self.onehun = onehun
 
 
     #//*---------------------Getting account balance------------*//   
@@ -85,8 +86,7 @@ class atm_class:
             print("Pin Already Exists\n")
             user_atm()
            
-        else:
-            
+        else:   
             new_pin = int(input("Enter New 4 digi pin : "))
             str_new_pin = str(new_pin)
             if len(str_new_pin) == 4:
@@ -120,9 +120,6 @@ class atm_class:
             print("Pin does not exist Genrate your pin")
             user_atm()
 
-    
-
-
     # //*-------------------Validating the pin After every while choice-------------------------*/
 
     def pin_valididation(self):
@@ -147,9 +144,11 @@ class atm_class:
 
         if withd %100 != 0:
             print("Multiple of 100, 200, 500 Only.")
+            user_atm()
         else:
             if withd>10000:
                 print("Only Maximum 10000 can Withdraw at a Time")
+                user_atm()
 
             else:
 
@@ -164,21 +163,34 @@ class atm_class:
                             user_atm()
                         else:
                             time.sleep(1)
-                            #playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys\cash.mp3')
                             #time.sleep(5)
-                            print("Take Your Cash & Don't Forget to get your card")
+                            # print("Take Your Cash & Don't Forget to get your card")
                             twoth(withd)
+                            # # x = self.onehun
+                            # # print(x)
+                            # print("Avaliable Balance : ", acc_bal - withd,"\n")
 
-                            print("Avaliable Balance : ", acc_bal - withd,"\n")
-                            user_atm()
+                            noOfTwoth,noOffiv,noOfTwoh,noOfOneh = twoth(withd)
 
+                            if noOfOneh < 0:
+                                print("Please enter Multiple of 2000 and 500")
+                                user_atm()
+                            else:
+                                playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys\cash.mp3')
+                                print("Take Your Cash & Don't Forget to get your card\n")
 
-
-
+                                if noOfTwoth !=0:
+                                    print("Note of 2000 :",noOfTwoth)
+                                if noOffiv !=0:
+                                    print("Note of 500 : ",noOffiv)
+                                if noOfTwoh !=0:
+                                    print("Note of 200 : ",noOfTwoh)
+                                if noOfOneh !=0:
+                                    print("Note of 100 : ",noOfOneh,"\n")
+                                print("Avaliable Balance : ", acc_bal - withd,"\n")
+                                user_atm()
 
 # //*----------------------------****-----------------------------*//
-            
-
 
 # //*---------------Getting card details From User(Main Start Process)--------------**/
 
@@ -217,9 +229,6 @@ def user_atm():
         print("Dose not exist")
         user_atm()
 
-
-
-
 #//*-------------------------Creating atm choices---------------------*//
 
 def acc_choi(en_acc_no,en_card_no,en_acc_ty) :
@@ -238,12 +247,6 @@ def acc_choi(en_acc_no,en_card_no,en_acc_ty) :
             # //*----Require Sql database to change it   ---//
             print("Pin Change")
 
-            # if pin_valid(en_acc_no,en_card_no,en_acc_ty):
-            #     update_pin = atm_class(en_acc_no,en_card_no,en_acc_ty,'')
-            #     update_pin.upd_pin()
-            # else:
-            #     print("")
-
             chg_pin = atm_class(en_acc_no,en_card_no,en_acc_ty,'')
             if chg_pin.pin_valididation():
                 chg_pin.upd_pin()
@@ -252,13 +255,10 @@ def acc_choi(en_acc_no,en_card_no,en_acc_ty) :
                 print("Wrong Pin Enserted")
                 user_atm()
             
-
         elif en_choi == "2":
             print("Genrate Pin ")
             new_pin = atm_class(en_acc_no,en_card_no,en_acc_ty,'')
             new_pin.new_pin_set()
-
-
 
         elif en_choi == "3":
             # //*----Pin Validating if true get balance
@@ -271,22 +271,12 @@ def acc_choi(en_acc_no,en_card_no,en_acc_ty) :
                 user_atm()
             else:
                 print("Wrong Pin\n")
-                user_atm()
-
-            
+                user_atm()        
 
         elif en_choi == "4":
             
-            # //*----Pin Validating if true get balance science no log present same as bal enq
-            # if pin_valid(en_acc_no,en_card_no,en_acc_ty):
+        # //*----Pin Validating if true get balance science no log present same as bal enq
 
-            #     print("Mini Statement")
-            #     balc = atm_class(en_acc_no,en_card_no,en_acc_ty,'')
-            #     balc.get_bal()
-            #     user_atm()
-            # else:
-            #     print("Wrong Pin\n")
-            #     user_atm()
             pin_val = atm_class(en_acc_no,en_card_no,en_acc_ty,'')
             if pin_val.pin_valididation():
                 print("balance Enquery ")
@@ -297,6 +287,7 @@ def acc_choi(en_acc_no,en_card_no,en_acc_ty) :
                 user_atm()
 
         elif en_choi == "5":
+
             cash_withdrawl = atm_class(en_acc_no,en_card_no,en_acc_ty,'')
             print("Cash Withdrawl")
             cash_withdrawl.cash_withd()
@@ -308,19 +299,15 @@ def acc_choi(en_acc_no,en_card_no,en_acc_ty) :
 #//*-------------------------***---------------------*//
 
 
-
-
-
 # //*----------------CASH Withdrawl Note Management functions-------------**/
 
-# # //*-------------------Two THOUSAND NOTE----------------**//
 def twoth(withd):
-    #  getting note count
-    req2000N = withd//(2000)
-    #print("2000 note req : ",req2000N)
+        #  getting note count
+    req2000n = withd//(2000)
+    #print("2000 note req : ",x)
 
     # note in atm minus rquired note
-    remt=notwot-req2000N
+    remt=notwot-req2000n
     #print("atmNote-reqnote(2000) : ",remt)
     
     # finding mod of 2000 to pass remaining to five hundred
@@ -331,135 +318,55 @@ def twoth(withd):
     if remt<=0:
         passfiv = modtwoth - (remt*2000)
         #print("tot to pass 500",passfiv)
-        
-
         # final got note of 2000
         noOfTwoth = notwot 
-
-        if noOfTwoth != 0:
-            print("\nNote of 2000 :",noOfTwoth,"\n")
-
-
-        fivhun(passfiv)
+  
     else:
+        noOfTwoth = req2000n
         passfiv = modtwoth
-        #print("amt to pass 500",passfiv)
-        
-    
-    # final got note of 2000
-        noOfTwoth = int(withd//(2000) )
 
-        if noOfTwoth !=0:
-            print("\nNote of 2000 :",noOfTwoth,"\n")
+    # //*---------Five Hundred  NOTE----------**//
 
-        fivhun(passfiv)
-
-
-
-
-# //*---------Five Hundred  NOTE----------**//
-def fivhun(passfiv):
-    #  getting note count
     req500n = passfiv//(500)
-    #print("req 500 note :",req500n)
-
-    # note in atm minus rquired note
     remfiv=nofivh-req500n
-    #print("atmNote - reqnote(500): ",remfiv)
-    
-    # finding mod of 2000 to pass remaining to five hundred
     modfivhun = passfiv%500
-    #print("amt to pass 200 : ",modfivhun)
 
-    # if note is less in atm then the total required gets multiplied to 2000 and pass to the five hun
     if remfiv<=0:
         passtwohun = modfivhun - (remfiv*500)
-        #print("tot amt to pass 200 : ", passtwohun)
-
-        # final got note of 2000
         noOffiv = nofivh
 
         if noOffiv !=0:
-            print("Note of 500 :",noOffiv,"\n")
-        twohun(passtwohun)
+            return noOffiv
     else:
         passtwohun = modfivhun
-        #print("Tot amt to pass 200 : ", passtwohun)
-    
-    # final got note of 2000
         noOffiv = int(passfiv//(500) )
 
-        if noOffiv !=0:
-            print("Note of 500 : ", noOffiv,"\n")
-        twohun(passtwohun)
-        
+ # //*---------Tw0 Hundred  NOTE----------**//
 
-
-# //*---------Two Hundred  NOTE----------**//
-
-def twohun(passtwohun):
     #  getting note count
-    req200N = passtwohun//(200)
-    #print("req 200 note :",req200N )
-
-    # note in atm minus rquired note
-    remtwoh=notwoh-req200N 
-    #print("atmNote - reqnote(200): ",remtwoh)
-    
-    # finding mod of 2000 to pass remaining to five hundred
+    req200n = passtwohun//(200)
+    remtwoh=notwoh-req200n
     modtwohun = passtwohun%200
-    #print("amt to pass 100 : ",modtwohun)
 
-    # if note is less in atm then the total required gets multiplied to 2000 and pass to the five hun
     if remtwoh<=0:
         passOnehun = modtwohun - (remtwoh*200)
-        #print("tot amt to pass 100 : ", passOnehun)
-
-        # final got note of 200
         noOfTwoh = notwoh
-
-        if noOfTwoh !=0:
-            print("Note of 200 :",noOfTwoh,"\n")
-        onehun(passOnehun)
     else:
         passOnehun = modtwohun
-       # print("Tot amt to pass 100 : ", passOnehun)
-    
-    # final got note of 2000
         noOfTwoh = int(passtwohun//(200) )
+    
+    # //*---------One Hundred  NOTE----------**//
 
-        if noOfTwoh !=0:
-            print("Note of 200 : ", noOfTwoh,"\n")
-        onehun(passOnehun)
-
-
-
-# //*---------One Hundred  NOTE----------**//
-
-def onehun(passOnehun):
     #  getting note count
-    req100N = passOnehun//(100)
-    #print("req 100 note :",req100N)
+    b = passOnehun//(100)
+    remoneh=noOnhun-b
+    if remoneh<0:
+        noOfOneh = remoneh
 
-    # note in atm minus rquired note
-    remoneh=noOnhun-req100N
-    #print("atmNote - reqnote(100): ",remoneh)
-    
-    # finding mod of 2000 to pass remaining to five hundred
-    modOnehun = passOnehun%100
-    #print("amt to pass 100 : ",modOnehun)
-
-    # if note is less in atm then the total required gets multiplied to 2000 and pass to the five hun
-    if remoneh<=0:
-        print("Insufficient Balance")
     else:
-       
-    
-    # final got note of 2000
         noOfOneh = int(passOnehun//(100) )
-
-        if noOfOneh !=0:
-            print("Note of 100 : ", noOfOneh,"\n")
+        
+    return noOfTwoth,noOffiv,noOfTwoh,noOfOneh
 
 # //*----------------------*****-----------------------**/
 
