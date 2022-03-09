@@ -56,9 +56,9 @@ user_data={
 }
 
 # //*------------------ATM CASH NOTES-------------*//
-notwot = 6
-nofivh = 5
-notwoh = 3
+notwot = 5
+nofivh = 2
+notwoh = 30
 noOnhun = 10
 totamu = (notwot*2000)+(nofivh*500)+(notwoh*200)+(noOnhun*100)
 
@@ -177,7 +177,7 @@ class atm_class:
                                 user_atm()
                             else:
                                 #playsound('D:\SUNIL BHAVE\Documents\Coding\itvedant\Tasks\ATM Management Sys\cash.mp3')
-                                playsound('audio\cash.mp3')
+                                playsound('cash.mp3')
                                 print("Take Your Cash & Don't Forget to get your card\n")
 
                                 if noOfTwoth !=0:
