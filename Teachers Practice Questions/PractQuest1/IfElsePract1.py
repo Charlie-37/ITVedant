@@ -121,19 +121,21 @@
 
 # 9) Accept the age of 4 people and display the oldest one.
 
-#print("To Find the Oldest in Age")
-# n1 = int(input("Enter 1st Number : "))
-# n2 = int(input("Enter 2ns Number : "))
-# n3 = int(input("Enter 3rd Number : "))
-# n4 = int(input("Enter 4th Number : "))
+print("To Find the Oldest in Age")
+n1 = int(input("Enter 1st Number : "))
+n2 = int(input("Enter 2ns Number : "))
+n3 = int(input("Enter 3rd Number : "))
+n4 = int(input("Enter 4th Number : "))
 
-# numList = [n1,n2,n3,n4]
 
-# for i in range(0, len(numList)+1):
-#   for j in range(i+1, len(numList)):
-#     if numList[i] > numList[j]:
-#       numList[i],numList[j] = numList[j],numList[i]
-# print("The oldest age is", numList[-1])
+numList = [n1,n2,n3,n4]
+
+for i in range(0, len(numList)+1):
+  for j in range(i+1, len(numList)):
+    if numList[i] > numList[j]:
+      numList[i],numList[j] = numList[j],numList[i]
+print(numList)
+print("The oldest age is", numList[-1])
 
 # /*-----------------***------------------------*/
 
