@@ -14,6 +14,7 @@ class user():
         print(f"Name : {self.name.title()}")
         print(f"Gender : {self.gender.title()}")
         print(f"Salary : {self.salary}")
+        print(self.accnumber)
 
 
 class bank(user):
@@ -25,6 +26,7 @@ class bank(user):
         print("Balance is : ",end=" ")
         return self.__balance
     
+
     def deposite(self,dpamu):
         self.__balance = self.__balance + dpamu
         print("Money Deposited Sucessfully")
@@ -47,6 +49,7 @@ class bank(user):
         elif amt>=1:
             self.__balance = self.__balance - amt
             tfacc.__balance = amt
+            #tfacc.deposit(amt)
             print("Money Transfered Sucessfully")
             
         elif amt<1:
