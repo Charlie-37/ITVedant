@@ -78,7 +78,6 @@ manag2.addemp(dev2)
 
 print(manag2.printemp())
 
-
 manag2.removeemp(emp5)
 print(manag2.printemp())
 print(manag2.fullname())
