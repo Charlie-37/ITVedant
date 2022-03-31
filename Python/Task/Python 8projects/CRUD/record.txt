@@ -1,5 +1,2 @@
- 1   Sunil   10    Thane    2000
- 2  Bhavesh  23    Karjat   300 
- 3   Tejas   25    Mulund   400 
- 4   Prasad  22    Nashik   500 
- 5  Sandeep  24   Badlapur  500 
+101  Sunil    bhave    5126       52361     
+102  prasad   jadhav   45960      45633     

@@ -8,22 +8,36 @@
 ##    (5,"Sandeep",24,"Badlapur",500)
 ##    ]
 ##
-def addRec():
-    f = open("record.txt","x")
-    for i,n,a,p,s in record:
-        print(f"{i:^3} {n:^8} {a:^3} {p:^10} {s:^3}\n")
-        f.write(f"{i:^3} {n:^8} {a:^3} {p:^10} {s:^4}\n")
+def addRec(Eid,Fname,Lname,Sal,Econtact):
+    f = open("record.txt","a")
+
+    print(f"{Eid:^3} {Fname:^8} {Lname:^8} {Sal:^7} {Econtact:^14}\n")
+    f.write(f"{Eid:^3} {Fname:^8} {Lname:^8} {Sal:^7} {Econtact:^14}\n")
     f.close()
-##
-###addRec(record)
-##
-##
-##
-##def readRec(record):
-##    f = open("record.txt","r")
-##    for i,n,a,p,s in record:
-##        print(f"{i:^3} {n:^8} {a:^3} {p:^10} {s:^3}\n")
-##    f.close()
+
+
+
+def readRec():
+    f = open("record.txt","r")
+    record = f.read()
+##    for Eid,Fname,Lname,Sal,Econtact in record:
+##        print(f"{Eid:^3} {Fname:^8} {Lname:^8} {Sal:^7} {Econtact:^14}\n")
+    print(record)
+    for i in record:
+        print(record[1])
+    f.close()
+
+
+
+def getRow(eID):
+    f = open("record.txt","r")
+    record = f.readlines()
+    print(record)
+    
+
+
+    
+    f.close()
 ##
 ##readRec(record)
 ##
@@ -62,13 +76,18 @@ def MainEmp():
             Salary = input("Enter Employee Salary : ").lstrip()
             Sal = int(Salary)
             Econtact = input("Enter Employee Contact: " ).lstrip()
+
+            addRec(Eid,Fname,Lname,Sal,Econtact)
+
+            
             
             
             #addRec()
         elif choi == "2":
-            print("2")
+            eID = input("Enter Eid to get Details : ").lstrip()
+            getRow(eID)
         elif choi == "3":
-            print("3")
+            readRec()
         elif choi == "4":
             print("4")
         elif choi == "5":

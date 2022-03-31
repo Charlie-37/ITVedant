@@ -46,13 +46,13 @@ class bank(user):
     def amtf(self,amt,tfacc):
         if amt> self.__balance:
             return "Insufficient Balance"
-        elif amt>=1:
+        elif amt>=1 and amt<self.__balance:
             self.__balance = self.__balance - amt
-            tfacc.__balance = amt
+            tfacc.__balance = tfacc.__balance+amt
             #tfacc.deposit(amt)
             print("Money Transfered Sucessfully")
             
-        elif amt<1 and amt<self.__balance:
+        elif amt<1:
             print("Enter amount Greater than 1")
             
             
