@@ -52,7 +52,7 @@ class bank(user):
             #tfacc.deposit(amt)
             print("Money Transfered Sucessfully")
             
-        elif amt<1:
+        elif amt<1 and amt<self.__balance:
             print("Enter amount Greater than 1")
             
             
