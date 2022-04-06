@@ -1,0 +1,434 @@
+
+Setting environment for using XAMPP for Windows.
+HP@DESKTOP-3CFCEM5 c:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.22-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dbhospital         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sqlass             |
+| sunildata          |
+| test               |
++--------------------+
+8 rows in set (0.031 sec)
+
+MariaDB [(none)]> create database Pythonlect;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> use database Pythonlect;
+ERROR 1049 (42000): Unknown database 'database'
+MariaDB [(none)]> use Pythonlect;
+Database changed
+MariaDB [Pythonlect]> create table tab1(id int, name varchar(15), Salary float, rating float, Position varchar(10), age float, city varchar(20), gender varchar(5));
+Query OK, 0 rows affected (0.034 sec)
+
+MariaDB [Pythonlect]> desc tab1;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int(11)     | YES  |     | NULL    |       |
+| name     | varchar(15) | YES  |     | NULL    |       |
+| Salary   | float       | YES  |     | NULL    |       |
+| rating   | float       | YES  |     | NULL    |       |
+| Position | varchar(10) | YES  |     | NULL    |       |
+| age      | float       | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| gender   | varchar(5)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+8 rows in set (0.020 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(1,"Sunil",56000,9.8,"Developer",23,"Badlapur","Male");
+Query OK, 1 row affected (0.047 sec)
+
+MariaDB [Pythonlect]> select * from tab1
+    -> ;
++------+-------+--------+--------+-----------+------+----------+--------+
+| id   | name  | Salary | rating | Position  | age  | city     | gender |
++------+-------+--------+--------+-----------+------+----------+--------+
+|    1 | Sunil |  56000 |    9.8 | Developer |   23 | Badlapur | Male   |
++------+-------+--------+--------+-----------+------+----------+--------+
+1 row in set (0.000 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(2,"Bhavesh",62000,7.8,"Techinician",22,"Mumbai","Male");
+Query OK, 1 row affected, 1 warning (0.008 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(3,"Rutuja",32000,6.9,"Techinician",21,"Kolkata","Feale");
+Query OK, 1 row affected, 1 warning (0.008 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(4,"Tejas",78000,9.9,"Tester",22,"Delhi","Male");
+Query OK, 1 row affected (0.026 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(5,"Ruchita",28000,5.7,"Manager",21,"Delhi","Female");
+Query OK, 1 row affected, 1 warning (0.004 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(6,"Dipali",61000,9.1,"HR",22,"Mumbai","Female");
+Query OK, 1 row affected, 1 warning (0.006 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(7,"Prasad",89000,9.5,"Clerk",23,"Mumbai","Male");
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(8,"Vidhi",46000,8.2,"Manager",23,"Delhi","Female");
+Query OK, 1 row affected, 1 warning (0.010 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(9,"Rahul",69000,8.4,"Admin",22,"Delhi","Male");
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(10,"Pratap",42000,7.9,"Admin",25,"Kolkata","Male");
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Pythonlect]> select * from tab1;
++------+---------+--------+--------+------------+------+----------+--------+
+| id   | name    | Salary | rating | Position   | age  | city     | gender |
++------+---------+--------+--------+------------+------+----------+--------+
+|    1 | Sunil   |  56000 |    9.8 | Developer  |   23 | Badlapur | Male   |
+|    2 | Bhavesh |  62000 |    7.8 | Techinicia |   22 | Mumbai   | Male   |
+|    3 | Rutuja  |  32000 |    6.9 | Techinicia |   21 | Kolkata  | Feale  |
+|    4 | Tejas   |  78000 |    9.9 | Tester     |   22 | Delhi    | Male   |
+|    5 | Ruchita |  28000 |    5.7 | Manager    |   21 | Delhi    | Femal  |
+|    6 | Dipali  |  61000 |    9.1 | HR         |   22 | Mumbai   | Femal  |
+|    7 | Prasad  |  89000 |    9.5 | Clerk      |   23 | Mumbai   | Male   |
+|    8 | Vidhi   |  46000 |    8.2 | Manager    |   23 | Delhi    | Femal  |
+|    9 | Rahul   |  69000 |    8.4 | Admin      |   22 | Delhi    | Male   |
+|   10 | Pratap  |  42000 |    7.9 | Admin      |   25 | Kolkata  | Male   |
++------+---------+--------+--------+------------+------+----------+--------+
+10 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(3,"Rutuja",32000,6.9,"Techinician",21,"Kolkata","Female");
+Query OK, 1 row affected, 2 warnings (0.005 sec)
+
+MariaDB [Pythonlect]> select * from tab1;
++------+---------+--------+--------+------------+------+----------+--------+
+| id   | name    | Salary | rating | Position   | age  | city     | gender |
++------+---------+--------+--------+------------+------+----------+--------+
+|    1 | Sunil   |  56000 |    9.8 | Developer  |   23 | Badlapur | Male   |
+|    2 | Bhavesh |  62000 |    7.8 | Techinicia |   22 | Mumbai   | Male   |
+|    3 | Rutuja  |  32000 |    6.9 | Techinicia |   21 | Kolkata  | Feale  |
+|    4 | Tejas   |  78000 |    9.9 | Tester     |   22 | Delhi    | Male   |
+|    5 | Ruchita |  28000 |    5.7 | Manager    |   21 | Delhi    | Femal  |
+|    6 | Dipali  |  61000 |    9.1 | HR         |   22 | Mumbai   | Femal  |
+|    7 | Prasad  |  89000 |    9.5 | Clerk      |   23 | Mumbai   | Male   |
+|    8 | Vidhi   |  46000 |    8.2 | Manager    |   23 | Delhi    | Femal  |
+|    9 | Rahul   |  69000 |    8.4 | Admin      |   22 | Delhi    | Male   |
+|   10 | Pratap  |  42000 |    7.9 | Admin      |   25 | Kolkata  | Male   |
+|    3 | Rutuja  |  32000 |    6.9 | Techinicia |   21 | Kolkata  | Femal  |
++------+---------+--------+--------+------------+------+----------+--------+
+11 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> create table tab1(id int, name varchar(15), Salary float, rating float, Position varchar(10), age float, city varchar(20), gender varchar(6));
+ERROR 1050 (42S01): Table 'tab1' already exists
+MariaDB [Pythonlect]> select name from tab1 where rating>7;
++---------+
+| name    |
++---------+
+| Sunil   |
+| Bhavesh |
+| Tejas   |
+| Dipali  |
+| Prasad  |
+| Vidhi   |
+| Rahul   |
+| Pratap  |
++---------+
+8 rows in set (0.011 sec)
+
+MariaDB [Pythonlect]> select 8 from tab1 where city="Mumbai";
++---+
+| 8 |
++---+
+| 8 |
+| 8 |
+| 8 |
++---+
+3 rows in set (0.004 sec)
+
+MariaDB [Pythonlect]> select * from tab1 where city="Mumbai";
++------+---------+--------+--------+------------+------+--------+--------+
+| id   | name    | Salary | rating | Position   | age  | city   | gender |
++------+---------+--------+--------+------------+------+--------+--------+
+|    2 | Bhavesh |  62000 |    7.8 | Techinicia |   22 | Mumbai | Male   |
+|    6 | Dipali  |  61000 |    9.1 | HR         |   22 | Mumbai | Femal  |
+|    7 | Prasad  |  89000 |    9.5 | Clerk      |   23 | Mumbai | Male   |
++------+---------+--------+--------+------------+------+--------+--------+
+3 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> select 8 from tab1 where salary between 50000 and 100000;
++---+
+| 8 |
++---+
+| 8 |
+| 8 |
+| 8 |
+| 8 |
+| 8 |
+| 8 |
++---+
+6 rows in set (0.005 sec)
+
+MariaDB [Pythonlect]> select * from tab1 where salary between 50000 and 100000;
++------+---------+--------+--------+------------+------+----------+--------+
+| id   | name    | Salary | rating | Position   | age  | city     | gender |
++------+---------+--------+--------+------------+------+----------+--------+
+|    1 | Sunil   |  56000 |    9.8 | Developer  |   23 | Badlapur | Male   |
+|    2 | Bhavesh |  62000 |    7.8 | Techinicia |   22 | Mumbai   | Male   |
+|    4 | Tejas   |  78000 |    9.9 | Tester     |   22 | Delhi    | Male   |
+|    6 | Dipali  |  61000 |    9.1 | HR         |   22 | Mumbai   | Femal  |
+|    7 | Prasad  |  89000 |    9.5 | Clerk      |   23 | Mumbai   | Male   |
+|    9 | Rahul   |  69000 |    8.4 | Admin      |   22 | Delhi    | Male   |
++------+---------+--------+--------+------------+------+----------+--------+
+6 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> select name, salary , rating from tab1 where city="Mumbai";
++---------+--------+--------+
+| name    | salary | rating |
++---------+--------+--------+
+| Bhavesh |  62000 |    7.8 |
+| Dipali  |  61000 |    9.1 |
+| Prasad  |  89000 |    9.5 |
++---------+--------+--------+
+3 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> select name, salary , rating from tab1 where city!="Mumbai";
++---------+--------+--------+
+| name    | salary | rating |
++---------+--------+--------+
+| Sunil   |  56000 |    9.8 |
+| Rutuja  |  32000 |    6.9 |
+| Tejas   |  78000 |    9.9 |
+| Ruchita |  28000 |    5.7 |
+| Vidhi   |  46000 |    8.2 |
+| Rahul   |  69000 |    8.4 |
+| Pratap  |  42000 |    7.9 |
+| Rutuja  |  32000 |    6.9 |
++---------+--------+--------+
+8 rows in set (0.004 sec)
+
+MariaDB [Pythonlect]> select name from tab1 where rating<7;
++---------+
+| name    |
++---------+
+| Rutuja  |
+| Ruchita |
+| Rutuja  |
++---------+
+3 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> delete from tab1 where id=3
+    -> ;
+Query OK, 2 rows affected (0.009 sec)
+
+MariaDB [Pythonlect]> insert into tab1 values(3,"Rutuja",32000,6.9,"Techinician",21,"Kolkata","Female");
+Query OK, 1 row affected, 2 warnings (0.004 sec)
+
+MariaDB [Pythonlect]> select * from tab1;
++------+---------+--------+--------+------------+------+----------+--------+
+| id   | name    | Salary | rating | Position   | age  | city     | gender |
++------+---------+--------+--------+------------+------+----------+--------+
+|    1 | Sunil   |  56000 |    9.8 | Developer  |   23 | Badlapur | Male   |
+|    2 | Bhavesh |  62000 |    7.8 | Techinicia |   22 | Mumbai   | Male   |
+|    4 | Tejas   |  78000 |    9.9 | Tester     |   22 | Delhi    | Male   |
+|    5 | Ruchita |  28000 |    5.7 | Manager    |   21 | Delhi    | Femal  |
+|    6 | Dipali  |  61000 |    9.1 | HR         |   22 | Mumbai   | Femal  |
+|    7 | Prasad  |  89000 |    9.5 | Clerk      |   23 | Mumbai   | Male   |
+|    8 | Vidhi   |  46000 |    8.2 | Manager    |   23 | Delhi    | Femal  |
+|    9 | Rahul   |  69000 |    8.4 | Admin      |   22 | Delhi    | Male   |
+|   10 | Pratap  |  42000 |    7.9 | Admin      |   25 | Kolkata  | Male   |
+|    3 | Rutuja  |  32000 |    6.9 | Techinicia |   21 | Kolkata  | Femal  |
++------+---------+--------+--------+------------+------+----------+--------+
+10 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> select * from tab1 where age in 22;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '22' at line 1
+MariaDB [Pythonlect]> select * from tab1 where age in 21;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '21' at line 1
+MariaDB [Pythonlect]> select * from tab1 where age not in 21;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '21' at line 1
+MariaDB [Pythonlect]> select * from tab1 where age in (21);
++------+---------+--------+--------+------------+------+---------+--------+
+| id   | name    | Salary | rating | Position   | age  | city    | gender |
++------+---------+--------+--------+------------+------+---------+--------+
+|    5 | Ruchita |  28000 |    5.7 | Manager    |   21 | Delhi   | Femal  |
+|    3 | Rutuja  |  32000 |    6.9 | Techinicia |   21 | Kolkata | Femal  |
++------+---------+--------+--------+------------+------+---------+--------+
+2 rows in set (0.001 sec)
+
+MariaDB [Pythonlect]> select * from tab1 where age not in (21);
++------+---------+--------+--------+------------+------+----------+--------+
+| id   | name    | Salary | rating | Position   | age  | city     | gender |
++------+---------+--------+--------+------------+------+----------+--------+
+|    1 | Sunil   |  56000 |    9.8 | Developer  |   23 | Badlapur | Male   |
+|    2 | Bhavesh |  62000 |    7.8 | Techinicia |   22 | Mumbai   | Male   |
+|    4 | Tejas   |  78000 |    9.9 | Tester     |   22 | Delhi    | Male   |
+|    6 | Dipali  |  61000 |    9.1 | HR         |   22 | Mumbai   | Femal  |
+|    7 | Prasad  |  89000 |    9.5 | Clerk      |   23 | Mumbai   | Male   |
+|    8 | Vidhi   |  46000 |    8.2 | Manager    |   23 | Delhi    | Femal  |
+|    9 | Rahul   |  69000 |    8.4 | Admin      |   22 | Delhi    | Male   |
+|   10 | Pratap  |  42000 |    7.9 | Admin      |   25 | Kolkata  | Male   |
++------+---------+--------+--------+------------+------+----------+--------+
+8 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> select * from tab1 where age in (21,25);
++------+---------+--------+--------+------------+------+---------+--------+
+| id   | name    | Salary | rating | Position   | age  | city    | gender |
++------+---------+--------+--------+------------+------+---------+--------+
+|    5 | Ruchita |  28000 |    5.7 | Manager    |   21 | Delhi   | Femal  |
+|   10 | Pratap  |  42000 |    7.9 | Admin      |   25 | Kolkata | Male   |
+|    3 | Rutuja  |  32000 |    6.9 | Techinicia |   21 | Kolkata | Femal  |
++------+---------+--------+--------+------------+------+---------+--------+
+3 rows in set (0.003 sec)
+
+MariaDB [Pythonlect]> select * from tab1 where city in ("Mumbai","Delhi")
+    -> ;
++------+---------+--------+--------+------------+------+--------+--------+
+| id   | name    | Salary | rating | Position   | age  | city   | gender |
++------+---------+--------+--------+------------+------+--------+--------+
+|    2 | Bhavesh |  62000 |    7.8 | Techinicia |   22 | Mumbai | Male   |
+|    4 | Tejas   |  78000 |    9.9 | Tester     |   22 | Delhi  | Male   |
+|    5 | Ruchita |  28000 |    5.7 | Manager    |   21 | Delhi  | Femal  |
+|    6 | Dipali  |  61000 |    9.1 | HR         |   22 | Mumbai | Femal  |
+|    7 | Prasad  |  89000 |    9.5 | Clerk      |   23 | Mumbai | Male   |
+|    8 | Vidhi   |  46000 |    8.2 | Manager    |   23 | Delhi  | Femal  |
+|    9 | Rahul   |  69000 |    8.4 | Admin      |   22 | Delhi  | Male   |
++------+---------+--------+--------+------------+------+--------+--------+
+7 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> select * from tab1 where city not in ("Mumbai","Delhi")
+    -> ;
++------+--------+--------+--------+------------+------+----------+--------+
+| id   | name   | Salary | rating | Position   | age  | city     | gender |
++------+--------+--------+--------+------------+------+----------+--------+
+|    1 | Sunil  |  56000 |    9.8 | Developer  |   23 | Badlapur | Male   |
+|   10 | Pratap |  42000 |    7.9 | Admin      |   25 | Kolkata  | Male   |
+|    3 | Rutuja |  32000 |    6.9 | Techinicia |   21 | Kolkata  | Femal  |
++------+--------+--------+--------+------------+------+----------+--------+
+3 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> alter table tab1 add column DOB ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [Pythonlect]> alter table tab1 add column DOB date;
+Query OK, 0 rows affected (0.017 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Pythonlect]> desc tab1;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int(11)     | YES  |     | NULL    |       |
+| name     | varchar(15) | YES  |     | NULL    |       |
+| Salary   | float       | YES  |     | NULL    |       |
+| rating   | float       | YES  |     | NULL    |       |
+| Position | varchar(10) | YES  |     | NULL    |       |
+| age      | float       | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| gender   | varchar(5)  | YES  |     | NULL    |       |
+| DOB      | date        | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+9 rows in set (0.013 sec)
+
+MariaDB [Pythonlect]> alter table tab1 modify column DOB datetime;
+Query OK, 10 rows affected (0.062 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [Pythonlect]> desc tab1;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int(11)     | YES  |     | NULL    |       |
+| name     | varchar(15) | YES  |     | NULL    |       |
+| Salary   | float       | YES  |     | NULL    |       |
+| rating   | float       | YES  |     | NULL    |       |
+| Position | varchar(10) | YES  |     | NULL    |       |
+| age      | float       | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| gender   | varchar(5)  | YES  |     | NULL    |       |
+| DOB      | datetime    | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+9 rows in set (0.021 sec)
+
+MariaDB [Pythonlect]> alter table tab1 drop DOB;
+Query OK, 0 rows affected (0.017 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Pythonlect]> desc tab1;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int(11)     | YES  |     | NULL    |       |
+| name     | varchar(15) | YES  |     | NULL    |       |
+| Salary   | float       | YES  |     | NULL    |       |
+| rating   | float       | YES  |     | NULL    |       |
+| Position | varchar(10) | YES  |     | NULL    |       |
+| age      | float       | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| gender   | varchar(5)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+8 rows in set (0.022 sec)
+
+MariaDB [Pythonlect]> update table tab1 set name="Komal" where id=3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'table tab1 set name="Komal" where id=3' at line 1
+MariaDB [Pythonlect]> update tab1 set name="Komal" where id=3;
+Query OK, 1 row affected (0.010 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Pythonlect]> select * from tab1;
++------+---------+--------+--------+------------+------+----------+--------+
+| id   | name    | Salary | rating | Position   | age  | city     | gender |
++------+---------+--------+--------+------------+------+----------+--------+
+|    1 | Sunil   |  56000 |    9.8 | Developer  |   23 | Badlapur | Male   |
+|    2 | Bhavesh |  62000 |    7.8 | Techinicia |   22 | Mumbai   | Male   |
+|    4 | Tejas   |  78000 |    9.9 | Tester     |   22 | Delhi    | Male   |
+|    5 | Ruchita |  28000 |    5.7 | Manager    |   21 | Delhi    | Femal  |
+|    6 | Dipali  |  61000 |    9.1 | HR         |   22 | Mumbai   | Femal  |
+|    7 | Prasad  |  89000 |    9.5 | Clerk      |   23 | Mumbai   | Male   |
+|    8 | Vidhi   |  46000 |    8.2 | Manager    |   23 | Delhi    | Femal  |
+|    9 | Rahul   |  69000 |    8.4 | Admin      |   22 | Delhi    | Male   |
+|   10 | Pratap  |  42000 |    7.9 | Admin      |   25 | Kolkata  | Male   |
+|    3 | Komal   |  32000 |    6.9 | Techinicia |   21 | Kolkata  | Femal  |
++------+---------+--------+--------+------------+------+----------+--------+
+10 rows in set (0.000 sec)
+
+MariaDB [Pythonlect]> select sum(salary) from tab1;
++-------------+
+| sum(salary) |
++-------------+
+|      563000 |
++-------------+
+1 row in set (0.007 sec)
+
+MariaDB [Pythonlect]> select avg(salary) from tab1;
++-------------+
+| avg(salary) |
++-------------+
+|       56300 |
++-------------+
+1 row in set (0.000 sec)
+
+MariaDB [Pythonlect]> select max(salary) from tab1;
++-------------+
+| max(salary) |
++-------------+
+|       89000 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [Pythonlect]> select min(salary) from tab1;
++-------------+
+| min(salary) |
++-------------+
+|       28000 |
++-------------+
+1 row in set (0.000 sec)
+
+MariaDB [Pythonlect]>

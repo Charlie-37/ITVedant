@@ -23,21 +23,67 @@ def readRec():
 ##    for Eid,Fname,Lname,Sal,Econtact in record:
 ##        print(f"{Eid:^3} {Fname:^8} {Lname:^8} {Sal:^7} {Econtact:^14}\n")
     print(record)
-    for i in record:
-        print(record[1])
-    f.close()
+    
 
 
 
 def getRow(eID):
     f = open("record.txt","r")
     record = f.readlines()
-    print(record)
-    
+    #print(record[1])
+    for i in range(len(record)):
+        #print(record[i])
+        listR = record[i].split()
+        EmpId = listR[0]
+        #EmpId = int(EmpId)
+        
+    if eID == EmpId:
+        print(f"ID: {listR[0]} \nFName : {listR[1]} \nLname : {listR[2]} \nSalary : {listR[3]}  \nContact : {listR[4]} ","\n")
+    else:
+        print("ID does Not Exist\n")
 
-
-    
+       
+       
     f.close()
+
+
+def UpEmp(empId):
+    f = open("record.txt","r")
+    record = f.readlines()
+    #print(record[1])
+    for i in range(len(record)):
+        #print(record[i])
+        listR = record[i].split()
+        EmpId = listR[0]
+        EmpId = int(EmpId)
+        
+        if empId == EmpId:
+            
+            Eid = input("Enter Employee ID : ").lstrip()
+            #Eid = Eid.lstrip()
+            Eid = int(Eid)
+
+            Fname = input("Enter Employee First Name : ").lstrip()
+            Lname = input("Enter Employee Last Name : ").lstrip()
+            Salary = input("Enter Employee Salary : ").lstrip()
+            Sal = int(Salary)
+            Econtact = input("Enter Employee Contact: " ).lstrip()
+            
+            addRec(Eid,Fname,Lname,Sal,Econtact)
+        else:
+            print("ID does Not Exist\n")
+    pass
+
+
+
+
+
+
+
+
+
+
+
 ##
 ##readRec(record)
 ##
@@ -85,11 +131,19 @@ def MainEmp():
             #addRec()
         elif choi == "2":
             eID = input("Enter Eid to get Details : ").lstrip()
+            #eID = int(eID)
             getRow(eID)
+
+
+
+            
         elif choi == "3":
             readRec()
         elif choi == "4":
-            print("4")
+            empId = input("Enter Emp ID to update : ").lstrip()
+            empId = int(empId)
+            UpEmp(empId)
+            
         elif choi == "5":
             print("5")
         elif choi == "6":
