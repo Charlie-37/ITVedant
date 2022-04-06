@@ -6,6 +6,7 @@ import pymysql as p
 def dbConnect():
 
     return p.connect(host="localhost", user="root",password="",database="pythonlect")
+    
 
 
 # //*--- Function to insertion Data---*//

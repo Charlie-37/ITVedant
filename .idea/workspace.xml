@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72b50a32-8296-4d20-8424-7f544e2bd7b0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tasks/ATM Management Sys/atm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/ATM Management Sys/atm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python/Lecture/pymysql(05-04-22).py" beforeDir="false" afterPath="$PROJECT_DIR$/Python/Lecture/pymysql(05-04-22).py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +30,9 @@
       <module name="itvedant" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tasks/ATM Management Sys" />
       <option name="IS_MODULE_SDK" value="true" />
