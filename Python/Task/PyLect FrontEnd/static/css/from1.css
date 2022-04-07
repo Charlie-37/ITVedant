@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Kanit:wght@600;700&family=Poppins:wght@200;300&family=Syncopate:wght@700&display=swap');
+body{
+    margin: 0;
+    background-color: rgba(235, 127, 235, 0.289);
+}
+#PyForm{
+    background-color: rgba(255, 36, 255, 0.334);
+    margin: 0;
+    padding-top: 2%;
+    height: 100vh;
+    width: 100%;
+    /* border: 2px solid black; */
+    
+}
+
+.container{
+    box-shadow: 0px 10px 30px 0px violet;
+    padding-top: 2%;
+    height: 92%;
+    width: 90%;
+    margin: auto;
+    /* border: 2px solid black; */
+    background-color: rgba(240, 235, 235, 0.671);
+}
+#sigup{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 1%;
+    color: purple;
+}
+#pyform{
+    margin-top: 20px;
+    height: 80%;
+}
+#pytable{
+    
+    margin: auto;
+    /* border: 2px solid black; */
+    height: 100%;
+    width: 90%;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#pytable tr td:first-child{
+    width: 25%;
+    padding-left: 10%;
+    color: rgb(167, 25, 167);
+}
+
+#uname, #upin, #ucont, #uemail, #uFile, #psel{
+    width: 90%;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(163, 2, 142);
+    color: grey;
+}
+
+::-webkit-input-placeholder, #pyform select, #pyform input[file]{
+    color: rgba(187, 15, 187, 0.538);
+}
+
+
+#submit{
+    margin-left: 22%;
+    margin-right: 2%;
+}
+#submit, #reset{
+    margin-top: 3%;
+    border-radius: 10px;
+    border: 1px solid purple;
+    width: 150px;
+    outline: none;
+    color: purple;
+}
+
+#uFile::-webkit-file-upload-button{
+    border: 0.5px solid rgba(128, 0, 128, 0.475);
+    background-color: transparent;
+    color: rgba(187, 15, 187, 0.618);
+    margin-right: 20px;
+}
+#pytable input[type="radio"], #pytable input[type="checkbox"]{
+    height: 15px;
+    width: 15px;
+    margin-right: 7px;
+    border: 1px solid purple;
+}
+
