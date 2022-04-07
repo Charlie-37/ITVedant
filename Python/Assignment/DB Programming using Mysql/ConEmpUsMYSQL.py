@@ -62,6 +62,23 @@ def delEmp():
     db.commit()
     db.close()
 
+
+def showEmpData():
+    eid = input("Enter Employee ID : ").lstrip()
+    db=dbConnect()
+    cr=db.cursor()
+
+    sql="select * from crudemp where id=%s"
+    cr.execute(sql,eid)
+
+    data = cr.fetchall()
+
+    
+    db.commit()
+    db.close()
+    
+    for i in data:
+        print(f"ID:{i[0]:^3} \nName{i[1]:^10} \nContact{i[2]:^13} \nEmail{i[3]:^30} \nSalary{i[4]:^7} \nGender{i[5]:^2}")
 # //*----- Function to Update Employee Record----*//
 
 def updateEmp(uep):
@@ -123,11 +140,12 @@ def empLoop():
 
     while True:
 
-        print("\nEnter 1 to Show Emp Data")
+        print("\nEnter 1 to Show Emp Full Recird")
         print("Enter 2 to Add Employee")
         print("Enter 3 to Update Employee Details")
         print("Enter 4 to Delete Employee Record")
-        print("Enter 5 to Exit\n")
+        print("Enter 5 to show Emplyee Data")
+        print("Enter 6 to Exit\n")
 
         choi = input("Enter your Choice : ").lstrip()
         print("\n")
@@ -155,5 +173,9 @@ def empLoop():
              delEmp()
 
         elif choi =="5":
-            print("5")
+            showEmpData()
+
+        elif choi =="6":
+            print("6")
+        
 empLoop()
