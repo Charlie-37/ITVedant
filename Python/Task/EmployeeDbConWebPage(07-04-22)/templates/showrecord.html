@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #emptable{
+            width: 60%;
+            
+            font-size: 20px;
+            font-family: serif;
+        }
+    </style>
+    <title>Show Record</title>
+</head>
+<body>
+    <h1 style="text-align: center;">All Emplyee List</h1>
+    <a href="reg">Regestration Form</a> <br>
+    <a href="/"> Home Page</a>
+    
+</body>
+
+<div class="tabshow" align="center">
+
+    <table id="emptable" border="1px">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+
+        {% for tup in elist %}
+        <tr>
+            <td>{{tup[0]}}</td>
+            <td>{{tup[1]}}</td>
+            <td>{{tup[2]}}</td>
+            <td>{{tup[3]}}</td>
+            <td>{{tup[4]}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+</html>
