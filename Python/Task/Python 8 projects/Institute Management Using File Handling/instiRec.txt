@@ -1,0 +1,5 @@
+ 1       Sunil          PHP       45000 
+ 2       Rahil         Django     56000 
+ 3      Swapnil         JAVA      95422 
+ 5       Vidhi       JavaScript   26544 
+ 6      Prasad         Python    850000 

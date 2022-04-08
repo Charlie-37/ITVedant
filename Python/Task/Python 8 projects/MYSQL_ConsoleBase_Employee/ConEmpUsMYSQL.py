@@ -62,6 +62,8 @@ def delEmp():
     db.commit()
     db.close()
 
+    
+# //*------------Function to show single Employee Data-----*//
 
 def showEmpData():
     eid = input("Enter Employee ID : ").lstrip()
@@ -78,7 +80,7 @@ def showEmpData():
     db.close()
     
     for i in data:
-        print(f"ID:{i[0]:^3} \nName{i[1]:^10} \nContact{i[2]:^13} \nEmail{i[3]:^30} \nSalary{i[4]:^7} \nGender{i[5]:^2}")
+        print(f"\nID :{i[0]:^2} \nName : {i[1]:^2} \nContact : {i[2]:^2} \nEmail : {i[3]:^2} \nSalary : {i[4]:^2} \nGender : {i[5]:^2}")
 # //*----- Function to Update Employee Record----*//
 
 def updateEmp(uep):
@@ -134,7 +136,7 @@ def updateEmp(uep):
     db.close()
     
 
-# //*- Function to run Selection Loop----//
+# //*- Function to run Selection Loop----------------//
 
 def empLoop():
 
