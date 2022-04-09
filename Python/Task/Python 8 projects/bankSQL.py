@@ -1,4 +1,4 @@
-#ulist=[['Sunil', 'Male', '56000', 'sunilb', '1234', 3700, 5000], ['Prasad', 'male', '95000', 'prasadj', '9876', 29626, 0], ['Vidhi', 'female', '62000', 'vidhi', '1234', 3700, 0]]
+
 import pymysql as p
 
 # //*-------MYSQL Connectivity---------*//
@@ -51,17 +51,9 @@ class user():
 
         db.commit()
         db.close()
+        
         for i in data:
-
             return i 
-            
-            # print(f"Name : {i[0].title()}")
-            # print(f"Gender : {i[1].title()}")
-            # print(f"Salary : {i[2]}")
-            # print(f"Password : {i[3]}")
-            # print(f"Account Number : {i[4]}")
-            # print(f"Adhar Card Number : {i[5]}")
-            # print(f"Account Balance : {i[6]}")
 
 # //*---------Class for Bank Transactions-----------*//
 class bank(user):
@@ -256,7 +248,6 @@ def firChoice():
                             #print(i[5])
                             obj1 = bank(i[0],i[1],i[2],i[3],i[4],i[5],i[6])
                             balan = obj1.viewbal()
-##                            balan = list(balan)
                             print(f"Balance is : {balan} Rs ")
                             print("\n")
                             
