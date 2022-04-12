@@ -228,10 +228,20 @@ def firChoice():
             
             db.commit()
             db.close()
+            
+##            x = False
+##
+##            for i in data:
+##                if eacc ==i[5] and epassw == i[3]:
+##                    x = True
 
+            
             for i in data:
+                
                 if eacc == i[5] and epassw == i[3]:
                     
+
+             
                     while True:
                         print("\n")
                         print("Enter 1 for View Balance")
@@ -302,9 +312,9 @@ def firChoice():
 
 
 
-            
+        
 
-        else:
-            print("Invalid Input")              
+            else:
+                print("Invalid Input")              
 
 firChoice()
