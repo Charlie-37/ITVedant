@@ -1,0 +1,41 @@
+WAP to explain else statement proper comments  with notes.
+
+->Sometimes we might want to run a specific block of code. In that case, we can use else block with the try-except block. 
+The else block will be executed if and only if there are no exception is the try block.
+For these cases, we can use the optional else statement with the try statement.
+
+*Why to use else block with try:
+Use else statement with try block to check if try block executed without any exception or if you want to run a specific code only if an exception is not raised.
+
+Syntax-
+try:    
+    # block of code     
+except Exception1:    
+    # block of code     
+else:    
+    # this code executes when exceptions not occured    
+
+Example-
+try:
+    a = int(input("Enter value of a:"))
+    b = int(input("Enter value of b:"))
+    c = a / b
+    print("a/b = %d" % c)
+
+except ZeroDivisionError:
+    print("Can't divide by zero")
+else:
+    print("We are in else block ")
+
+Output1:
+Enter value of a:24
+Enter value of b:2
+a/b = 12.0
+We are in else block 
+
+Output2:
+Enter value of a:25
+Enter value of b:0
+Can't divide by zero
+
+

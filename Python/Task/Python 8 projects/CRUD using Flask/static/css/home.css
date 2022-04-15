@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Kanit:wght@600;700&family=Poppins:wght@200;300&family=Syncopate:wght@700&display=swap');
+ #frontpg{
+    padding: 0;
+}
+.navbar{
+    width: 100%;
+    background-color: #85b622;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar-brand{
+    font-size: 26px;
+}
+.navbar-collapse{
+    justify-content: end;
+    
+}
+.navbar-nav{ 
+    font-size: 20px;
+    width: 200px;
+    margin-right: 20px;
+    justify-content: space-between;
+}
+#bgcontainers{
+
+    background-color: rgb(68, 65, 65);
+    margin: auto;
+    margin-top: 0px;
+    padding: 0;
+}
+.row{
+    margin: auto;
+    padding: 0;
+}
+.writtenbanner{
+    margin-left: 10%;
+}
+
+.col-md-4, .col-md-8{
+    position: relative;
+}
+
+.card-title{
+    font-size: 4.5rem;
+}
+.btn-primary{
+    background-color: transparent;
+    margin-right: 5%;
+    width: 19%;
+    border-radius: 0;
+    font-size: 1.3em;
+    border: 2px solid #85b622;
+    outline: none;
+}
+.btn-primary:hover{
+    background-color: #85b622;
+    color: white;
+    outline: none;
+    border: 2px solid white;
+}
+#itvpng{
+    margin: auto;
+    height: 20rem;
+    width: 24rem;
+    
+}
+.card{
+    border: none;
+    margin-top: 6%;
+}
+.card-text{
+    font-family: 'Poppins', sans-serif;
+} 

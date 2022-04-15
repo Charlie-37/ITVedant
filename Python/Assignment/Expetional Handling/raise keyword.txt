@@ -1,0 +1,33 @@
+1.WAP to explain raise keyword proper comments  with notes.
+
+The raise keyword is used to raise an exception.
+You can define what kind of error to raise, and the text to print to the user.
+
+Ex1:-
+#Raise an error and stop the program if x is above 100:
+
+x = 101
+
+if x > 100:
+  raise Exception("Error, Number is above 100")
+
+Output:
+Traceback (most recent call last):
+  File "D:/SUNIL BHAVE/Documents/Coding/itvedant/Python/Assignment/Expetional Handling/finally.py", line 26, in <module>
+    raise Exception("Error, Number is above 100")
+Exception: Error, Number is above 100
+
+
+Ex2:-
+#Raise a TypeError if y is less than 0:
+
+y = -20
+if y < 0:
+    raise Exception("Error Y is a less Than 0")
+
+Output:
+Traceback (most recent call last):
+  File "D:/SUNIL BHAVE/Documents/Coding/itvedant/Python/Assignment/Expetional Handling/finally.py", line 30, in <module>
+    raise Exception("Error Y is a less Than 0")
+Exception: Error Y is a less Than 0
+
