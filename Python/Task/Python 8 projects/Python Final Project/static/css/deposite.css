@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Kanit:wght@600;700&family=Poppins:wght@200;300&family=Syncopate:wght@700&display=swap');
+ #frontpg{
+    padding: 0;
+}
+
+body{
+    background-color: white;
+    /* background-color: rgba(128, 128, 128, 0.623); */
+}
+.navbar{
+    width: 100%;
+    background-color: #619decd3;
+    background-color: tr;
+    color: rgb(18, 176, 229);
+    font-family: 'Poppins', sans-serif;
+    margin: none;
+}
+#logopng{
+    margin: 0;
+    margin-right:0.5%;
+}
+/* #nav-div{
+    justify-content: end;
+} */
+.navbar-brand{
+    float: left;
+    margin-top: 2px;
+    font-size: 26px;
+    /* border: 2px solid white; */
+    width: 60%;
+}
+.navbar-collapse{
+    top: 0;
+    justify-content: end;
+    margin-right: 30px;
+    
+}
+.navbar-collapse{
+    justify-content: end;
+    
+}
+.navbar-nav{ 
+    font-size: 20px;
+    width: 600px;
+    margin-right: 0px;
+    justify-content: space-between;
+}
+.dropdown-item:hover{
+    background-color:rgb(158, 196, 235) ;
+   }
+#bgcontainers{
+    padding: 0;
+    
+}
+.card{
+    /* border: 2px solid red; */
+    margin: auto;
+    width: 40%;
+    margin-top: 10%;
+    padding: 5%;
+
+}
+
+
+#div_deposit{
+    /* border: 2px solid blue; */
+    margin: auto;
+    margin-top: 2%;
+    width: 90%;
+}
+#div_deposit h1{
+    text-align: center;
+    color: navy;
+    margin-bottom: 10px;
+}
+#div_deposit h1::after{
+    content: '';
+    margin: auto;
+    position: relative;
+    display: block;
+    height: 2px;
+    background-color:rgb(0, 132, 255) ;
+    color: red;
+    width: 22%;
+    bottom: -4px;
+    
+}
+.card{
+    /* border: 2px solid red; */
+    margin: auto;
+    width: 40%;
+    margin-top: 10%;
+    padding: 2%;
+    background-color:rgb(0, 132, 255)
+
+}
+#user_reg_form{
+    margin-top: 40px;
+    border-radius: 10px;
+    background-color: rgb(100, 160, 220);
+    /* border: 2px solid black; */
+    padding: 20px;
+    
+}
+#depo_table{
+    /* border: 2px solid black; */
+    margin: 0;
+    text-decoration: none;
+}
+
+table tr td{
+    border: none;
+    /* border: 2px solid black; */
+    width: 50%;
+}
+
+table tr td:first-child{
+    margin-left: 10px;
+    
+}
+#depo_form input{
+    color: white;
+    font-size: 20px;
+    width: 90%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(0, 98, 255);
+}
+::-webkit-input-placeholder, #depo_form label{
+    color: white;
+    font-size: 20px;
+    margin-left: 0px;
+}
+
+#subcontainer{
+    /* border: 2px solid black; */
+    margin: auto;
+    margin-top: 10%;
+    width: 40%;
+    justify-content: center;
+}
+#depo_form input[type="submit"]{
+    width: 150px;
+    border: none;
+    /* background-color: rgb(0, 132, 255); */
+    background-color: #fff;
+    outline: none;
+    border-radius: 5px;
+    color: rgb(0, 132, 255);
+    /* margin: 0 20px 10px 0; */
+    margin: auto;
+
+}

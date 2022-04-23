@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Kanit:wght@600;700&family=Poppins:wght@200;300&family=Syncopate:wght@700&display=swap');
+ #frontpg{
+    padding: 0;
+}
+.navbar{
+    width: 100%;
+    background-color: #619decd3;
+    background-color: tr;
+    color: rgb(18, 176, 229);
+    font-family: 'Poppins', sans-serif;
+    margin: none;
+}
+#logopng{
+    margin: 0;
+    margin-right:0.5%;
+}
+.navbar-brand{
+    margin-top: 2px;
+    font-size: 25px;
+    width: 60%;
+}
+
+.navbar-toggler{
+    margin-top: 0;
+    
+}
+.navbar-collapse{
+    /* border: 2px solid white; */
+    justify-content: end;
+    margin-right: 30px;
+}
+.navbar-nav{ 
+    /* border: 2px solid white; */
+    font-size: 20px;
+    width: 300px;
+    margin-right: 0px;
+    justify-content: space-between;
+}
+.dropdown-item:hover{
+    background-color:rgb(158, 196, 235) ;
+   }
+#bgcontainers{
+    padding: 0;
+    
+}
+
+/* --------Carouosel */
+
+#cordiv{
+    height: 90%;
+    width: 100%;
+    padding: 0;
+    /* border: 2px solid red; */
+}
+
+#carouselExampleIndicators{
+    background-color: rgba(0, 0, 0, 0.57);
+    /* border: 2px solid green; */
+    position: relative;
+    height: 92%;
+}
+
+.carousel-item{
+/* border: 2px solid green; */
+/* height: 651px; */
+height: 75%;
+min-height: 300px;
+z-index: -1;
+
+} 
+
+.carousel-item img{
+    height: 653px;
+    /* height: 40%; */
+}
+.carousel-indicators{
+    z-index: 1;
+}
+
+
+/*-----Card------*/
+
+.card{
+    position: absolute;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.618);
+    /* border: 2px solid white; */
+    border: none;
+    height: 60%;
+    margin: 9% 0 0 15%;
+    z-index: 2;
+    font-family: 'Poppins', sans-serif;
+    padding: 0% 1%;
+    border-radius: 10px;    
+}
+
+.card-body{
+    padding: 0;
+    padding-top: 15%;
+    overflow-x: hidden;
+}
+#choiScroll{
+    width: 46%;
+    height: 40px;
+    margin: 0px 0 20px 5px;
+    border-radius: 5px;
+    background-color: rgb(37, 165, 239);
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    outline: none;
+    border: none;
+}
+
+#user_login_div, #staff_login_div{
+    /* border: 2px solid white; */
+    padding: 0; 
+}
+#user_login_div{
+    margin-right: 20px;
+}
+#user_login_div h1, #staff_login_div h1, #login_head{
+    text-align: center;
+    color: rgb(109, 174, 218);
+    font-size: 25px;
+}
+#login_head{
+    margin: -10px 0 20px 0;
+}
+#user_login,#staff_login{
+    width: 600px;
+    padding: 0;
+}
+#user_login table,#staff_login table{
+    padding: 2%;
+    width: 45%;
+    /* border: 2px solid white; */
+}
+#pageScroll{
+    position: relative;
+    display: flex;
+    padding: 0;
+    transition: 0.5s ease;
+    /* left: -280px; */
+    /* transform: translateX(-285px); */
+}
+form input{
+width: 90%;
+height: 45px;
+background: transparent;
+border: none;
+border-bottom: 2px solid aqua;
+margin-bottom: 10px;
+font-size: 20px;
+outline: none;
+color: white;
+}
+::-webkit-input-placeholder{
+    color: white;
+    font-size: 20px;
+    margin-left: 10px;
+}
+form input[type="submit"]{
+    width: 80%;
+    margin: 10px 0 20px 25px;
+    border-radius: 5px;
+    background-color: rgb(20, 156, 235);
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    outline: none;
+    border: none;
+}

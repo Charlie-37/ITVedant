@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Kanit:wght@600;700&family=Poppins:wght@200;300&family=Syncopate:wght@700&display=swap');
+ #frontpg{
+    padding: 0;
+}
+.navbar{
+    width: 100%;
+    background-color: #619decd3;
+    background-color: tr;
+    color: rgb(18, 176, 229);
+    font-family: 'Poppins', sans-serif;
+    margin: none;
+}
+#logopng{
+    margin: 0;
+    margin-right:0.5%;
+}
+.navbar-brand{
+    margin-top: 2px;
+    font-size: 25px;
+    width: 60%;
+}
+
+.navbar-toggler{
+    margin-top: 0;
+    
+}
+.navbar-collapse{
+    /* border: 2px solid white; */
+    justify-content: end;
+    margin-right: 30px;
+}
+.navbar-nav{ 
+    /* border: 2px solid white; */
+    font-size: 20px;
+    width: 300px;
+    margin-right: 0px;
+    justify-content: end;
+}
+.dropdown-item:hover{
+    background-color:rgb(158, 196, 235) ;
+   }
+#bgcontainers{
+    padding: 0;
+    
+}
+
+/* --------ATM-------- */
+
+#atm_div{
+    margin-top: 2%;
+    padding: 2%;
+    height: 80%;
+    width: 70%;
+    /* border: 2px solid red; */
+    background-color: rgb(158, 196, 235);
+    border-radius: 10px;
+}
+#atm_table{
+    margin: auto;
+    height: 500px;
+    width: 90%;
+    /* border: 2px solid black; */
+}
+/* #atm_table tr td{
+     border: 2px solid blue; 
+
+} */
+#bt_choice{
+    width: 20%;
+}
+#atm_display{
+    padding: 0;
+}
+h1{
+    top: 0;
+    text-align: center;
+    color: navy;
+    margin-bottom: 10%;
+    font-size:50px;
+}
+h1::after{
+    content: '';
+    margin: auto;
+    position: relative;
+    display: block;
+    height: 2px;
+    background-color:rgb(0, 132, 255) ;
+    width: 90%;
+    bottom: -4px;
+    
+}
+#display_div{
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding: auto;
+    justify-content: center;
+}
+input{
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    height: 60px;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: blue;
+    border-bottom: 2px solid rgb(0, 170, 255);
+}
+input:first-child{
+    margin-bottom: 20px;
+}
+::-webkit-input-placeholder{
+    color: blue;
+    font-size: 24px;
+}
+#sub_btn{
+    text-align: center;
+}
+/* button{
+    height: 60px;
+    width: 96%;
+    outline: none;
+    border: none;
+    background-color: rgb(0, 170, 255);
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+} */
+#prim_submit, .btn-primary{
+
+   height: 30%;
+    width: 30%;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    border-radius: 10px;
+}
+input[type="radio"]{
+    height: 1px;
+    width: 1px;
+    /* display: none; */
+}
+#radioCH{
+    display: none;  
+}
+.labelButton{
+   text-align: center;
+   margin: auto;
+   padding-top: 8%;
+    height: 60px;
+    width: 96%;
+    background-color: rgb(0, 170, 255);
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.labelButton:hover{
+    background-color: blue;
+}
+input[type="radio"]:checked +label{
+    background-color: grey;
+    color: blue;
+}

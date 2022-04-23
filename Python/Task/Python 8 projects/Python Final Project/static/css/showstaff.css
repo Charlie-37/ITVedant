@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Kanit:wght@600;700&family=Poppins:wght@200;300&family=Syncopate:wght@700&display=swap');
+ #frontpg{
+    padding: 0;
+}
+
+body{
+    background-color: white;
+    /* background-color: rgba(128, 128, 128, 0.623); */
+}
+.navbar{
+    width: 100%;
+    background-color: #619decd3;
+    background-color: tr;
+    color: rgb(18, 176, 229);
+    font-family: 'Poppins', sans-serif;
+    margin: none;
+}
+#logopng{
+    margin: 0;
+    margin-right:0.5%;
+}
+/* #nav-div{
+    justify-content: end;
+} */
+.navbar-brand{
+    float: left;
+    margin-top: 2px;
+    font-size: 26px;
+    width: 60%;
+}
+.navbar-collapse{
+    top: 0;
+    justify-content: end;
+    margin-right: 30px;
+    
+}
+.navbar-collapse{
+    justify-content: end;
+    
+}
+.navbar-nav{ 
+    /* border: 2px solid white; */
+    font-size: 20px;
+    width: 900px;
+    margin-right: 10px;
+    justify-content: end;
+}
+.nav-item{
+    margin:0 20px;
+}
+.dropdown-item:hover{
+    background-color:rgb(158, 196, 235) ;
+   }
+#bgcontainers{
+    padding: 0;
+    
+}
+.card{
+    /* border: 2px solid red; */
+    margin: auto;
+    width: 100%;
+
+}
+.card-body{
+    padding: 0;
+    height: 600px;
+    border: 2px solid blue;
+    /* overflow-x: hidden; */
+}
+#pageScroll{
+    display: flex;
+    padding: 0;
+    transition: 0.5s ease;
+    padding: 0;
+}
+
+#staff_form_div{
+    margin: auto;
+    margin-top: 2%;
+    width: 90%;
+}
+#staff_form_div h1{
+    text-align: center;
+    color: navy;
+    margin-bottom: 10px;
+}
+#staff_form_div h1::after{
+    content: '';
+    margin: auto;
+    position: relative;
+    display: block;
+    height: 2px;
+    background-color:rgb(0, 132, 255) ;
+    color: red;
+    width: 19%;
+    bottom: -4px;
+    
+}
+#staff_reg_form{
+    margin-top: 40px;
+    border-radius: 10px;
+    background-color: rgb(100, 160, 220);
+    /* border: 2px solid black; */
+    padding: 20px;
+    
+}
+#staff_reg_table{
+    /* border: 2px solid black; */
+    border: none;
+    text-decoration: none;
+}
+
+table tr td{
+    border: none;
+    /* border: 2px solid black; */
+    width: 50%;
+}
+
+table tr td:first-child{
+    margin-left: 10px;
+    
+}
+#staff_reg_form input{
+    color: white;
+    font-size: 20px;
+    width: 90%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(0, 98, 255);
+}
+::-webkit-input-placeholder, #staff_reg_form label{
+    color: white;
+    font-size: 20px;
+    margin-left: 0px;
+}
+#staff_reg_form select{
+    text-align: center ;
+    margin-left: 10px;
+    width: 60%;
+    height: 40px;
+    color: rgb(0, 96, 205);
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    outline: none;
+}
+
+#staff_reg_form input[type="radio"]{
+    /* border: 2px solid black; */
+    margin-top: 2px;
+    margin-right: -10px;
+    width: 10%;
+    font-size: 22px;
+    height: 18px;
+    background-color: blue;
+}
+#staff_reg_form input[type="date"]{
+    color: white;
+}
+#subres{
+    justify-content: space-between;
+    /* border: 2px solid black; */
+    width: 38%;
+}
+#staff_reg_form input[type="submit"],#staff_reg_form input[type="reset"]{
+    width: 200px;
+    border: none;
+    background-color: rgb(0, 132, 255);
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    margin: 0 20px 10px 0;
+}
