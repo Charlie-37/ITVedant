@@ -1,11 +1,10 @@
 
 import pymysql as p
-import datetime
+from datetime import datetime
 import random as rd
 
 def dbConnect():
     return p.connect(host="localhost", user="root",password="",database="atmbank")
-
 
 
 # //*----User Login------*//
@@ -317,4 +316,317 @@ def Atmaccdet(accoun,accCvv):
         db.close()
         return data[0]
 
+# //*---------------PIN CHANGE-------------------*//
+
+def OldPinCheck(user_accoun):
+        db = dbConnect()
+        cr = db.cursor()
+        sql = "select pin from user where accno=%s ;"
+        cr.execute(sql,user_accoun)
+        data = cr.fetchall()
+        db.commit()
+        db.close()
+
+        return data[0][0]
+
+def newPinChange(new_entered_pin,user_accoun):
+        db = dbConnect()
+        cr = db.cursor()
+        t = (new_entered_pin,user_accoun)
+        sql = "update user set pin=%s where accno=%s ;"
+        cr.execute(sql,t)
+        data = cr.fetchall()
+        db.commit()
+        db.close()
+
+        x = OldPinCheck(user_accoun)
+
+        new_entered_pin=int(new_entered_pin)
+        if x == new_entered_pin:
+            print("pinChange Sucess")
+            return True
+        else:
+            print("pinChange Uncessfull")
+            return False
+# //*--------------//**//---------------------*//
+
+#//*------------------PIN Genrate*------------------*//
+def genOTP():
+    # //*--Pin Change def is used to add new pin(i.e change NULL to New pin)
+    otp = 0
+    for i in range(1,5):
+            otp = (otp*10) +rd.randint(0,9)
+
+    return otp
+
+# //*--------------//**//---------------------*//
+#//*------------------Balance Enquiry-------------*//
+
+def AccountType(acctype):
+        db = dbConnect()
+        cr = db.cursor()
+        sql = "select acctype from user where accno=%s ;"
+        cr.execute(sql,acctype)
+        data = cr.fetchall()
+        db.commit()
+        db.close()
+        return data[0]
+
+def Pin_Bal(user_pin):
+        db = dbConnect()
+        cr = db.cursor()
+        sql = "select pin from user where accno=%s ;"
+        cr.execute(sql,user_pin)
+        data = cr.fetchall()
+        db.commit()
+        db.close()
+
+        pinmod = str(data[0][0])
+
+        # //*--IF starting Number of pin is 0 then it does not shows in db
+        if len(pinmod) == 3:
+            updpin = "0"+str(pinmod)
+            # print("gotpin",updpin)
+            return updpin
+        else:
+            return data[0]
+
+def ViewBalance(user_accoun):
+        db = dbConnect()
+        cr = db.cursor()
+        sql = "select balance from user where accno=%s ;"
+        cr.execute(sql,user_accoun)
+        data = cr.fetchall()
+        db.commit()
+        db.close()
+
+        return data[0][0]
+# //*--------------//**//---------------------*//
+
+#//*-------------Balance Enquiry-----------*//
+
+# //*----------------CASH Withdrawl Note Management functions-------------**/
+def getNotes():
+    db = dbConnect()
+    cr = db.cursor()
+    atm_id = "101"
+    sql = "select twoth,fivhun,twohun,onehun from note where atm_id=%s;"
+    cr.execute(sql,atm_id)
+    data = cr.fetchall()
+    db.commit()
+    db.close()
+    return data[0]
+
+
+#//*----------NOTES MANAGEMENT-----------------*//
+def twoth(withd):
+
+    note = getNotes()
+    # print(note[4])
+    notwot = note[0]
+    nofivh = note[1]
+    notwoh = note[2]
+    noOnhun =note[3]
+    totamu = (2000*note[0])+(500*note[1])+(200*note[2])+(100*note[3])
+    # print("Total amount in ATM",totamu)
+        #  getting note count
+    req2000n = withd//(2000)
+    #print("2000 note req : ",x)
+
+    # note in atm minus rquired note
+    remt=notwot-req2000n
+    #print("atmNote-reqnote(2000) : ",remt)
     
+    # finding mod of 2000 to pass remaining to five hundred
+    modtwoth = withd%2000
+    #print("amt to pass 500:",modtwoth)
+
+    # if note is less in atm then the total required gets multiplied to 2000 and pass to the five hun
+    if remt<0:
+        passfiv = modtwoth - (remt*2000)
+        print("tot to pass 500",passfiv)
+        # final got note of 2000
+        noOfTwoth = notwot 
+        # print(noOfTwoth)
+        # //*---Update 2000rs Note in SQL (setting it 0)--*//
+        settingNote0("twoth")
+  
+    else:
+        noOfTwoth = req2000n
+        passfiv = modtwoth
+        # print("2000",remt)
+    # # //*---Update 2000rs Note in SQL--*//
+        db = dbConnect()
+        cr = db.cursor()
+        atm_id = "101"
+        t = (remt,atm_id)
+        sql = "update note set twoth=%s where atm_id=%s;"
+        cr.execute(sql,t)
+        db.commit()
+        db.close()
+
+    # //*---------Five Hundred  NOTE----------**//
+
+    req500n = passfiv//(500)
+    remfiv=nofivh-req500n
+    modfivhun = passfiv%500
+
+    if remfiv < 0:
+
+        passtwohun = modfivhun - (remfiv*500)
+        noOffiv = nofivh
+        # //*---Update 500rs Note in SQL (setting it 0)--*//
+        settingNote0("fivhun")
+  
+
+        # if noOffiv !=0:
+        #     return noOffiv
+    else :
+        passtwohun = modfivhun
+        noOffiv = int(passfiv//(500))
+        # print("500",remfiv)
+        # # //*---Update 500rs Note in SQL--*//
+        db = dbConnect()
+        cr = db.cursor()
+        atm_id = "101"
+        s = (remfiv,atm_id)
+        sql = "update note set fivhun=%s where atm_id=%s;"
+        cr.execute(sql,s)
+        db.commit()
+        db.close()
+
+ # //*---------Tw0 Hundred  NOTE----------**//
+
+    #  getting note count
+    req200n = passtwohun//(200)
+    remtwoh=notwoh-req200n
+    modtwohun = passtwohun%200
+
+    if remtwoh<=0:
+        passOnehun = modtwohun - (remtwoh*200)
+        noOfTwoh = notwoh
+        # //*---Update 200rs Note in SQL (setting it 0)--*//
+        settingNote0("twohun")
+  
+    else:
+        passOnehun = modtwohun
+        # print("200",remtwoh)
+        noOfTwoh = int(passtwohun//(200) )
+        #  # //*---Update 200rs Note in SQL--*//
+        db = dbConnect()
+        cr = db.cursor()
+        atm_id = "101"
+        a = (remtwoh,atm_id)
+        sql = "update note set twohun=%s where atm_id=%s;"
+        cr.execute(sql,a)
+        db.commit()
+        db.close()
+    
+    # //*---------One Hundred  NOTE----------**//
+
+    #  getting note count
+    b = passOnehun//(100)
+    remoneh=noOnhun-b
+
+    if remoneh<=0:
+        noOfOneh = remoneh
+        # //*---Update 100rs Note in SQL (setting it 0)--*//
+        settingNote0("onehun")
+  
+
+    else:
+        noOfOneh = int(passOnehun//(100) )
+        # print("100",remoneh)
+
+        # # //*---Update 100rs Note in SQL--*//
+        db = dbConnect()
+        cr = db.cursor()
+        atm_id = "101"
+        b = (remoneh,atm_id)
+        sql = "update note set onehun=%s where atm_id=%s;"
+        cr.execute(sql,b)
+        db.commit()
+        db.close()
+
+    # if remt>=0 and remfiv >=0 and remtwoh >=0 and remoneh >=0:
+    if  remoneh < 0:
+        # print("doing")
+        db = dbConnect()
+        cr = db.cursor()
+        atm_id = "101"
+        t = (note[0],note[1],note[2],note[3],atm_id )
+        sql = "update note set twoth=%s, fivhun=%s, twohun=%s, onehun=%s where atm_id=%s;"
+        cr.execute(sql,t)
+        db.commit()
+        db.close()
+
+    return noOfTwoth,noOffiv,noOfTwoh,noOfOneh
+
+# //*-------Update the Balance------*//
+def updBalance(amount,user_accoun):
+        db = dbConnect()
+        cr = db.cursor()
+        # atm_id = "101"
+        t = (amount,user_accoun)
+        sql = "update user set balance=%s where accno=%s;"
+        cr.execute(sql,t)
+
+        #//*-view updated balance and return it
+        sql = "select balance from user where accno=%s;"
+        cr.execute(sql,user_accoun)
+        balance = cr.fetchall()
+        db.commit()
+        db.close()
+
+        return balance[0]
+
+def settingNote0(type):
+        db = dbConnect()
+        cr = db.cursor()
+        atm_id = "101"
+        t = ("0",atm_id)
+        sql = f"update note set {type}=%s where atm_id=%s;"
+        cr.execute(sql,t)
+        db.commit()
+        db.close()
+
+# twoth(300)
+# //*----------------------*****-----------------------**/
+
+'''
+NOTE QUeries
+1. select twoth,fivhun,twohun,onehun, sum((2000*twoth)+(500*fivhun)+(200*twohun)+(100*onehun)) as total from note;
+2. update note set twoth=2,fivhun=4,twohun=6,onehun=17 where atm_id="101";
+3. select * from ministate where accno=12345 order by date desc;
+
+'''
+
+
+# //*----------------------MINI STATEMENT-----------------------**/
+# //*----Function to ADD the CREDIT and Witdraw to the ministate table---*//
+def addStatement(accno,type,amount):
+        db = dbConnect()
+        cr = db.cursor()
+        CurDate = datetime.today().strftime("%y-%m-%d")
+        print(CurDate)
+        t = (accno,type,amount,CurDate)
+        sql = "insert into ministate values(%s,%s,%s,%s)"
+        cr.execute(sql,t)
+        db.commit()
+        db.close()
+
+# //*----Function to get the MiniStatement-(Total)----*//
+def getFullMiniStatement(accno):
+        accoun = int(accno)
+        print("Type of Accoun",type(accoun))
+        db = dbConnect()
+        cr = db.cursor()
+        sql = "select * from ministate where accno=%s order by date desc;"
+        cr.execute(sql,accoun)
+        data = cr.fetchall()
+        db.commit()
+        db.close()
+
+        return data
+
+# //*----------------------*****-----------------------**/

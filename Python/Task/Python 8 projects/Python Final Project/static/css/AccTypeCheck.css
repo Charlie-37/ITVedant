@@ -85,7 +85,7 @@ h1::after{
     display: block;
     height: 2px;
     background-color:rgb(0, 132, 255) ;
-    width: 90%;
+    width: 60%;
     bottom: -4px;
     
 }
@@ -101,7 +101,7 @@ input{
     margin: auto;
     width: 90%;
     height: 60px;
-    font-size: 24px;
+    font-size: 26px;
     background: transparent;
     border: none;
     outline: none;
@@ -113,7 +113,7 @@ input:first-child{
 }
 ::-webkit-input-placeholder{
     color: blue;
-    font-size: 24px;
+    font-size: 26px;
 }
 #sub_btn{
     text-align: center;
