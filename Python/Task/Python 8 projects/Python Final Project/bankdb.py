@@ -64,6 +64,7 @@ def date():
         db.close()
 
         return print(data)
+
 # //*--------deposite user Money ***/
 
 def deposite_money(accoun,passw,amt):
@@ -202,7 +203,8 @@ class userdet():
         db = dbConnect()
         cr = db.cursor()
         t = (self.usname,self.passw)
-        sql = "select * from user where usname=%s and password = %s"
+        # sql = "select * from user where usname=%s and password = %s"
+        sql = "select fname,lname,usname,password,contact,aadhar,city, dob ,acctype,gender,balance,accno,cvv,pin from user where usname=%s and password = %s"
         cr.execute(sql,t)
         data = cr.fetchall()
         db.commit()
@@ -621,7 +623,7 @@ def getFullMiniStatement(accno):
         print("Type of Accoun",type(accoun))
         db = dbConnect()
         cr = db.cursor()
-        sql = "select * from ministate where accno=%s order by date desc;"
+        sql = "select * from ministate where accno=%s order by date desc limit 6;"
         cr.execute(sql,accoun)
         data = cr.fetchall()
         db.commit()

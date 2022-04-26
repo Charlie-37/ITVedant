@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/AccTypeCheck.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/ShowminiStatement.css')}}" type="text/css">
     <title>Mini Statement</title>
 </head>
 <body>
@@ -25,18 +25,6 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                  <!-- <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="/">Log-In</a>
-                  </li>
-                  <li class="nav-item dropdown" >
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                      Sign Up
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="usersignIn">User Sign Up</a></li>
-                      <li><a class="dropdown-item" href="staffsignIn">Staff Sign Up</a></li>
-                    </ul>
-                  </li> -->
                   <li class="nav-item">
                     <a class="nav-link active text-light" aria-current="page" href="atmlogout">EXIT</a>
                   </li>
@@ -54,12 +42,12 @@
                     <td id="bt_choice">
                     </td>
                     <td rowspan="2" id="atm_display">
-                        <h1>Mini Statement</h1>
+                        <h2>Mini Statement</h2>
                         <div class="container-fluid" id="display_div">
                             <div class="radioCH">
-                                <table class="table">
+                                <table class="table" id="atm_table2">
                                     <tr>
-                                        <td colspan="3"><h4 align="center">State Bank Of Charlie </h4></td>
+                                        <td colspan="3"><h4 align="center"><b>State Bank Of Charlie</b></h4></td>
                                     </tr>
                                     <tr>
                                         <td>DATE <br>
@@ -77,9 +65,9 @@
                                         <td colspan="2">{{userData[2]}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Date</td>
-                                        <td>Type</td>
-                                        <td>Amount</td>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Amount</th>
                                     </tr>
                                     {% for tup in miniS %}
                                     <tr>
@@ -91,8 +79,8 @@
                                     {% endfor %}
 
                                     <tr>
-                                        <td>AVAIL BAL</td>
-                                        <td colspan="2">{{userData[3]}}</td>
+                                        <td> <b>AVAIL BAL</b></td>
+                                        <td colspan="2"> <b>{{userData[3]}}</b></td>
                                     </tr>
                                 </table>
                                 

@@ -98,10 +98,11 @@ body{
     border-radius: 10px;
     background-color: rgb(100, 160, 220);
     /* border: 2px solid black; */
-    padding: 20px;
+    padding: 30px;
     
 }
 #staff_reg_table{
+    min-height: 400px;
     /* border: 2px solid black; */
     border: none;
     text-decoration: none;

@@ -62,9 +62,7 @@ def User_login():
         t = (usname,passw)
         i = selectuser(t)
         i = list(i)
-
         session["user"] = i
-        print(i)
         return render_template("showuser.html", row=i)
         
     else:
@@ -73,9 +71,9 @@ def User_login():
 # //*------------Show user details-------------*//
 @app.route("/showuser")
 def show_user():
-    user = session["user"]
-    # print(i)
-    return render_template("showuser.html", row=user)
+    i = session["user"]    
+    return render_template("showuser.html", row=i)
+
 
 
 # //*------------Update user details-------------*//
@@ -259,7 +257,7 @@ def delby_staff():
 
 
 
-#//*----------LOGOUT User------------*//
+#//*----------LOGOUT Staff------------*//
 @app.route("/stafflogout")
 def staff_log_out():
     session.pop("staff",None)

@@ -74,7 +74,7 @@ body{
 #user_form_div{
     margin: auto;
     margin-top: 2%;
-    width: 90%;
+    width: 80%;
 }
 #user_form_div h1{
     text-align: center;
@@ -98,10 +98,11 @@ body{
     border-radius: 10px;
     background-color: rgb(100, 160, 220);
     /* border: 2px solid black; */
-    padding: 20px;
+    padding: 40px;
     
 }
 #user_reg_table{
+    min-height: 400px;
     /* border: 2px solid black; */
     border: none;
     text-decoration: none;
@@ -159,7 +160,7 @@ table tr td:first-child{
 #subres{
     justify-content: space-between;
     /* border: 2px solid black; */
-    width: 38%;
+    width: 48%;
 }
 #user_reg_form input[type="submit"],#user_reg_form input[type="reset"]{
     width: 200px;
