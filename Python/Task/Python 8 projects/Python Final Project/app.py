@@ -337,9 +337,30 @@ def main_choi():
             accoun = data[11]
             pin = Pin_Bal(accoun)
             pin = pin[0]
-
+            contactUser = data[4]
             if pin == None:
                 otp = genOTP()
+                # //*---Twilio OTP Sending----*//
+                #trial no. +19403294410
+                #Acc Session ID = ACaa40498841dec5a8d984c0727c9b5f6b
+                #Acc Session Token = 8ac021d92681c85f83d63d241fb00ced
+
+                from twilio.rest import Client
+
+
+                # Find your Account SID and Auth Token at twilio.com/console
+                # and set the environment variables. See http://twil.io/secure
+                account_sid = "ACaa40498841dec5a8d984c0727c9b5f6b"
+                auth_token = "8ac021d92681c85f83d63d241fb00ced"
+                client = Client(account_sid, auth_token)
+
+                message = client.messages \
+                    .create(
+                        body= f"Your OTP to Create Pin is {otp}",
+                        from_='+19403294410',
+                        to= contactUser
+                    )
+
                 print("OTP IS : ", otp)
                 session["otp"] = otp
                 return render_template("/GenratePin.html")
