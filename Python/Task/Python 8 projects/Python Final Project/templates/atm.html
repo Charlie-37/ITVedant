@@ -25,20 +25,8 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                  <!-- <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="/">Log-In</a>
-                  </li>
-                  <li class="nav-item dropdown" >
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                      Sign Up
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="usersignIn">User Sign Up</a></li>
-                      <li><a class="dropdown-item" href="staffsignIn">Staff Sign Up</a></li>
-                    </ul>
-                  </li> -->
                   <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="atm_logout">EXIT</a>
+                    <a class="nav-link active text-light" aria-current="page" href="atmlogout">EXIT</a>
                   </li>
                 </ul>
               </div>
@@ -57,8 +45,8 @@
                     <td rowspan="2" id="atm_display">
                         <h1>Welcome to SBC ATM</h1>
                         <div class="container-fluid" id="display_div">
-                            <input type="number" required placeholder="Enter Account Number" name="user_acoun"><br>
-                            <input type="number" required placeholder="Enter Card CVV" name="user_cvv">
+                            <input type="number" required placeholder="Enter Account Number" name="user_acoun" max="99999"><br>
+                            <input type="number" required placeholder="Enter Card CVV" name="user_cvv" max="999">
                         </div>
                     </td>
                     <td id="bt_choice"></td>

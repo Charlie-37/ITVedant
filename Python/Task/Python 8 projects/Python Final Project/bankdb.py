@@ -54,6 +54,20 @@ def selectuser(t):
 
         return data[0]
 
+#//*---Show User---*//
+def showuser(usname,passw):
+    db = dbConnect()
+    cr = db.cursor()
+    t = (usname,passw)
+    # sql = "select * from user where usname=%s and password = %s"
+    sql = "select fname,lname,usname,password,contact,aadhar,city, dob ,acctype,gender,balance,accno,cvv,pin from user where usname=%s and password = %s"
+    cr.execute(sql,t)
+    data = cr.fetchall()
+    db.commit()
+    db.close()
+
+    return data[0]
+
 def date():
         db = dbConnect()
         cr = db.cursor()
@@ -147,19 +161,26 @@ def transferMoney(user_accoun,passw,amount,payee_accoun):
                     db.commit()
                     db.close()
 
+                    return True
+
 
                 else:
-                    return "Low Account Balance"
+                    return False
             else:
-                return "Account does not Exist"
+                return False
             
         else:
-            return "Account does not Exist"
+            return False
 
 
 # //*----Edit Staff Details------*//
 
+def accnoCr():
 
+    accno = 0
+    for i in range(0,5):
+        accno = (accno*10) +rd.randint(0,9)
+    return accno
 
 # //*------------------Class of User----------------------------*//
 class userdet():
@@ -175,14 +196,31 @@ class userdet():
         self.acctype = acctype
         self.gender = gender
         
-
         
     def cruser(self):
         self.balance = 0
 
-        self.accno = 0
-        for i in range(0,5):
-            self.accno = (self.accno*10) +rd.randint(0,9)
+        # self.accno = 0
+        # for i in range(0,5):
+        #     self.accno = (self.accno*10) +rd.randint(0,9)
+
+        db = dbConnect()
+        cr = db.cursor()
+        sql = "select accno from user "
+        cr.execute(sql)
+        data = cr.fetchall()
+        db.commit()
+        db.close()
+
+        self.accno = accnoCr()
+
+        while True:
+            self.accno = accnoCr()
+            if self.accno not in data:
+                accoun = self.accno
+                break
+            else:
+                pass
 
         self.pin = None
         self.cvv = 0
@@ -191,26 +229,13 @@ class userdet():
         db = dbConnect()
         cr = db.cursor()
         sql = " insert into user values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s); "
-        t = (self.fname,self.lname,self.usname,self.passw,self.contact,self.adhar,self.city,self.dob,self.acctype,self.gender,self.balance,self.accno,self.cvv,self.pin)
+        t = (self.fname,self.lname,self.usname,self.passw,self.contact,self.adhar,self.city,self.dob,self.acctype,self.gender,self.balance,accoun,self.cvv,self.pin)
 
         cr.execute(sql,t)
         db.commit()
         db.close()
         return print("Insertion Sucessful")
 
-
-    def showuser(self):
-        db = dbConnect()
-        cr = db.cursor()
-        t = (self.usname,self.passw)
-        # sql = "select * from user where usname=%s and password = %s"
-        sql = "select fname,lname,usname,password,contact,aadhar,city, dob ,acctype,gender,balance,accno,cvv,pin from user where usname=%s and password = %s"
-        cr.execute(sql,t)
-        data = cr.fetchall()
-        db.commit()
-        db.close()
-
-        return data[0]
 
     def updateUser(self,accoun):
         db = dbConnect()
@@ -308,16 +333,41 @@ def deleteuser_staff(accnum):
 #//*---------------------ACCcheck-------------*//
 
 def Atmaccdet(accoun,accCvv):
+
+    db = dbConnect()
+    cr = db.cursor()
+    sql = "select accno,cvv from user;"
+    cr.execute(sql)
+    userCheck = cr.fetchall()
+    db.commit()
+    db.close()
+    print(userCheck)
+
+    maccCvv = str(accCvv)
+    if maccCvv[0] == "0":
+        newAccCvv = maccCvv[1:]
+        newAccCvv = int(newAccCvv)
+    else:
+         newAccCvv = accCvv
+
+    print("newcvv",newAccCvv)
+    t = (accoun,newAccCvv)
+    if (accoun,newAccCvv) in userCheck:
+        print("Check Sucess")
         db = dbConnect()
         cr = db.cursor()
         t = (accoun,accCvv)
-        sql = "select fname,lname,usname,password,contact,aadhar,city,DATE(dob),acctype,gender,balance,accno,cvv,pin from user where accno=%s and cvv = %s"
+        sql = "select fname,lname,usname,password,contact,aadhar,city,DATE(dob),acctype,gender,balance,accno,cvv,pin from user where accno=%s and cvv = %s;"
         cr.execute(sql,t)
         data = cr.fetchall()
         db.commit()
         db.close()
-        return data[0]
+        return data
+    else:
+        print("Check unSucess")
+        return None
 
+# print(Atmaccdet(12345,95))
 # //*---------------PIN CHANGE-------------------*//
 
 def OldPinCheck(user_accoun):

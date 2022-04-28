@@ -50,6 +50,25 @@
 
             
             <!-- --------------------------------User Login Form --------- -->
+            <div class="container-fluid" id="display_div">
+              {% with messages = get_flashed_messages() %}
+
+              {% if messages %}
+              {% for msg in messages %}
+              <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <h4>{{msg}}</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                </div>
+                <div class="col-md-4"></div>
+              </div>
+              {% endfor %}
+              {% endif %}
+              {% endwith %}
+            </div>
                     <div class="container-fluid" id="div_deposit">
                         <h1>Money Transfer</h1>
 
