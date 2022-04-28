@@ -1,7 +1,14 @@
 
+from sre_constants import SUCCESS
+from time import time
+from trace import Trace
 import pymysql as p
 from datetime import datetime
 import random as rd
+import qrcode
+from pyzbar.pyzbar import decode
+import cv2
+
 
 def dbConnect():
     return p.connect(host="localhost", user="root",password="",database="atmbank")
@@ -173,7 +180,7 @@ def transferMoney(user_accoun,passw,amount,payee_accoun):
             return False
 
 
-# //*----Edit Staff Details------*//
+# //*----Random Accoun Number Creation------*//
 
 def accnoCr():
 
@@ -181,6 +188,67 @@ def accnoCr():
     for i in range(0,5):
         accno = (accno*10) +rd.randint(0,9)
     return accno
+
+# //*----------------------qr code scanner-----*//
+val = True
+
+def qrscan(val):
+    db = dbConnect()
+    cr = db.cursor()
+    sql = "select accno,cvv from user;"
+    cr.execute(sql)
+    userCheck = cr.fetchall()
+    db.commit()
+    db.close()
+
+    cap = cv2.VideoCapture(0)
+    cap.set(3,640) #width
+    cap.set(4,480) #height
+    used_code = []
+
+    camera= val
+
+    while camera== True:
+        sucess, frame = cap.read()
+        for code in decode(frame):
+            # print(code.type)
+            # print(code.data.decode("utf-8"))
+            userScannedList = code.data.decode("utf-8")
+            # print(userCheck)
+            gotScan = userScannedList.split(",")
+
+            acc = gotScan[0]
+            accoun = acc[1:]
+            accoun = int(accoun)
+
+            cvv = gotScan[1]
+            mcvv = cvv[:-1].strip()
+            mcvv = int(mcvv)
+            userscan = (accoun,mcvv)
+            print(userscan)
+
+            if userscan in userCheck:
+                print("You are logged in")
+                # time.sleep(5)
+                # val = False
+                # qrscan(val)
+                return True
+                break
+                
+            else:
+                print("you are not logeed in")
+                # time.sleep(5)
+
+
+        cv2.imshow("Testing-code-scan",frame)
+        cv2.waitKey(1)
+
+        time.sleep(5)
+        return False
+
+
+
+qrscan(val)
 
 # //*------------------Class of User----------------------------*//
 class userdet():
@@ -213,14 +281,15 @@ class userdet():
         db.close()
 
         self.accno = accnoCr()
-
-        while True:
-            self.accno = accnoCr()
+        # To check account number already exist or not
+        i = 0
+        while i<= len(data):
+            # self.accno = accnoCr()
             if self.accno not in data:
                 accoun = self.accno
                 break
             else:
-                pass
+               self.accno = accnoCr()
 
         self.pin = None
         self.cvv = 0
@@ -234,6 +303,23 @@ class userdet():
         cr.execute(sql,t)
         db.commit()
         db.close()
+
+        # //*---QR Creation and adding it to db and folder
+        dataQr = accoun,self.cvv
+        qrname = f"{accoun}.png"
+        userqr = qrcode.make(dataQr)
+        userqr.save(f"static\qr\{qrname}")
+        # print(userqr)
+
+        
+
+
+
+
+
+
+
+
         return print("Insertion Sucessful")
 
 

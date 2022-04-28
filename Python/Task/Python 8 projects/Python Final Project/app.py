@@ -1,15 +1,23 @@
 
 from datetime import datetime
+from fileinput import filename
 import time
 from flask import *
 from bankdb import *
 import twilio 
+from pyzbar.pyzbar import decode
+from PIL import Image
+import os
+
 
 
 
 app = Flask(__name__)
 app.secret_key = "hello"
-# //*--Home Page----
+
+# dir_path = os.path.dirname(os.path.realpath(__file__))
+# app.config.update(UPLOAD_PATH = os.path.join(dir_path,"static\qr"))
+# //*--Home Page-----*//
 @app.route("/")
 
 def home():
@@ -28,6 +36,9 @@ def Usersign_In():
 def Staffsign_In():
     return render_template("staffsignin.html")
 
+# //*-----------QR FOLDER INITIALIZATION----*//
+upd_folder = "static/qr"
+app.config["upd_folder"] = upd_folder
 
 # //*------------Adding user details-------------*//
 @app.route("/adduser", methods=["POST"])
@@ -45,6 +56,35 @@ def add_user():
 
     usercr = userdet(fname, lname, usname, passw, contact, adhar, city, dob, acctype, gender)
     usercr.cruser()
+
+    # #//*---for qr creation---*//
+    # db = dbConnect()
+    # cr = db.cursor()
+    # sql = "select accno, cvv from user where usname=%s and password=%s; "
+    # t = (usname,passw)
+    # cr.execute(sql,t)
+    # data = cr.fetchall()
+    # qrd=data[0]
+    # db.commit()
+    # db.close()
+    
+    # # //*---QR Creation and adding it to db and folder
+    # dataQr = [qrd[0],qrd[1]]
+    # userqrName = f"{qrd[0]}.png"
+    # # qrcode_location = f"{app.config['UPLOAD_PATH']}\{userqrName}"
+    # userqr = qrcode.make(dataQr)
+    # # userqr.save(qrcode_location)
+    # userqr.save(f"static\qr\{userqrName}")
+
+
+
+    # userqr.save(f"{qrd[0]}.png")
+    # print(userqr)
+
+    # filename = secure_filename(userqr.filename)
+    # # mimetype = userqr.mimetype
+    # userqr.save(os.path.join(app.config["upd_folder"],filename))
+
 
     return redirect("/")
 
@@ -337,7 +377,7 @@ def main_choi():
             accoun = data[11]
             pin = Pin_Bal(accoun)
             pin = pin[0]
-            contactUser = data[4]
+            contactUser = "+91"+data[4]
             if pin == None:
                 otp = genOTP()
                 # //*---Twilio OTP Sending----*//
@@ -345,21 +385,18 @@ def main_choi():
                 #Acc Session ID = ACaa40498841dec5a8d984c0727c9b5f6b
                 #Acc Session Token = 8ac021d92681c85f83d63d241fb00ced
 
-                from twilio.rest import Client
+                #from twilio.rest import Client
 
+                # account_sid = "ACaa40498841dec5a8d984c0727c9b5f6b"
+                # auth_token = "8ac021d92681c85f83d63d241fb00ced"
+                # client = Client(account_sid, auth_token)
 
-                # Find your Account SID and Auth Token at twilio.com/console
-                # and set the environment variables. See http://twil.io/secure
-                account_sid = "ACaa40498841dec5a8d984c0727c9b5f6b"
-                auth_token = "8ac021d92681c85f83d63d241fb00ced"
-                client = Client(account_sid, auth_token)
-
-                message = client.messages \
-                    .create(
-                        body= f"Your OTP to Create Pin is {otp}",
-                        from_='+19403294410',
-                        to= contactUser
-                    )
+                # message = client.messages \
+                #     .create(
+                #         body= f"Your OTP to Create Pin is {otp}",
+                #         from_='+19403294410',
+                #         to= contactUser
+                #     )
 
                 print("OTP IS : ", otp)
                 session["otp"] = otp
@@ -393,7 +430,7 @@ def old_pin():
                 else:
                     pass
 
-                print("final pin" , x)
+                # print("final pin" , x)
                 return render_template("pinChangeNewPin.html")
             else:
                 session.pop("atm",None)
@@ -426,8 +463,10 @@ def new_pin():
 #//*--------------PIN Genrate--------------*//
 @app.route("/genPin_otp", methods=["POST"])
 def PinGen_otp():
-    if "atm" in session:
+    if "otp" in session:
         entered_otp = request.form["genPin_otp"]
+        entered_otp = int(entered_otp)
+
         data = session["atm"]
         user_accoun = data[11]
         user_accpin = data[13]
@@ -440,20 +479,23 @@ def PinGen_otp():
                 return render_template("/newPinGenrate.html")
             else:
                 
-                session.pop("atm",None)
-                session.pop("otp",None)
+                
+                flash("Wrong Pin Inserted", "info")
+                return render_template("atmError.html")
         else:
             flash("Pin Already Exist", "info")
             return render_template("atmError.html")
     else:
-        return redirect("/")
+        session.pop("atm",None)
+        flash("somthing Went Wrong","info")
+        return render_template("atmError.html")
 
 #//*-------Genrate New Pin------------*//
 @app.route("/genrate_newpin", methods=["POST"])
 def genNew_Pin():
     if "atm" in session:
         enter_genPin = request.form["acc_new_Genpin"]
-
+        #enter_genPin = int(enter_genPin)
         data = session["atm"]
         user_accoun = data[11]
         newPinChange(enter_genPin,user_accoun)
@@ -461,6 +503,8 @@ def genNew_Pin():
         return render_template("atmError.html")
     else:
         return redirect("/")
+
+
 
 #//*----------BALANCE Enquiry--------------*//
 @app.route("/AcctypeCheck", methods=["POST"])
