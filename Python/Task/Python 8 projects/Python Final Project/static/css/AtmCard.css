@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Kanit:wght@600;700&family=Poppins:wght@200;300&family=Syncopate:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500'); 
+#frontpg{
+    padding: 0;
+}
+
+body{
+    background-color: white;
+    /* background-color: rgba(128, 128, 128, 0.623); */
+}
+.navbar{
+    width: 100%;
+    background-color: #619decd3;
+    background-color: tr;
+    color: rgb(18, 176, 229);
+    font-family: 'Poppins', sans-serif;
+    margin: none;
+}
+#logopng{
+    margin: 0;
+    margin-right:0.5%;
+}
+/* #nav-div{
+    justify-content: end;
+} */
+.navbar-brand{
+    float: left;
+    margin-top: 2px;
+    font-size: 26px;
+    /* border: 2px solid white; */
+    width: 60%;
+}
+.navbar-collapse{
+    top: 0;
+    justify-content: end;
+    margin-right: 30px;
+    
+}
+.navbar-collapse{
+    justify-content: end;
+    
+}
+.navbar-nav{ 
+    font-size: 20px;
+    width: 600px;
+    margin-right: 0px;
+    justify-content: space-between;
+}
+.dropdown-item:hover{
+    background-color:rgb(158, 196, 235) ;
+   }
+#bgcontainers{
+    padding: 0;
+    
+}
+.card{
+    /* border: 2px solid red; */
+    margin: auto;
+    width: 40%;
+    margin-top: 10%;
+    padding: 5%;
+
+}
+
+#mainContainer{
+    height: 40%;
+    width: 40%;
+    margin: auto;
+    margin-top: 10%;
+
+    padding: 0;
+    overflow-x: hidden;
+    /* background: linear-gradient( 145deg, blue, rgb(95, 182, 229)); */
+    background: linear-gradient(45deg, red, blue);
+    border-radius: 20px;
+}
+#stylediv1{
+    min-height: 330px;
+}
+#stylediv2{
+    transform: translateX(-50px);
+    width: 700px;
+    height: 200px;
+}
+.logoContainer{
+    display: flex;
+}
+#logopngcard{
+    margin-top: 8%;
+    transform: translateY(10px);
+}
+#logoname{
+    margin-top: 15%;
+    margin-left: 10px;
+    font-size: 36px;
+    color: white;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.row{
+    margin: 0;
+    padding: 0;
+}
+
+#qrdiv{
+    margin: 0;
+    margin-top: 32%;
+    
+}
+#cardNo{
+    margin-top: 6%;
+    font-size: 31px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#cardH{
+margin: 0;
+margin-top: 5%;
+font-size: large;
+color: rgb(162, 157, 157);
+}
+
+.exp{
+    transform: translateX(20px);
+    
+}
+    h3,h2{
+    color: rgb(228, 222, 222);
+}
+#validthrough{
+    /* border: 2px solid white; */
+    margin: 0;
+    display: flex;
+    padding: 0;
+}
+.validt{
+    left: -10px;
+    flex: 20px;
+    color: white;
+}
+.intdate{
+    /* border: 2px solid red; */
+    margin: 0;
+    padding: 0;
+}
+h2{
+    transform: translateX(-20px);
+    font-size: 33px;
+    margin: 0;
+    margin-top: 5%;
+}

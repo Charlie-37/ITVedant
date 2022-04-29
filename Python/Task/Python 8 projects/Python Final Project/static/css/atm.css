@@ -89,6 +89,14 @@ h1::after{
     bottom: -4px;
     
 }
+h2{
+    top: 0;
+    text-align: center;
+    color: navy;
+    margin-bottom: 10%;
+    font-size:35px;
+
+}
 #display_div{
     width: 80%;
     display: block;

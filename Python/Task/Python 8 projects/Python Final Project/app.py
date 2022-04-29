@@ -15,6 +15,8 @@ import os
 app = Flask(__name__)
 app.secret_key = "hello"
 
+app.config["IMAGE_UPLOADS"] = "D:\SUNIL BHAVE\Documents\Coding\itvedant\Python\Task\Python 8 projects\Python Final Project\static\qr"
+
 # dir_path = os.path.dirname(os.path.realpath(__file__))
 # app.config.update(UPLOAD_PATH = os.path.join(dir_path,"static\qr"))
 # //*--Home Page-----*//
@@ -200,6 +202,24 @@ def transfer_money():
         return redirect("userMoneyTransfer")
 
     
+#//*----------ATM Card--------------*// 
+
+@app.route("/atmPage")
+def atmpage():
+    user = session["user"]
+    accoun = user[11]
+    Useratmdata = getatmDetail(accoun)
+
+    imgname = Useratmdata[2]
+
+    filename = secure_filename(imgname)
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    # image.save(os.path.join(basedir,app.config["IMAGE_UPLOADS"],filename))
+
+
+
+    return render_template("AtmCard.html", row=Useratmdata, filename = filename)
+
 
 
 
@@ -326,21 +346,34 @@ def atm_mainpage():
 
 @app.route("/AtmAccCvv", methods=["POST"])
 def atm_cvv():
-    accoun = request.form["user_acoun"]
-    accoun = int(accoun)
-    accCvv = request.form["user_cvv"]
-    accCvv = int(accCvv)
+    # accoun1 = request.form["user_acoun"]
+    # accoun1 = int(accoun1)
+    # accCvv2 = request.form["user_cvv"]
+    # accCvv2 = int(accCvv2)
 
-    # print("account is",type(accoun),accCvv)
-    data = Atmaccdet(accoun,accCvv)
-    print("data is",data)
-    if data != None:
-        userData = data[0]
-        session["atm"] = userData
-        return render_template("atmChoice.html")
-    else:
+    scannerOn = request.form["scanner_on"]
+
+    val = True
+    try:
+        x = qrscan(val)
+        print(x)
+        accoun = x[0]
+        accCvv = x[1]
+        print("account is",type(accoun),accCvv)
+
+        data = Atmaccdet(accoun,accCvv)
+        print("data is",data)
+        if data != None:
+            userData = data[0]
+            session["atm"] = userData
+            return render_template("atmChoice.html")
+        else:
+            flash("Invalid Account Number and CVV", "info")
+            return render_template("atmError.html")
+    except ValueError:
         flash("Invalid Account Number and CVV", "info")
         return render_template("atmError.html")
+        
 
 
 #//*---atm logout----*//
@@ -385,18 +418,18 @@ def main_choi():
                 #Acc Session ID = ACaa40498841dec5a8d984c0727c9b5f6b
                 #Acc Session Token = 8ac021d92681c85f83d63d241fb00ced
 
-                #from twilio.rest import Client
+                from twilio.rest import Client
 
-                # account_sid = "ACaa40498841dec5a8d984c0727c9b5f6b"
-                # auth_token = "8ac021d92681c85f83d63d241fb00ced"
-                # client = Client(account_sid, auth_token)
+                account_sid = "ACaa40498841dec5a8d984c0727c9b5f6b"
+                auth_token = "8ac021d92681c85f83d63d241fb00ced"
+                client = Client(account_sid, auth_token)
 
-                # message = client.messages \
-                #     .create(
-                #         body= f"Your OTP to Create Pin is {otp}",
-                #         from_='+19403294410',
-                #         to= contactUser
-                #     )
+                message = client.messages \
+                    .create(
+                        body= f"Your OTP to Create Pin is {otp}",
+                        from_='+19403294410',
+                        to= contactUser
+                    )
 
                 print("OTP IS : ", otp)
                 session["otp"] = otp

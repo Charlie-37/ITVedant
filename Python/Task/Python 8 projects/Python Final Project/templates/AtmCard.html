@@ -7,8 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/deposite.css')}}" type="text/css">
-    <title>Deposite Money</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/AtmCard.css')}}" type="text/css">
+    <script src="{{url_for('static', filename='js/AtmCard.js')}}"></script>
+    <title>ATM Card</title>
 </head>
 <body>
 
@@ -37,7 +38,6 @@
                   <li class="nav-item">
                     <a class="nav-link active text-light" aria-current="page" href="atmPage">ATM Card</a>
                   </li>   
-                  <li cla
                   <li class="nav-item">
                     <a class="nav-link active text-light" aria-current="page" href="logout">Log-Out</a>
                   </li>
@@ -71,43 +71,64 @@
               {% endif %}
               {% endwith %}
             </div>
-                    <div class="container-fluid" id="div_deposit">
-                        <h1>Deposite Money</h1>
-
-                        <div class="card">
-                          <form action="deposit_from" id="depo_form" method="POST">
-                            <table id="depo_table">
-                              <tr>
-                                <td><label for="dop_amt">Account Number :</label></td>
-                                <td><input type="number" name="deposite_account" id="dop_amt" readonly required value="{{row[11]}}"></td>
-                              </tr>
-                              <tr>
-                                <td><label for="dop_amt">Amount :</label></td>
-                                <td><input type="number" name="deposite_ammount" id="dop_amt" required placeholder="0"></td>
-                              </tr>
-                              <tr>
-                                <td><label for="dop_passw" id="pass">Profile Password : </label></td>
-                                <td><input type="text" name="deposite_passw" id="dop_passw" required></td>
-                              </tr>
-                              <tr>
-                               
-                                <td colspan="2">
-                                  <div class="contaner" id="subcontainer"> 
-                                    <input type="submit" value="Submit">
-                                  </div> 
-                              </td>
-                              </tr>
-                            </table>
-                          </form>
-                      </div>
+            
+            <div class="container" id="mainContainer">
+                <div class="container" id="stylediv1">
+                    <div class="row">
                        
+                        <div class="col-md-3">
+                            <div class="logoContainer">
+                                <img src="{{url_for('static', filename='img/logo3.png')}}" alt="" height="50px" width="50px" id="logopngcard">
+                                <p id="logoname">SBC</p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            {% if filename %}
+                            <div class="container" id="qrdiv">
+                                <img src="{{ url_for("static", filename='/qr/'+filename) }}" alt="" height="70px" width="70px">
+                            </div>
+                            {% endif %}
+                        </div>
                     </div>
-  
-    </section>
-    <script>
-      xy = localStorage.getItem("data")
-      console.log(xy)
-    </script>
- 
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="cardNo">{{row[5]}}&nbsp; {{row[6]}}&nbsp; {{row[7]}}&nbsp; {{row[8]}}&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p id="cardH">Cardholder Name</p>
+                            <h3>{{row[1]}}</h3>
+                        </div>
+                        <div class="col-md-4">
+                            <p id="cardH" class="exp">Expiration</p>
+                            <div class="container" id="validthrough">
+                                <div class="container" class="intdate">
+                                    <p class="validt">VALID <br> THRU</p>
+                                </div>
+                                <div class="container" class="intdate">
+                                    <h2>{{row[4]}}</h2>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+                
+
+            </div>
+                
+
+<!-- 
+   {% if filename %}
+   <div class="container">
+       <img src="{{ url_for("static", filename='/qr/'+filename) }}" alt="" height="60px" width="60px">
+   </div>
+   {% endif %} -->
 </body>
 </html>

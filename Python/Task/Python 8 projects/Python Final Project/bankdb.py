@@ -3,11 +3,16 @@ from sre_constants import SUCCESS
 from time import time
 from trace import Trace
 import pymysql as p
-from datetime import datetime
+from datetime import datetime, timedelta
 import random as rd
 import qrcode
 from pyzbar.pyzbar import decode
 import cv2
+import time
+import os
+from werkzeug.utils import secure_filename
+from dateutil.relativedelta import relativedelta
+
 
 
 def dbConnect():
@@ -182,10 +187,10 @@ def transferMoney(user_accoun,passw,amount,payee_accoun):
 
 # //*----Random Accoun Number Creation------*//
 
-def accnoCr():
+def accnoCr(len):
 
     accno = 0
-    for i in range(0,5):
+    for i in range(0,len):
         accno = (accno*10) +rd.randint(0,9)
     return accno
 
@@ -208,12 +213,13 @@ def qrscan(val):
 
     camera= val
 
-    while camera== True:
+    while camera == True:
         sucess, frame = cap.read()
         for code in decode(frame):
             # print(code.type)
             # print(code.data.decode("utf-8"))
             userScannedList = code.data.decode("utf-8")
+            time.sleep(1)
             # print(userCheck)
             gotScan = userScannedList.split(",")
 
@@ -225,17 +231,19 @@ def qrscan(val):
             mcvv = cvv[:-1].strip()
             mcvv = int(mcvv)
             userscan = (accoun,mcvv)
-            print(userscan)
+            # print(userscan)
 
             if userscan in userCheck:
                 print("You are logged in")
-                # time.sleep(5)
+                time.sleep(1)
                 # val = False
                 # qrscan(val)
-                return True
+                cv2.destroyAllWindows()
+                return userscan
                 break
                 
             else:
+                cv2.destroyAllWindows()
                 print("you are not logeed in")
                 # time.sleep(5)
 
@@ -243,12 +251,13 @@ def qrscan(val):
         cv2.imshow("Testing-code-scan",frame)
         cv2.waitKey(1)
 
-        time.sleep(5)
-        return False
+        # time.sleep(5)
+        # return False
 
 
 
-qrscan(val)
+# x = qrscan(val)
+# print(x)
 
 # //*------------------Class of User----------------------------*//
 class userdet():
@@ -280,7 +289,7 @@ class userdet():
         db.commit()
         db.close()
 
-        self.accno = accnoCr()
+        self.accno = accnoCr(5)
         # To check account number already exist or not
         i = 0
         while i<= len(data):
@@ -295,6 +304,7 @@ class userdet():
         self.cvv = 0
         for i in range(0,3):
             self.cvv = (self.cvv*10) +rd.randint(0,9)
+
         db = dbConnect()
         cr = db.cursor()
         sql = " insert into user values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s); "
@@ -311,13 +321,9 @@ class userdet():
         userqr.save(f"static\qr\{qrname}")
         # print(userqr)
 
-        
-
-
-
-
-
-
+        # //*---Passing Scanner name to Database---*//
+        atmc = userAtm(accoun,self.fname, self.lname, qrname,self.cvv)
+        atmc.cratm()
 
 
         return print("Insertion Sucessful")
@@ -334,6 +340,59 @@ class userdet():
         db.close()
 
       # //*----------End OF USER CLASS----------------*///
+
+#//*---------------------------Atm Card Class---------------------*//
+class userAtm():
+    def __init__(self,accno, fname, lname, qrname, cvv):
+        self.accno = accno
+        self.fname = fname
+        self.lname = lname
+        self.qrname = qrname
+        self.cvv = cvv
+
+    def cratm(self):
+        carno1 = accnoCr(4)
+        carno2 = accnoCr(4)
+        carno3 = accnoCr(4)
+        carno4 = accnoCr(4)
+
+        #//* Creating 5 years expiry date from current date---*//
+        CurDate = datetime.now()
+        CurDate = CurDate+relativedelta(years=7)
+
+        db = dbConnect()
+        cr = db.cursor()
+        sql = "insert into atmcard values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
+        t = (self.accno,self.fname,self.lname,self.qrname,self.cvv,CurDate,carno1,carno2,carno3,carno4)
+        cr.execute(sql,t)
+        db.commit()
+        db.close()
+
+        return "Insertion Sucess"
+# //*----Get the Details of Atm Card n Modifying IT---*//
+def getatmDetail(accoun):
+        db = dbConnect()
+        cr = db.cursor()
+        sql = "select accno,fname,lname,qrname,cvv,dateexp, card1, card2, card3, card4 from atmcard where accno=%s;"
+        cr.execute(sql,accoun)
+        data = cr.fetchall()
+        db.commit()
+        db.close()
+        data = data[0]
+
+        datef = data[5]
+
+        newd = datef.strftime("%m/%y")
+
+        fullname = data[1].title()+" "+data[2].title()
+        cardList = (data[0],fullname,data[3],data[4],newd,data[6],data[7],data[8],data[9])
+
+        return cardList
+
+# print(getatmDetail("36632") )  
+
+
+
 
 #//*---------------------------Staff Class---------------------*//
 class staffdet():
@@ -411,6 +470,20 @@ def deleteuser_staff(accnum):
         cr.execute(sql,accnum)
         db.commit()
         db.close()
+
+        file = f"{accnum}.png"
+        location = "D:\SUNIL BHAVE\Documents\Coding\itvedant\Python\Task\Python 8 projects\Python Final Project\static\qr"
+
+        path = os.path.join(location,file)
+
+        try:
+            os.remove(path)
+        except OSError as error:
+            print(error)
+
+
+
+
 
 
 
@@ -527,8 +600,9 @@ def Pin_Bal(user_pin):
             # print("gotpin",updpin)
             return updpin
         else:
-            return data[0]
-
+            return data[0][0]
+# x = 61982
+# print(Pin_Bal(x))
 def ViewBalance(user_accoun):
         db = dbConnect()
         cr = db.cursor()

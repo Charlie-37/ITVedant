@@ -44,9 +44,11 @@
                     </td>
                     <td rowspan="2" id="atm_display">
                         <h1>Welcome to SBC ATM</h1>
+                        <h2>Please Scan Your Card</h2>
                         <div class="container-fluid" id="display_div">
-                            <input type="number" required placeholder="Enter Account Number" name="user_acoun" max="99999"><br>
-                            <input type="number" required placeholder="Enter Card CVV" name="user_cvv" max="999">
+                            <!-- <input type="number"  placeholder="Enter Account Number" name="user_acoun" max="99999"><br>
+                            <input type="number"  placeholder="Enter Card CVV" name="user_cvv" max="999"> -->
+                            <input type="radio" name="scanner_on" checked id="scannerRad" value="True">
                         </div>
                     </td>
                     <td id="bt_choice"></td>

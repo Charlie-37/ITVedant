@@ -46,16 +46,17 @@
                         <div class="container-fluid" id="display_div">
                             <div class="radioCH">
                                 <table class="table" id="withd_table">
-                                    <tr>
+                                    
+                                    <tr id="div2000">
                                         <td>Note of 2000 is : {{note[0]}}</td>
                                     </tr>
-                                    <tr>
+                                    <tr id="div500">
                                         <td>Note of 500 is : {{note[1]}}</td>
                                     </tr>
-                                    <tr>
+                                    <tr id="div200">
                                         <td>Note of 200 is : {{note[2]}}</td>
                                     </tr>
-                                    <tr>
+                                    <tr id="div100">
                                         <td>Note of 100 is : {{note[3]}}</td>
                                     </tr>
                                     <tr id="balance2">
@@ -94,7 +95,39 @@
                 </form>
             </table>
         </div>
+        <div class="value">
+            <p id="not2000">{{note[0]}}</p>
+            <p id="not500">{{note[1]}}</p>
+            <p id="not200">{{note[2]}}</p>
+            <p id="not100">{{note[3]}}</p>
+        </div>
+        <script>
+           const n2000 = document.getElementById("not2000");
+           const n500 = document.getElementById("note500");
+           const n200 = document.getElementById("not200");
+           const n100 = document.getElementById("not100");
 
+           const note2000 = n2000.textContent
+           const note500 = n500.textContent
+           const note200 = n200.textContent
+           const note100 = n100.textContent
+        //    console.log(typeof(note100))
+            console.log(note500)
+
+            if (note2000 == 0){
+                document.getElementById("div2000").style.display="none";
+            }
+            if (note500 == 0){
+                document.getElementById("div500").style.display="none";
+            }
+            if (note200 == 0){
+                document.getElementById("div200").style.display="none";
+            }
+            if (note100 == 0){
+                document.getElementById("div100").style.display="none";
+            }
+
+        </script>
        
     </section>
 
