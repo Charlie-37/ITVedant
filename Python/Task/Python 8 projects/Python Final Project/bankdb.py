@@ -600,7 +600,8 @@ def Pin_Bal(user_pin):
             # print("gotpin",updpin)
             return updpin
         else:
-            return data[0][0]
+            # return data[0][0]
+            return pinmod
 # x = 61982
 # print(Pin_Bal(x))
 def ViewBalance(user_accoun):

@@ -409,9 +409,10 @@ def main_choi():
             data = session["atm"]
             accoun = data[11]
             pin = Pin_Bal(accoun)
-            pin = pin[0]
+            print("got pin", pin)
+            # pin = pin[0]
             contactUser = "+91"+data[4]
-            if pin == None:
+            if pin == "None":
                 otp = genOTP()
                 # //*---Twilio OTP Sending----*//
                 #trial no. +19403294410
@@ -503,6 +504,7 @@ def PinGen_otp():
         data = session["atm"]
         user_accoun = data[11]
         user_accpin = data[13]
+        print("got pinn is", user_accpin)
 
         if user_accpin == None:
             otp = session["otp"]

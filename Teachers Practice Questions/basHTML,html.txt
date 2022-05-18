@@ -1,0 +1,30 @@
+
+<h1>This is is  header 1</h1>
+<h2>This is is  header 2</h2>
+<h3>This is is  header 3</h3>
+<h4>This is is  header 4</h4>
+<h5>This is is  header 5</h5>
+
+<p>Th is  A <b>Bold</b> Para</p>
+<p>This is <i>Italic</i> Para</p>
+<p>This is a <u>Underlined</u> Para</p>
+
+
+<table border="1px">
+	<thead>
+		<td>ID</td>
+		<td>Name</td>
+		<td>Gender</td>
+	</thead>
+	<tr>
+		<td>01</td>
+		<td>Sunil</td>
+		<td>Male</td>
+	<tr>
+	<tr>
+		<td>02</td>
+		<td>Vidhi</td>
+		<td>Female</td>
+	</tr>
+	
+</table>
