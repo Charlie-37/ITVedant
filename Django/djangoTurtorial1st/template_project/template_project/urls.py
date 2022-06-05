@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from firstapp.views import *
+from secondapp import views as v2
+from thirdapp import views as v3
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",home)
+    path("",home),
+    path("secondFile", v2.sec),
+    path("ThirdFile", v3.third),
 ]
