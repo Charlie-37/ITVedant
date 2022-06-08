@@ -9,6 +9,9 @@ from pyzbar.pyzbar import decode
 from PIL import Image
 import os
 
+#pip install twilio
+#pip install Pillow
+
 
 
 

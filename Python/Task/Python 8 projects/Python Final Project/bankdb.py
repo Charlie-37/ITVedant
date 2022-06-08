@@ -13,6 +13,17 @@ import os
 from werkzeug.utils import secure_filename
 from dateutil.relativedelta import relativedelta
 
+# //*----Install the modules to run this project
+#pip install pymysql
+#pip install flask
+#pip install qrcode
+#pip install Werkzeug
+#pip install pyzbar
+#pip install opencv-python
+#pip install python-dateutil
+#pip install flask
+#pip install twilio
+#pip install Pillow
 
 
 
