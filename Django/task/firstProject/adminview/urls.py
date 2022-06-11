@@ -20,5 +20,6 @@ from .import views as v3
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('adminLogin',v3.adminLogin),
-    path('adminRegister', v3.adminRegister)
+    path('adminRegister', v3.adminRegister),
+    path("adminList", v3.adminList)
 ]
