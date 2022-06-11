@@ -1,0 +1,23 @@
+
+#regDiv{
+    margin-top: 20px;
+    align-items: center;
+    /* border: 2px solid black; */
+}
+
+h1{
+    margin: auto;
+    align-self: center;
+    text-align: center;
+    padding: 20px 0 10px 0;
+    border-bottom: 2px solid rgb(15, 139, 222);
+    width: 40%;
+}
+.row{
+    margin-top: 30px;
+}
+#fromDiv{
+    /* border: 2px solid black; */
+    margin: auto;
+    padding: 3%;
+}

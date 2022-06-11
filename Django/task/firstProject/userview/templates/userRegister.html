@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/userRegister.css' %}">
+    <title>User Register</title>
+</head>
+<body>
+    <header>
+        {% include 'navbar.html' %}
+    </header>
+
+    <div class="container-fluid justify-content-center" id="regDiv">
+        <div class="row">
+            <h1 style="width: 59%;">Welcome to User Register Form</h1>
+            <div class="col-md-5" id="fromDiv">
+                <form method="post" action="addUser">
+                    {% csrf_token%}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">ID</label>
+                        <input type="number" class="form-control" name="user_id" id="userId" aria-describedby="emailHelp">
+                      </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Username</label>
+                        <input type="text" class="form-control" name="user_name" id="username" aria-describedby="emailHelp">
+                      </div>
+
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" name="user_email" aria-describedby="emailHelp">
+
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Contact</label>
+                      <input type="number" class="form-control" name="user_contact" id="exampleInputContact">
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" value='submit'>Submit</button>
+                    <button type="reset" class="btn btn-primary" value="reset">Reset</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
