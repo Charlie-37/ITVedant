@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+
+    <style>
+        table{
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome To Employee Form</h1> <br><br>
+
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="emp_name"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="emp_email"></td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td><input type="number" name="emp_contact"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="" id="" value="submit"></td>
+                <td><input type="reset" name="" id="" value="reset"></td>
+            </tr>
+        </table>
+
+    </form>
+    
+</body>
+</html>
