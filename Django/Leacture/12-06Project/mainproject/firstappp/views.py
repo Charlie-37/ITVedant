@@ -28,3 +28,22 @@ def insertData(request):
     e.save()
 
     return redirect('/')
+
+from .forms import EmpForm
+def EmpForm2(request):
+    
+    if request.method == 'POST':
+        f = EmpForm(request.POST)
+        f.save()
+
+
+        return redirect('/')
+    else:
+        d = {"form" : EmpForm}
+        return render(request, 'fempForm2.html', d)
+
+
+def UserList(request):
+    ul = Emp.objects.all()
+    d = {'ul': ul}
+    return render(request,'userList.html',d)

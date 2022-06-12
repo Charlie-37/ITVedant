@@ -7,5 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',v1.home),
     path('insert', v1.insertData),
-    path('EmpData', v1.EmpForm)
+    path('EmpData', v1.EmpForm),
+    path('EmpData2', v1.EmpForm2),
+    path('userList', v1.UserList)
     ]
