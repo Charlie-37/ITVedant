@@ -9,5 +9,8 @@ urlpatterns = [
     path('insert', v1.insertData),
     path('EmpData', v1.EmpForm),
     path('EmpData2', v1.EmpForm2),
-    path('userList', v1.UserList)
+    path('userList', v1.UserList),
+    path('delete_emp', v1.delete_emp),
+    path('delete_emp2/<int:id>', v1.delete_emp2),
+    path('edit_emp/<int:id>', v1.edit_emp),
     ]

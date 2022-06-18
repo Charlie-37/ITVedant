@@ -36,7 +36,7 @@
             <td>Name</td>
             <td>Email</td>
             <td>Contact</td>
-            <td>Action</td>
+            <td colspan="3">Action</td>
         </tr>
         {% for i in ul %}
         <tr>
@@ -44,7 +44,9 @@
             <td>{{i.name}}</td>
             <td>{{i.email}}</td>
             <td>{{i.contact}}</td>
-            <td><a href="">Delete</a></td>
+            <td><a href="delete_emp?id={{i.id}}">Delete_1</a></td>
+            <td><a href="delete_emp2/{{i.id}}">Delete_2</a></td>
+            <td><a href="edit_emp/{{i.id}}">EDIT</a></td>
            
         </tr>
         {% endfor %}

@@ -1,3 +1,4 @@
+from tkinter import E
 from django.shortcuts import redirect, render
 
 from firstappp.models import Emp
@@ -29,6 +30,8 @@ def insertData(request):
 
     return redirect('/')
 
+# //*---- Saving DATA TO THE MYSQL LITE3 BY DIRECT LOADING THE FORM
+
 from .forms import EmpForm
 def EmpForm2(request):
     
@@ -42,8 +45,37 @@ def EmpForm2(request):
         d = {"form" : EmpForm}
         return render(request, 'fempForm2.html', d)
 
-
+#//*-----SHOW ALL USER LIST---*//
 def UserList(request):
     ul = Emp.objects.all()
     d = {'ul': ul}
     return render(request,'userList.html',d)
+
+
+#//*----DELETE EMP BY GIVING KEY PAIR
+def delete_emp(request):
+    eid = request.GET.get('id')
+    emp = Emp.objects.get(id=eid)
+    emp.delete()
+    return redirect("/")
+
+# //*----Delete EMP BY DIRECT ID
+def delete_emp2(request,id):
+    emp = Emp.objects.get(id=id)
+    emp.delete()
+    return redirect("/userList")
+
+
+# //*------UPDATE EMP FORM
+def edit_emp(request,id):
+    emp = Emp.objects.get(id=id)
+
+    if request.method == 'POST':
+        f = EmpForm(request.POST,instance=emp)
+        f.save()
+        return redirect('/userList')
+
+    else:
+        f = EmpForm(instance=emp)
+        context = {'form':f}
+        return render(request,'fempForm2.html',context)
