@@ -1,0 +1,19 @@
+<form method="post">
+    {%csrf_token%}
+
+    <table>
+        <tr>
+            <td>USERNAME</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>PASSWORD</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="login"></td>
+            <td><input type="reset" value="Reset"></td>
+
+        </tr>
+    </table>
+</form>

@@ -1,3 +1,4 @@
+{% if user.is_authenticated %}
 <h1> Basic ORM Operations </h1>
 <h2><a href="empr">EmpRegister</a></h2>
 <h2><a href="empq">EmpQualification</a></h2>
@@ -14,6 +15,7 @@
 <h2><a href="eqlist2">EmpQualificationList</a></h2>
 
 <br>
+<a href="logout">logout</a>
 <h1>Inheitance</h1>
 <h2><a href="empq3">EmpQualification</a></h2>
 
@@ -23,3 +25,17 @@
 <h2><a href="singer">Singer Form</a></h2>
 
 <h2><a href="songs">Songs Form</a></h2>
+{% endif %}
+<hr>
+<h1>Auth App Operations</h1>
+
+<h2><a href="adduser1">Add User 1</a></h2>
+<h2><a href="adduser2">Add User 2</a></h2>
+<h2><a href="adduser3">Add User 3</a></h2>
+<h2><a href="adduser4">Add User 4</a></h2>
+
+<hr>
+
+
+<h1>LOGIN</h1>
+<h2><a href="login">LOGIN</a></h2>
