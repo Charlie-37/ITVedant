@@ -1,0 +1,7 @@
+<h1> Registeration Form</h1>
+
+<form method="post" action="saveemp">
+    {%csrf_token%}
+{{form.as_p}}
+<p><input type="submit" value="Save"></p>
+</form>

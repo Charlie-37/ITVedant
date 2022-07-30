@@ -1,0 +1,29 @@
+{%extends 'master.html'%}
+{%block body%}
+
+<h1> users Informations</h1>
+<hr>
+<table cellspacing="10" border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Action</th>
+
+    </tr>
+
+    {%for i in ul%}
+    <tr>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+        <td>{{i.3}}</td>
+        <td><a href="delete">DELETE</a></td>
+    </tr>
+
+    {%endfor%}
+
+</table>
+<hr>
+{%endblock%}

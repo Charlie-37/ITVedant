@@ -125,10 +125,10 @@
 
 # //*------Dictionary items----*//
 
-x = {"a":55,"b":65,"c":56}
+# x = {"a":55,"b":65,"c":56}
 
-for k,j in x.items():
-    print(k,j)
+# for k,j in x.items():
+#     print(k,j)
 
 
 
@@ -140,6 +140,65 @@ for k,j in x.items():
 ##    print(i)
 
 
+# l1 = [1,2,3,4,5]
+# l2 = [4,5,6,7,8]
+
+
+
+# for i in l1[:]:
+#     if i in l2:
+#         l1.remove(i)
+#         l2.remove(i)
+
+
+# print(l1)
+# print(l2)
+
+
+'''1.Write a Python program find a list of integers with exactly two occurrences of nineteen and at least three occurrences of five.
+NOTE:Do not use in-built count function'''
+
+# l1 = [19,19,5,6,5,3,8]
+# ninet = 0
+# fiv = 0
+# for i in l1:
+#     if i == 19:
+#         ninet+=1
+
+#     if i == 5:
+#         fiv += 1
+
+# if ninet == 2 and fiv >=3:
+#     print("True")
+# else:
+#     print("false")
+
+
+
+
+'''2.Write a program to count integers,string,symbols from below given string and store them in different dictionaries.
+NOTE:Upper case and lower case alphabets will be stored in different dictionaries
+String : '1.SeQueL String is A g00d cOmp@NY'
+
+Dummy Output: int :{1:'2',90:'10'}
+upper case :{'A':'4','Y':'1','Z':'3'}      
+lower case : {'g':'9','e':'5','j':'23'}
+special case : {'@':'2','&':'10'}'''
+
+
+
+
+
+
+# from re import X
+from numpy import integer
+
+
+str = '1.SeQueL String is A g00d cOmp@NY'
+strList = []
+intnum = ["0","1","2","3","4","5","6","7","8","9"]
+for i in str:
+    strList.append(i)
 
 
 
@@ -147,11 +206,33 @@ for k,j in x.items():
 
 
 
+list1 = [['ca',['cat','cow','lion']],['dad',['dad','danger','cat']]]
+list2 = []
+for i in list1:
+
+    if i[0] in i[1]:
+            print(i[1])
+            list[i[1]]
+
+    for j in i:
+        # print(j)
+        # if i[0] in i[1]:
+        #     print(i[1])
+        #     list[i[1]]
+
+        if j[0] in j[1]:
+            print(j[0])
+            print(j[1])
+            list[j[1]]
+        
 
 
 
 
 
 
+
+    
+    
 
 

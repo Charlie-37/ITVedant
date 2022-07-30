@@ -1,0 +1,29 @@
+<h1> Employee Qualification Details</h1>
+
+<table border="1" cellspacing="10">
+    <tr>
+        <th>Id</th>
+        <th>College</th>
+        <th>HSC</th>
+        <th>Gradu</th>
+        <th>SSC</th>
+        <th>Description</th>
+        <th>EmpID</th>
+        <th>EmpName</th>
+        <th>Emp Address</th>
+    </tr>
+    {%for i in eqlist%}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.college}}</td>
+        <td>{{i.hsc}}</td>
+        <td>{{i.gradu}}</td>
+        <td>{{i.ssc}}</td>
+        <td>{{i.description}}</td>
+        <td>{{i.emp.id}}</td>
+        <td>{{i.emp.name}}</td>
+        <td>{{i.emp.address}}</td>
+
+    </tr>
+    {%endfor%}
+</table>

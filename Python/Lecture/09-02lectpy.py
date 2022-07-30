@@ -146,11 +146,15 @@ x = [1,3,5,7,9]
 # print(x)
 
 # //* Experiment Difference between append and extend
-x.append(" and so on append")
-x.extend("and so on extend")
+# x.append(" and so on append")
+# x.extend("and so on extend")
 
-print(x)
+# print(x)
 
-x = "I love Python, Python is best"
-y = x.find("is")
-print(y)
+# x = "I love Python, Python is best"
+# y = x.find("is")
+# print(y)
+
+
+
+
